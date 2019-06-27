@@ -1,0 +1,35 @@
+$media-phone: "(max-width: 479px)";
+$media-no-phone: "(min-width: 480px)";
+$media-tablet: "(min-width: 480px) and (max-width: 839px)";
+$media-desktop: "(min-width: 840px)";
+$media-no-desktop: "(max-width: 839px)";
+
+@mixin phone {
+  @media #{$media-phone} {
+    @content;
+  }
+}
+
+@mixin noPhone {
+  @media #{$media-no-phone} {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media #{$media-tablet} {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media #{$media-desktop} {
+    @content;
+  }
+}
+
+@mixin noDesktop {
+  @media #{$media-no-desktop} {
+    @content;
+  }
+}
