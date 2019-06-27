@@ -1,0 +1,18 @@
+$gapUnits: px em rem;
+
+@for $i from 1 through 48 {
+  @each $unit in $gapUnits {
+    *.fx-gap--#{$i}#{$unit} {
+      margin: -#{$i/2}#{$unit};
+      &>* {
+        margin: #{$i/2}#{$unit};
+      }
+    }
+    *[data-layout-gap="#{$i}#{$unit}"] {
+      margin: -#{$i/2}#{$unit};
+      &>* {
+        margin: #{$i/2}#{$unit};
+      }
+    }
+  }
+}
