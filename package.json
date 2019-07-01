@@ -2,7 +2,9 @@
   "name": "css-fx-layout",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "build": "gulp sass"
+  },
   "author": "Philip Dakowitz",
   "license": "MIT",
   "devDependencies": {
