@@ -33,3 +33,23 @@ $media-no-desktop: "(max-width: 839px)";
     @content;
   }
 }
+
+@mixin layoutGap($amount: 4, $unit: px) {
+  margin: -#{$amount/2}#{$unit};
+  &>* {
+    margin: #{$amount/2}#{$unit};
+  }
+}
+
+@mixin fxLayoutGap($from: 1, $to: 24, $gapUnits: px em rem) {
+  @for $i from $from through $to {
+    @each $unit in $gapUnits {
+      *.fx-gap--#{$i}#{$unit} {
+        @include layoutGap($i, $unit);
+      }
+      *[data-layout-gap="#{$i}#{$unit}"] {
+        @include layoutGap($i, $unit);
+      }
+    }
+  }
+}
