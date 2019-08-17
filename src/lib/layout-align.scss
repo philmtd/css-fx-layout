@@ -1,4 +1,4 @@
-@import "media-queries";
+@import "mixins";
 
 // Classes
 //
@@ -70,23 +70,23 @@
   }
 
   // Last value: align-items
-  &[data-layout-align$="start"] {
+  &[data-layout-align$=" start"] {
     align-items: flex-start;
   }
 
-  &[data-layout-align$="end"] {
+  &[data-layout-align$=" end"] {
     align-items: flex-end;
   }
 
-  &[data-layout-align$="center"] {
+  &[data-layout-align$=" center"] {
     align-items: center;
   }
 
-  &[data-layout-align$="baseline"] {
+  &[data-layout-align$=" baseline"] {
     align-items: baseline;
   }
 
-  &[data-layout-align$="stretch"] {
+  &[data-layout-align$=" stretch"] {
     align-items: stretch;
   }
 }

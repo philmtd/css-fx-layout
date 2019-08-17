@@ -1,1 +1,3 @@
-@import "lib/layout-gap";
+@import "lib/mixins";
+
+@include fxLayoutGap();

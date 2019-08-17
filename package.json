@@ -1,12 +1,14 @@
 {
   "name": "css-fx-layout",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0-0",
+  "description": "A lightweight SCSS only flexbox library inspired by Angular's flex-layout.",
   "scripts": {
     "build": "gulp sass"
   },
   "author": "Philip Dakowitz",
   "license": "MIT",
+  "style": "src/fxlayout.scss",
+  "main": "src/fxlayout.scss",
   "devDependencies": {
     "gulp": "4.0.2",
     "gulp-sass": "4.0.2",
