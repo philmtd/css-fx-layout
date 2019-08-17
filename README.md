@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/philmtd/css-fx-layout.svg?token=eyZ7Sz2wcY1Ps8Nx2ib7&branch=master)](https://travis-ci.com/philmtd/css-fx-layout) [![npm version](https://badge.fury.io/js/css-fx-layout.svg)](https://www.npmjs.com/package/css-fx-layout)
 
 # css-fx-layout
-This is a lightweight SCSS/CSS only flexbox library inspired by Angular's flex-layout.
+This is a lightweight SCSS/CSS only flexbox library inspired by Angular's [flex-layout](https://github.com/angular/flex-layout).
 
 ## Features
 
@@ -86,7 +86,7 @@ The same example using CSS classes:
 ## Installation
 
 ### npm package (SCSS)
-`npm i --save css-fx-layout`
+`npm i --s css-fx-layout`
  
 ### Compiled CSS
 Download the minified CSS from the [releases page](https://github.com/philmtd/css-fx-layout/releases/).
