@@ -2,6 +2,7 @@
   "name": "css-fx-layout",
   "version": "1.0.0-0",
   "description": "A lightweight SCSS only flexbox library inspired by Angular's flex-layout.",
+  "repository": "https://github.com/philmtd/css-fx-layout",
   "scripts": {
     "build": "gulp sass"
   },
