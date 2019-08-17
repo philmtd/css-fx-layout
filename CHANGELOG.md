@@ -1,3 +1,3 @@
-# 1.0.0-0
+# 1.0.0
 
-First public pre-release version of this library.
+First public release of this library.
