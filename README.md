@@ -86,7 +86,7 @@ The same example using CSS classes:
 ## Installation
 
 ### npm package (SCSS)
-`npm i --s css-fx-layout`
+`npm i -s css-fx-layout`
  
 ### Compiled CSS
 Download the minified CSS from the [releases page](https://github.com/philmtd/css-fx-layout/releases/).
