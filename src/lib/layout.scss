@@ -120,11 +120,11 @@
 *[data-layout^="row"] {
   @include flexRowProperties;
 
-  &[data-layout$="reverse"] {
+  &[data-layout~="reverse"] {
     @include rowReverseProperties;
   }
 
-  &[data-layout$="wrap"] {
+  &[data-layout~="wrap"] {
     @include wrapProperties;
   }
 }
@@ -132,11 +132,11 @@
 *[data-layout^="column"] {
   @include flexColumnProperties;
 
-  &[data-layout$="reverse"] {
+  &[data-layout~="reverse"] {
     @include columnReverseProperties;
   }
 
-  &[data-layout$="wrap"] {
+  &[data-layout~="wrap"] {
     @include wrapProperties;
   }
 }
@@ -146,22 +146,22 @@
   *[data-layout--desktop^="row"] {
     @include flexRowProperties;
 
-    &[data-layout--desktop$="reverse"] {
+    &[data-layout--desktop~="reverse"] {
       @include rowReverseProperties;
     }
 
-    &[data-layout--desktop$="wrap"] {
+    &[data-layout--desktop~="wrap"] {
       @include wrapProperties;
     }
   }
   *[data-layout--desktop^="column"] {
     @include flexColumnProperties;
 
-    &[data-layout--desktop$="reverse"] {
+    &[data-layout--desktop~="reverse"] {
       @include columnReverseProperties;
     }
 
-    &[data-layout--desktop$="wrap"] {
+    &[data-layout--desktop="wrap"] {
       @include wrapProperties;
     }
   }
@@ -171,22 +171,22 @@
   *[data-layout--tablet^="row"] {
     @include flexRowProperties;
 
-    &[data-layout--tablet$="reverse"] {
+    &[data-layout--tablet~="reverse"] {
       @include rowReverseProperties;
     }
 
-    &[data-layout--tablet$="wrap"] {
+    &[data-layout--tablet~="wrap"] {
       @include wrapProperties;
     }
   }
   *[data-layout--tablet^="column"] {
     @include flexColumnProperties;
 
-    &[data-layout--tablet$="reverse"] {
+    &[data-layout--tablet~="reverse"] {
       @include columnReverseProperties;
     }
 
-    &[data-layout--tablet$="wrap"] {
+    &[data-layout--tablet~="wrap"] {
       @include wrapProperties;
     }
   }
@@ -196,22 +196,22 @@
   *[data-layout--phone^="row"] {
     @include flexRowProperties;
 
-    &[data-layout--phone$="reverse"] {
+    &[data-layout--phone~="reverse"] {
       @include rowReverseProperties;
     }
 
-    &[data-layout--phone$="wrap"] {
+    &[data-layout--phone~="wrap"] {
       @include wrapProperties;
     }
   }
   *[data-layout--phone^="column"] {
     @include flexColumnProperties;
 
-    &[data-layout--phone$="reverse"] {
+    &[data-layout--phone~="reverse"] {
       @include columnReverseProperties;
     }
 
-    &[data-layout--phone$="wrap"] {
+    &[data-layout--phone~="wrap"] {
       @include wrapProperties;
     }
   }

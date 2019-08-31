@@ -4,3 +4,4 @@ out
 yarn.lock
 gulpfile.js
 .travis.yml
+*.html
