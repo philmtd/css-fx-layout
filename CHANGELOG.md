@@ -1,3 +1,7 @@
+## 1.1.1 (2022-12-26)
+
+* fix release process
+
 ## 1.1.0 (2022-12-26)
 
 * use the css gap property for layout-gap
