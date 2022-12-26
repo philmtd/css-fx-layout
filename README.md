@@ -92,6 +92,14 @@ The same example using CSS classes:
 
 ### npm package (SCSS)
 `npm i -s css-fx-layout`
+
+Then in your stylesheets:
+```scss
+@use "css-fx-layout/src/lib/mixins" as fx;
+@import "css-fx-layout";
+
+@include fx.fxLayoutGap(1, 8, px em); // customise according to your needs
+```
  
 ### Compiled CSS
 Download the minified CSS from the [releases page](https://github.com/philmtd/css-fx-layout/releases/).
