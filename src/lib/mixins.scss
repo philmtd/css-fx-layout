@@ -35,10 +35,7 @@ $media-no-desktop: "(max-width: 839px)";
 }
 
 @mixin layoutGap($amount: 4, $unit: px) {
-  margin: -#{$amount/2}#{$unit};
-  &>* {
-    margin: #{$amount/2}#{$unit};
-  }
+  gap: #{$amount}#{$unit};
 }
 
 @mixin fxLayoutGap($from: 1, $to: 24, $gapUnits: px em rem) {

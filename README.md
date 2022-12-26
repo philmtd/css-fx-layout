@@ -1,7 +1,9 @@
-[![Build Status](https://travis-ci.com/philmtd/css-fx-layout.svg?token=eyZ7Sz2wcY1Ps8Nx2ib7&branch=master)](https://travis-ci.com/philmtd/css-fx-layout) [![npm version](https://badge.fury.io/js/css-fx-layout.svg)](https://www.npmjs.com/package/css-fx-layout)
-
 # css-fx-layout
-This is a lightweight SCSS/CSS only flexbox library inspired by Angular's [flex-layout](https://github.com/angular/flex-layout).
+
+[![CircleCI](https://circleci.com/gh/philmtd/css-fx-layout/tree/master.svg?style=svg)](https://circleci.com/gh/philmtd/css-fx-layout/tree/master)
+
+This is a lightweight SCSS/CSS only flexbox library. It is inspired by Angular's [flex-layout](https://github.com/angular/flex-layout) and can replace the
+most popular functions of the (by now deprecated) Angular library.
 
 ## Features
 
@@ -15,14 +17,16 @@ Using the data attributes is the easiest way to use this library:
 * `data-layout`, `data-layout-align` HTML attributes to be used to control the flexbox container
 * `data-layout-gap` attribute to add margin between the elements in a flex container
 * `data-hide-` and `data-show-` attributes which can be used to show/hide elements depending on the screen size
+* `data-fx-flex` and `data-fx-flex-grow`
 
 ### CSS classes
 
 Using the CSS classes is more verbose but there are reasons why one might prefer this:
 
 * `.fx-layout-` and `.fx-align-` CSS classes to control the flexbox container
-* `.fx-gap-` CSS classes to add margin between the elements in a flex container
+* `.fx-gap--` CSS classes to add margin between the elements in a flex container
 * `.show-` and `.hide-` CSS classes which can be used to show/hide elements depending on the screen size
+* `.fx-flex` and `.fx-glex-grow`
 
 ## Examples
 
@@ -93,6 +97,5 @@ Download the minified CSS from the [releases page](https://github.com/philmtd/cs
 
 ## Why?
 
-At work I use Angular (and Angular flex-layout) a lot and I've come to like the convenient layout directives Angular flex-layout offers. 
-Recently I found myself creating a plain static website and I wanted to make sure it works without unnecessary JavaScript. As I didn't use Angular or any other JS framework,
-I had to either layout everything in (S)CSS or create a library that tries to provide a similar experience to what I liked from Angular's flex-layout. This was when I created this.
+Initially I created this library because I liked the convenient syntax of Angular flex-layout and wanted to use it in non-Angular projects.
+By now Angular flex-layout has been deprecated and this library can be a replacement for most of the popular parts.
