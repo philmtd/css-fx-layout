@@ -1,7 +1,7 @@
 node_modules/
 .idea
 out
+.circleci
 yarn.lock
-gulpfile.js
-.travis.yml
+build.js
 *.html
