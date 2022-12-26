@@ -1,0 +1,25 @@
+@import "mixins";
+
+@mixin flexProperties {
+  flex: 1 1 0;
+}
+
+@mixin flexGrowProperties {
+  flex: 1 1 auto;
+}
+
+*.fx-flex {
+  @include flexProperties;
+}
+
+*.fx-flex-grow {
+  @include flexGrowProperties;
+}
+
+*[data-fx-flex] {
+  @include flexProperties;
+}
+
+*[data-fx-flex-grow] {
+  @include flexGrowProperties;
+}
