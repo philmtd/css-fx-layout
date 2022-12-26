@@ -1,7 +1,7 @@
 # css-fx-layout
 
 [![CircleCI](https://circleci.com/gh/philmtd/css-fx-layout/tree/master.svg?style=svg)](https://circleci.com/gh/philmtd/css-fx-layout/tree/master)
-![npm version](https://badge.fury.io/js/css-fx-layout.svg)
+[![npm version](https://badge.fury.io/js/css-fx-layout.svg)](https://www.npmjs.com/package/css-fx-layout)
 
 This is a lightweight SCSS/CSS only flexbox library. It is inspired by Angular's [flex-layout](https://github.com/angular/flex-layout) and can replace the
 most popular functions of the (by now deprecated) Angular library.
