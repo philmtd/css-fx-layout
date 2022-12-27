@@ -1,0 +1,120 @@
+<html>
+<head>
+	<link rel="stylesheet" href="../out/test.css"/>
+	<title>css-fx-layout</title>
+	<style>
+		* {
+			font-family: sans-serif;
+		}
+		div {
+			background: lightblue;
+			height: 100px;
+			width: 280px;
+		}
+		span {
+			background: lightcoral;
+			width: 60px;
+			height: 30px;
+		}
+		table {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1>css-fx-layout</h1>
+	<p>Testing page for css-fx-layout</p>
+
+	<h2>Example 1</h2>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example 2</h2>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row reverse" data-layout-align="start center" data-layout-gap="4px">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row fx-layout-reverse fx-align--start-x fx-align--x-center fx-gap--4px">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example 3</h2>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row" data-layout-align="center center">
+					<span>One</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row fx-align--center-x fx-align--x-center">
+					<span>One</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example 4</h2>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<span data-hide-phone>One</span>
+					<span data-show-desktop>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div>
+					<span class="hide-phone">One</span>
+					<span class="show-desktop">Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

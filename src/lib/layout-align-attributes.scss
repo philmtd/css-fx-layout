@@ -1,0 +1,52 @@
+@import "mixins";
+
+/// Generates layout align data attribute selectors
+@mixin layout-align-attributes {
+	*[data-layout-align] {
+		// First value: justify-content
+		&[data-layout-align^="start"] {
+			justify-content: flex-start;
+		}
+
+		&[data-layout-align^="end"] {
+			justify-content: flex-end;
+		}
+
+		&[data-layout-align^="center"] {
+			justify-content: center;
+		}
+
+		&[data-layout-align^="space-between"] {
+			justify-content: space-between;
+		}
+
+		&[data-layout-align^="space-around"] {
+			justify-content: space-around;
+		}
+
+		&[data-layout-align^="space-evenly"] {
+			justify-content: space-evenly;
+		}
+
+		// Last value: align-items
+		&[data-layout-align$=" start"] {
+			align-items: flex-start;
+		}
+
+		&[data-layout-align$=" end"] {
+			align-items: flex-end;
+		}
+
+		&[data-layout-align$=" center"] {
+			align-items: center;
+		}
+
+		&[data-layout-align$=" baseline"] {
+			align-items: baseline;
+		}
+
+		&[data-layout-align$=" stretch"] {
+			align-items: stretch;
+		}
+	}
+}

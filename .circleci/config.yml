@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: cimg/node:16.16
     steps:
@@ -15,14 +15,14 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Building the library
-          command: npm run build
+          name: Test the library
+          command: npm run test
 
 workflows:
   version: 2
   build:
     jobs:
-      - build:
+      - test:
           filters:
             tags:
               only: /.*/

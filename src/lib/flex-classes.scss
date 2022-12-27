@@ -1,0 +1,12 @@
+@import "mixins";
+
+/// Generates flex class selectors
+@mixin flex-classes {
+	*.fx-flex {
+		@include flex-properties;
+	}
+
+	*.fx-flex-grow {
+		@include flex-grow-properties;
+	}
+}
