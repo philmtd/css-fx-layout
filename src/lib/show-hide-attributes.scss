@@ -1,0 +1,28 @@
+@import "mixins";
+
+/// Generates show/hide attribute selectors
+@mixin show-hide-attributes {
+	@include phone {
+		*[data-hide-phone],
+		*[data-show-desktop],
+		*[data-show-tablet] {
+			display: none !important;
+		}
+	}
+
+	@include tablet {
+		*[data-hide-tablet],
+		*[data-show-desktop],
+		*[data-show-phone] {
+			display: none !important;
+		}
+	}
+
+	@include desktop {
+		*[data-hide-desktop],
+		*[data-show-phone],
+		*[data-show-tablet] {
+			display: none !important;
+		}
+	}
+}

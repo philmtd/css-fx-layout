@@ -1,11 +1,19 @@
+## 2.0.0 (2022-12-27)
+
+### Breaking Changes and New Features
+
+The library now only exposes mixins which can be used to generate the desired CSS selectors.
+There also won't be pre-compiled CSS files available with the releases anymore.
+
+The available selectors don't change. You only have to include the library differently. Please 
+consult the [README](./README.md) or the [Wiki](https://github.com/philmtd/css-fx-layout/wiki) for detailed instructions on how to get you
+started with css-fx-layout.
+
 ## 1.1.1 (2022-12-26)
 
 * fix release process
-
-## 1.1.0 (2022-12-26)
-
 * use the css gap property for layout-gap
-* add fx-flex and fx-flex-grow 
+* add fx-flex and fx-flex-grow
 
 ## 1.0.1 (2019-08-31)
 

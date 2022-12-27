@@ -8,15 +8,13 @@ if (fs.existsSync('./out')) {
 }
 fs.mkdirSync('./out')
 
-fs.readdir('./src', (_, files) => {
+fs.readdir('./test', (_, files) => {
 	files
 		.filter(file => file.endsWith(".scss"))
 		.map(file => file.substring(0, file.length - 5))
 		.forEach(file => {
 			let outFile = `./out/${file}.css`;
-			let result = sass.compile(`./src/${file}.scss`,{
-				style: 'compressed',
-			});
+			let result = sass.compile(`./test/${file}.scss`);
 			fs.writeFileSync(outFile, result.css, {encoding: "utf-8"});
 		})
 });
