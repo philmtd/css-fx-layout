@@ -174,7 +174,7 @@ Vertically and horizontally center an element in its parent.
 <div class="fx-layout-row 
             fx-align--center-x 
             fx-align--x-center">
-    <span>I am centered.</span>
+    <span>One</span>
 </div>
 ```
 
@@ -184,7 +184,7 @@ Vertically and horizontally center an element in its parent.
 ```html
 <div data-layout="row" 
      data-layout-align="center center">
-    <span>I am centered.</span>
+    <span>One</span>
 </div>
 ```
 
