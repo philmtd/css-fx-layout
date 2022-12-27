@@ -112,7 +112,7 @@ This is the simplest example. It will make the div a flex container and align th
 
 The resulting layout:
 
-![Example 1](./docs/example-1.png)
+<img src="./docs/example-1.png" alt="Example 1" width="280px" />
 
 
 #### Example 2
@@ -157,7 +157,7 @@ An advanced example that aligns the items in reverse order with a gap of four pi
 
 The resulting layout:
 
-![Example 2](./docs/example-2.png)
+<img src="./docs/example-2.png" alt="Example 2" width="280px" />
 
 #### Example 3
 Vertically and horizontally center an element in its parent.
@@ -194,7 +194,7 @@ Vertically and horizontally center an element in its parent.
 
 The resulting layout:
 
-![Example 3](./docs/example-3.png)
+<img src="./docs/example-3.png" alt="Example 3" width="280px" />
 
 ### Show/Hide
 
