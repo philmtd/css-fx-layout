@@ -1,7 +1,7 @@
 {
   "name": "css-fx-layout",
   "version": "2.0.0-0",
-  "description": "A lightweight SCSS only flexbox library inspired by Angular's flex-layout.",
+  "description": "A lightweight SCSS flexbox library inspired by Angular Flex-Layout.",
   "repository": "https://github.com/philmtd/css-fx-layout",
   "scripts": {
     "test": "node test.js"
