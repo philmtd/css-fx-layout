@@ -16,7 +16,7 @@ Check out the [Wiki](https://github.com/philmtd/css-fx-layout/wiki) for a detail
 Using the data attributes is the easiest way to use this library:
 
 * `data-layout`, `data-layout-align` HTML attributes to be used to control the flexbox container
-* `data-layout-gap` attribute to add margin between the elements in a flex container
+* `data-layout-gap` attribute to add gaps between the elements in a flex container
 * `data-hide-` and `data-show-` attributes which can be used to show/hide elements depending on the screen size
 * `data-fx-flex` and `data-fx-flex-grow`
 
@@ -25,7 +25,7 @@ Using the data attributes is the easiest way to use this library:
 Using the CSS classes is more verbose but there are reasons why one might prefer this:
 
 * `.fx-layout-` and `.fx-align-` CSS classes to control the flexbox container
-* `.fx-gap--` CSS classes to add margin between the elements in a flex container
+* `.fx-gap--` CSS classes to add gaps between the elements in a flex container
 * `.show-` and `.hide-` CSS classes which can be used to show/hide elements depending on the screen size
 * `.fx-flex` and `.fx-glex-grow`
 
@@ -50,7 +50,7 @@ Here's the same example using the CSS classes:
 </div>
 ````
 
-An advanced example that aligns the items in reverse order with a margin of four pixels and vertically centered:
+An advanced example that aligns the items in reverse order with a gap of four pixels and vertically centered:
 ````html
 <div data-layout="row reverse" data-layout-align="start center" data-layout-gap="4px">
     <span>One</span>
