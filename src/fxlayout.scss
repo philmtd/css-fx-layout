@@ -1,4 +1,49 @@
-@import "lib/show-hide";
-@import "lib/layout";
-@import "lib/layout-align";
-@import "lib/flex";
+@use "lib/show-hide-attributes" as showHideA;
+@use "lib/show-hide-classes" as showHideC;
+@use "lib/layout-attributes" as layoutA;
+@use "lib/layout-classes" as layoutC;
+@use "lib/layout-align-attributes" as layoutAlignA;
+@use "lib/layout-align-classes" as layoutAlignC;
+@use "lib/flex-attributes" as flexA;
+@use "lib/flex-classes" as flexC;
+@use "lib/mixins" as mix;
+
+/// Adds the css-fx-layout class selectors, e.g. `.fx-layout-row`
+@mixin class-selectors {
+	@include showHideC.show-hide-classes;
+	@include layoutC.layout-classes;
+	@include layoutAlignC.layout-align-classes;
+	@include flexC.flex-classes;
+}
+
+/// Includes selectors for classes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $gapUnits
+///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
+@mixin gap-class-selectors($from: 1, $to: 24, $gapUnits: px em rem) {
+	@include mix.layout-gap-classes($from, $to, $gapUnits)
+}
+
+/// Adds the css-fx-layout attribute selectors, e.g. `data-layout="row"`
+@mixin attribute-selectors {
+	@include showHideA.show-hide-attributes;
+	@include layoutA.layout-attributes;
+	@include layoutAlignA.layout-align-attributes;
+	@include flexA.flex-attributes;
+}
+
+/// Includes selectors for attributes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $gapUnits
+///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
+@mixin gap-attribute-selectors($from: 1, $to: 24, $gapUnits: px em rem) {
+	@include mix.layout-gap-attributes($from, $to, $gapUnits)
+}

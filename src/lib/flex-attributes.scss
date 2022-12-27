@@ -1,0 +1,12 @@
+@import "mixins";
+
+/// Generates flex data-attribute selectors
+@mixin flex-attributes {
+	*[data-fx-flex] {
+		@include flex-properties;
+	}
+
+	*[data-fx-flex-grow] {
+		@include flex-grow-properties;
+	}
+}

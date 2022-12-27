@@ -1,0 +1,8 @@
+@use '../_index.scss' as fx;
+
+// As a first basic test just generate everything and see if it works:
+
+@include fx.attribute-selectors;
+@include fx.class-selectors;
+@include fx.gap-attribute-selectors;
+@include fx.gap-class-selectors;

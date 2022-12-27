@@ -1,3 +1,42 @@
+// Flex
+
+@mixin flex-properties {
+  flex: 1 1 0;
+}
+
+@mixin flex-grow-properties {
+  flex: 1 1 auto;
+}
+
+// Layout
+
+@mixin flex-row-properties {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+@mixin flex-column-properties {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+@mixin row-reverse-properties {
+  flex-direction: row-reverse;
+}
+
+@mixin column-reverse-properties {
+  flex-direction: column-reverse;
+}
+
+@mixin wrap-properties {
+  flex-wrap: wrap;
+
+}
+
+// Media
+
 $media-phone: "(max-width: 479px)";
 $media-no-phone: "(min-width: 480px)";
 $media-tablet: "(min-width: 480px) and (max-width: 839px)";
@@ -10,7 +49,7 @@ $media-no-desktop: "(max-width: 839px)";
   }
 }
 
-@mixin noPhone {
+@mixin no-phone {
   @media #{$media-no-phone} {
     @content;
   }
@@ -28,24 +67,45 @@ $media-no-desktop: "(max-width: 839px)";
   }
 }
 
-@mixin noDesktop {
+@mixin no-desktop {
   @media #{$media-no-desktop} {
     @content;
   }
 }
 
-@mixin layoutGap($amount: 4, $unit: px) {
-  gap: #{$amount}#{$unit};
-}
+// Gap
 
-@mixin fxLayoutGap($from: 1, $to: 24, $gapUnits: px em rem) {
+/// Includes selectors for classes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $gapUnits
+///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
+@mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem) {
   @for $i from $from through $to {
     @each $unit in $gapUnits {
       *.fx-gap--#{$i}#{$unit} {
-        @include layoutGap($i, $unit);
+        gap: #{$i}#{$unit};
       }
+    }
+  }
+}
+
+/// Includes selectors for attributes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $gapUnits
+///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
+@mixin layout-gap-attributes($from: 1, $to: 24, $gapUnits: px em rem) {
+  @for $i from $from through $to {
+    @each $unit in $gapUnits {
       *[data-layout-gap="#{$i}#{$unit}"] {
-        @include layoutGap($i, $unit);
+        gap: #{$i}#{$unit};
       }
     }
   }

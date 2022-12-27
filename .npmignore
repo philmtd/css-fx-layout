@@ -5,3 +5,5 @@ out
 yarn.lock
 build.js
 *.html
+test
+docs
