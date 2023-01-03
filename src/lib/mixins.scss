@@ -81,19 +81,19 @@ $lg: 1919px;
 $xl: 5000px;
 
 $flex-layout-media-queries: (
-		'xs': "screen and (max-width: #{$xs})",
-		'sm': "screen and (min-width: #{$xs + 1}) and (max-width: #{$sm})",
-		"md": "screen and (min-width: #{$sm + 1}) and (max-width: #{$md})",
-		"lg": 'screen and (min-width: #{$md + 1}) and (max-width: #{$lg})',
-		"xl": 'screen and (min-width: #{$lg + 1}) and (max-width: #{$xl})',
-		"lt-sm": 'screen and (max-width: #{$xs})',
-		"lt-md": 'screen and (max-width: #{$sm})',
-		"lt-lg": 'screen and (max-width: #{$md})',
-		"lt-xl": 'screen and (max-width: #{$lg})',
-		"gt-xs": 'screen and (min-width: #{$xs + 1})',
-		"gt-sm": 'screen and (min-width: #{$sm + 1})',
-		"gt-md": 'screen and (min-width: #{$md + 1})',
-		"gt-lg": 'screen and (min-width: #{$lg + 1})',
+		'xs': 'screen and (max-width: #{$xs})',
+		'sm': 'screen and (min-width: #{$xs + 1}) and (max-width: #{$sm})',
+		'md': 'screen and (min-width: #{$sm + 1}) and (max-width: #{$md})',
+		'lg': 'screen and (min-width: #{$md + 1}) and (max-width: #{$lg})',
+		'xl': 'screen and (min-width: #{$lg + 1}) and (max-width: #{$xl})',
+		'lt-sm': 'screen and (max-width: #{$xs})',
+		'lt-md': 'screen and (max-width: #{$sm})',
+		'lt-lg': 'screen and (max-width: #{$md})',
+		'lt-xl': 'screen and (max-width: #{$lg})',
+		'gt-xs': 'screen and (min-width: #{$xs + 1})',
+		'gt-sm': 'screen and (min-width: #{$sm + 1})',
+		'gt-md': 'screen and (min-width: #{$md + 1})',
+		'gt-lg': 'screen and (min-width: #{$lg + 1})',
 );
 
 @mixin xs {
@@ -182,11 +182,26 @@ $flex-layout-media-queries: (
 ///   Will generate selectors until including $to $gapUnits
 /// @param {string} $gapUnits
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
-@mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem) {
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
 	@for $i from $from through $to {
 		@each $unit in $gapUnits {
 			*.fx-gap--#{$i}#{$unit} {
 				gap: #{$i}#{$unit};
+			}
+		}
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@for $i from $from through $to {
+					@each $unit in $gapUnits {
+						*.fx-gap--#{$i}#{$unit}--#{$name} {
+							gap: #{$i}#{$unit};
+						}
+					}
+				}
 			}
 		}
 	}
@@ -200,11 +215,26 @@ $flex-layout-media-queries: (
 ///   Will generate selectors until including $to $gapUnits
 /// @param {string} $gapUnits
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
-@mixin layout-gap-attributes($from: 1, $to: 24, $gapUnits: px em rem) {
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin layout-gap-attributes($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
 	@for $i from $from through $to {
 		@each $unit in $gapUnits {
 			*[data-layout-gap="#{$i}#{$unit}"] {
 				gap: #{$i}#{$unit};
+			}
+		}
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@for $i from $from through $to {
+					@each $unit in $gapUnits {
+						*[data-layout-gap-#{$name}="#{$i}#{$unit}"] {
+							gap: #{$i}#{$unit};
+						}
+					}
+				}
 			}
 		}
 	}

@@ -19,6 +19,9 @@
 		table {
 			width: 100%;
 		}
+		span.green {
+			background: lightgreen;
+		}
 	</style>
 </head>
 <body>
@@ -274,6 +277,113 @@
 						<span class="hide-gt-md">not gt-md</span>
 						<span class="hide-gt-lg">not gt-lg</span>
 					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E5</h2>
+	<p>fx-layout media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout-xs="row" data-layout-sm="column" data-layout-md="row" data-layout-lg="column" data-layout-xl="row">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+					<span>Four</span>
+					<span>Five</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row--xs fx-layout-column--sm fx-layout-row--md fx-layout-column--lg fx-layout-row--xl">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+					<span>Four</span>
+					<span>Five</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E6</h2>
+	<p>fx-flex media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row">
+					<span data-fx-flex-xs data-fx-flex-md data-fx-flex-xl>One</span>
+					<span class="green" data-fx-flex-sm data-fx-flex-lg>Two</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row">
+					<span class="fx-flex--xs fx-flex--md fx-flex--xl">One</span>
+					<span class="green fx-flex--sm fx-flex--lg">Two</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E7</h2>
+	<p>fx-layout-align media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row" data-layout-align-xs="start center" data-layout-align-sm="end center" data-layout-align-gt-sm="start center">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row
+				fx-align--start-x--xs fx-align--x-center--xs
+				fx-align--end-x--sm fx-align--x-center--sm
+				fx-align--start-x--gt-sm fx-align--x-center--gt-sm">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E8</h2>
+	<p>fx-layout-gap media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row" data-layout-align="center center"
+					 data-layout-gap-xs="1px" data-layout-gap-sm="8px" data-layout-gap-gt-sm="16px">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row fx-align--center-x fx-align--x-center
+				fx-gap--1px--xs fx-gap--8px--sm fx-gap--16px--gt-sm">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
 				</div>
 			</td>
 		</tr>

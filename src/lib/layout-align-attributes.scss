@@ -50,3 +50,57 @@
 		}
 	}
 }
+
+@mixin layout-align-attributes-for-media-sizes {
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*[data-layout-align-#{$name}] {
+				// First value: justify-content
+				&[data-layout-align-#{$name}^="start"] {
+					justify-content: flex-start;
+				}
+
+				&[data-layout-align-#{$name}^="end"] {
+					justify-content: flex-end;
+				}
+
+				&[data-layout-align-#{$name}^="center"] {
+					justify-content: center;
+				}
+
+				&[data-layout-align-#{$name}^="space-between"] {
+					justify-content: space-between;
+				}
+
+				&[data-layout-align-#{$name}^="space-around"] {
+					justify-content: space-around;
+				}
+
+				&[data-layout-align-#{$name}^="space-evenly"] {
+					justify-content: space-evenly;
+				}
+
+				// Last value: align-items
+				&[data-layout-align-#{$name}$=" start"] {
+					align-items: flex-start;
+				}
+
+				&[data-layout-align-#{$name}$=" end"] {
+					align-items: flex-end;
+				}
+
+				&[data-layout-align-#{$name}$=" center"] {
+					align-items: center;
+				}
+
+				&[data-layout-align-#{$name}$=" baseline"] {
+					align-items: baseline;
+				}
+
+				&[data-layout-align-#{$name}$=" stretch"] {
+					align-items: stretch;
+				}
+			}
+		}
+	}
+}

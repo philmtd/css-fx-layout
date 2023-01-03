@@ -14,3 +14,22 @@
 		@include flex-row-properties;
 	}
 }
+
+// in contrast to the attribute counterpart this can add flex to the parent container
+@mixin flex-classes-for-media-sizes {
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*.fx-flex--#{$name} {
+				@include flex-properties;
+			}
+
+			*.fx-flex-grow--#{$name} {
+				@include flex-grow-properties;
+			}
+
+			*:has(>.fx-flex--#{$name},>.fx-flex-grow--#{$name}):not([class*="fx-layout-"]) {
+				@include flex-row-properties;
+			}
+		}
+	}
+}

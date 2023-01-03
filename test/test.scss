@@ -2,7 +2,7 @@
 
 // As a first basic test just generate everything and see if it works:
 
-@include fx.attribute-selectors;
-@include fx.class-selectors;
-@include fx.gap-attribute-selectors;
-@include fx.gap-class-selectors;
+@include fx.attribute-selectors(true);
+@include fx.class-selectors(true);
+@include fx.gap-attribute-selectors(1, 16, px em, true);
+@include fx.gap-class-selectors(1, 16, px em, true);

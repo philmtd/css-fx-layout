@@ -9,41 +9,63 @@
 @use "lib/mixins" as mix;
 
 /// Adds the css-fx-layout class selectors, e.g. `.fx-layout-row`
-@mixin class-selectors {
+///
+/// @param {bool} $includeSelectorsForMediaSizes [false]
+///	  Will generate additional selectors for flex layout media sizes
+@mixin class-selectors($includeSelectorsForMediaSizes: false) {
 	@include showHideC.show-hide-classes;
 	@include layoutC.layout-classes;
 	@include layoutAlignC.layout-align-classes;
 	@include flexC.flex-classes;
+
+	@if $includeSelectorsForMediaSizes {
+		@include layoutC.layout-classes-for-media-sizes;
+		@include layoutAlignC.layout-align-classes-for-media-sizes;
+		@include flexC.flex-classes-for-media-sizes;
+	}
 }
 
 /// Includes selectors for classes which can be used to add a gap to elements in a flex container
 ///
-/// @param {number} $from
+/// @param {number} $from [1]
 ///   Will start generating selectors from $from $gapUnits
-/// @param {number} $to
+/// @param {number} $to [24]
 ///   Will generate selectors until including $to $gapUnits
-/// @param {string} $gapUnits
+/// @param {string} $gapUnits [px em rem]
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
-@mixin gap-class-selectors($from: 1, $to: 24, $gapUnits: px em rem) {
-	@include mix.layout-gap-classes($from, $to, $gapUnits)
+/// @param {bool} $includeSelectorsForMediaSizes [false]
+///	  Will generate additional selectors for flex layout media sizes
+@mixin gap-class-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
+	@include mix.layout-gap-classes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
 }
 
 /// Adds the css-fx-layout attribute selectors, e.g. `data-layout="row"`
-@mixin attribute-selectors {
+///
+/// @param {bool} $includeSelectorsForMediaSizes [false]
+///	  Will generate additional selectors for flex layout media sizes
+@mixin attribute-selectors($includeSelectorsForMediaSizes: false) {
 	@include showHideA.show-hide-attributes;
 	@include layoutA.layout-attributes;
 	@include layoutAlignA.layout-align-attributes;
 	@include flexA.flex-attributes;
+
+	@if $includeSelectorsForMediaSizes {
+		@include layoutA.layout-attributes-for-media-sizes;
+		@include layoutAlignA.layout-align-attributes-for-media-sizes;
+		@include flexA.flex-attributes-for-media-sizes;
+	}
 }
 
 /// Includes selectors for attributes which can be used to add a gap to elements in a flex container
 ///
-/// @param {number} $from
+/// @param {number} $from [1]
 ///   Will start generating selectors from $from $gapUnits
-/// @param {number} $to
+/// @param {number} $to [24]
 ///   Will generate selectors until including $to $gapUnits
-/// @param {string} $gapUnits
+/// @param {string} $gapUnits [px em rem]
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
-@mixin gap-attribute-selectors($from: 1, $to: 24, $gapUnits: px em rem) {
-	@include mix.layout-gap-attributes($from, $to, $gapUnits)
+/// @param {bool} $includeSelectorsForMediaSizes [false]
+///	  Will generate additional selectors for flex layout media sizes
+@mixin gap-attribute-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
+	@include mix.layout-gap-attributes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
 }
