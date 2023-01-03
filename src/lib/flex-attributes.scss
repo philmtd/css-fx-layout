@@ -9,4 +9,23 @@
 	*[data-fx-flex-grow] {
 		@include flex-grow-properties;
 	}
+
+	*:has(>[data-fx-flex],>[data-fx-flex-grow]):not([data-layout]) {
+		@include flex-row-properties;
+	}
+}
+
+// these do not automatically add flex to their parent container
+@mixin flex-attributes-for-media-sizes {
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*[data-fx-flex-#{$name}] {
+				@include flex-properties;
+			}
+
+			*[data-fx-flex-grow-#{$name}] {
+				@include flex-grow-properties;
+			}
+		}
+	}
 }

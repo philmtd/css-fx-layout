@@ -1,8 +1,9 @@
 @use '../_index.scss' as fx;
 
 // As a first basic test just generate everything and see if it works:
+$includeResponsiveApi: true;
 
-@include fx.attribute-selectors;
-@include fx.class-selectors;
-@include fx.gap-attribute-selectors;
-@include fx.gap-class-selectors;
+@include fx.attribute-selectors($includeResponsiveApi);
+@include fx.class-selectors($includeResponsiveApi);
+@include fx.gap-attribute-selectors(1, 16, px em, $includeResponsiveApi);
+@include fx.gap-class-selectors(1, 16, px em, $includeResponsiveApi);
