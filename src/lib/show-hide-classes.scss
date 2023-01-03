@@ -25,4 +25,17 @@
 			display: none !important;
 		}
 	}
+
+	@each $breakpoint, $_ in $flex-layout-media-queries {
+		*.show-#{$breakpoint} {
+			@include flex-layout-media-not($breakpoint) {
+				display: none !important;
+			}
+		}
+		*.hide-#{$breakpoint} {
+			@include flex-layout-media($breakpoint) {
+				display: none !important;
+			}
+		}
+	}
 }

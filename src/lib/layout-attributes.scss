@@ -102,3 +102,34 @@
 		}
 	}
 }
+
+@mixin layout-attributes-for-media-sizes {
+	// attributes for flex-layout media sizes
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*[data-layout-#{$name}^="row"] {
+				@include flex-row-properties;
+
+				&[data-layout-#{$name}~="reverse"] {
+					@include row-reverse-properties;
+				}
+
+				&[data-layout-#{$name}~="wrap"] {
+					@include wrap-properties;
+				}
+			}
+
+			*[data-layout-#{$name}^="column"] {
+				@include flex-column-properties;
+
+				&[data-layout-#{$name}~="reverse"] {
+					@include column-reverse-properties;
+				}
+
+				&[data-layout-#{$name}~="wrap"] {
+					@include wrap-properties;
+				}
+			}
+		}
+	}
+}

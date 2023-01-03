@@ -2,3 +2,6 @@
 	gap-class-selectors,
 	attribute-selectors,
 	gap-attribute-selectors;
+
+@forward "./src/lib/mixins" hide layout-gap-attributes,
+	layout-gap-classes;

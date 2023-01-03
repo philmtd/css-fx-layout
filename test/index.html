@@ -19,6 +19,9 @@
 		table {
 			width: 100%;
 		}
+		span.green {
+			background: lightgreen;
+		}
 	</style>
 </head>
 <body>
@@ -102,15 +105,309 @@
 		<tr>
 			<td>
 				<div>
-					<span data-hide-phone>One</span>
-					<span data-show-desktop>Two</span>
+					<span data-hide-sm>One</span>
+					<span data-show-lg>Two</span>
 					<span>Three</span>
 				</div>
 			</td>
 			<td>
 				<div>
-					<span class="hide-phone">One</span>
-					<span class="show-desktop">Two</span>
+					<span class="hide-sm">One</span>
+					<span class="show-lg">Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<hr />
+
+	<h2>Example E1</h2>
+	<p>Spans with flex, <a href="https://caniuse.com/css-has" target="_blank">automatically adding display:flex to their parent</a> (if not already specified).</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<span data-fx-flex>Flex</span>
+					<span data-fx-flex-grow>Flex Grow</span>
+				</div>
+			</td>
+			<td>
+				<div>
+					<span class="fx-flex">Flex</span>
+					<span class="fx-flex-grow">Flex Grow</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E2</h2>
+	<p>Spans with flex, not adding the automatic display:flex to their parent.</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="column">
+					<span data-fx-flex>Flex</span>
+					<span data-fx-flex-grow>Flex Grow</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column">
+					<span class="fx-flex">Flex</span>
+					<span class="fx-flex-grow">Flex Grow</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E3</h2>
+	<p>flex-layout show selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="column">
+					<div>
+						<span data-show-xs>xs</span>
+						<span data-show-sm>sm</span>
+						<span data-show-md>md</span>
+						<span data-show-lg>lg</span>
+						<span data-show-xl>xl</span>
+					</div>
+					<div>
+						<span data-show-lt-sm>lt-sm</span>
+						<span data-show-lt-md>lt-md</span>
+						<span data-show-lt-lg>lt-lg</span>
+						<span data-show-lt-xl>lt-xl</span>
+					</div>
+					<div>
+						<span data-show-gt-xs>gt-xs</span>
+						<span data-show-gt-sm>gt-sm</span>
+						<span data-show-gt-md>gt-md</span>
+						<span data-show-gt-lg>gt-lg</span>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column">
+					<div>
+						<span class="show-xs">xs</span>
+						<span class="show-sm">sm</span>
+						<span class="show-md">md</span>
+						<span class="show-lg">lg</span>
+						<span class="show-xl">xl</span>
+					</div>
+					<div>
+						<span class="show-lt-sm">lt-sm</span>
+						<span class="show-lt-md">lt-md</span>
+						<span class="show-lt-lg">lt-lg</span>
+						<span class="show-lt-xl">lt-xl</span>
+					</div>
+					<div>
+						<span class="show-gt-xs">gt-xs</span>
+						<span class="show-gt-sm">gt-sm</span>
+						<span class="show-gt-md">gt-md</span>
+						<span class="show-gt-lg">gt-lg</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E4</h2>
+	<p>flex-layout hide selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="column">
+					<div>
+						<span data-hide-xs>not xs</span>
+						<span data-hide-sm>not sm</span>
+						<span data-hide-md>not md</span>
+						<span data-hide-lg>not lg</span>
+						<span data-hide-xl>not xl</span>
+					</div>
+					<div>
+						<span data-hide-lt-sm>not lt-sm</span>
+						<span data-hide-lt-md>not lt-md</span>
+						<span data-hide-lt-lg>not lt-lg</span>
+						<span data-hide-lt-xl>not lt-xl</span>
+					</div>
+					<div>
+						<span data-hide-gt-xs>not gt-xs</span>
+						<span data-hide-gt-sm>not gt-sm</span>
+						<span data-hide-gt-md>not gt-md</span>
+						<span data-hide-gt-lg>not gt-lg</span>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column">
+					<div>
+						<span class="hide-xs">not xs</span>
+						<span class="hide-sm">not sm</span>
+						<span class="hide-md">not md</span>
+						<span class="hide-lg">not lg</span>
+						<span class="hide-xl">not xl</span>
+					</div>
+					<div>
+						<span class="hide-lt-sm">not lt-sm</span>
+						<span class="hide-lt-md">not lt-md</span>
+						<span class="hide-lt-lg">not lt-lg</span>
+						<span class="hide-lt-xl">not lt-xl</span>
+					</div>
+					<div>
+						<span class="hide-gt-xs">not gt-xs</span>
+						<span class="hide-gt-sm">not gt-sm</span>
+						<span class="hide-gt-md">not gt-md</span>
+						<span class="hide-gt-lg">not gt-lg</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E5</h2>
+	<p>fx-layout media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout-xs="row" data-layout-sm="column" data-layout-md="row" data-layout-lg="column" data-layout-xl="row">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+					<span>Four</span>
+					<span>Five</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row--xs fx-layout-column--sm fx-layout-row--md fx-layout-column--lg fx-layout-row--xl">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+					<span>Four</span>
+					<span>Five</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E6</h2>
+	<p>fx-flex media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row">
+					<span data-fx-flex-xs data-fx-flex-md data-fx-flex-xl>One</span>
+					<span class="green" data-fx-flex-sm data-fx-flex-lg>Two</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row">
+					<span class="fx-flex--xs fx-flex--md fx-flex--xl">One</span>
+					<span class="green fx-flex--sm fx-flex--lg">Two</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E7</h2>
+	<p>fx-layout-align media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row" data-layout-align-xs="start center" data-layout-align-sm="end center" data-layout-align-gt-sm="start center">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row
+				fx-align--start-x--xs fx-align--x-center--xs
+				fx-align--end-x--sm fx-align--x-center--sm
+				fx-align--start-x--gt-sm fx-align--x-center--gt-sm">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E8</h2>
+	<p>fx-layout-gap media size selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row" data-layout-align="center center"
+					 data-layout-gap-xs="1px" data-layout-gap-sm="8px" data-layout-gap-gt-sm="16px">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row fx-align--center-x fx-align--x-center
+				fx-gap--1px--xs fx-gap--8px--sm fx-gap--16px--gt-sm">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E9</h2>
+	<p>responsive API defaults</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row" data-layout-lt-md="column">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row fx-layout-column--lt-md">
+					<span>One</span>
+					<span>Two</span>
 					<span>Three</span>
 				</div>
 			</td>

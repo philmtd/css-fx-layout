@@ -89,3 +89,32 @@
 		}
 	}
 }
+
+@mixin layout-classes-for-media-sizes {
+	// classes for flex-layout media sizes
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*.fx-layout-row--#{$name} {
+				@include flex-row-properties
+			}
+
+			*.fx-layout-column--#{$name} {
+				@include flex-column-properties;
+			}
+
+			*.fx-layout-reverse--#{$name} {
+				&[class*="fx-layout-row"] {
+					@include row-reverse-properties;
+				}
+
+				&[class*="fx-layout-column"] {
+					@include column-reverse-properties;
+				}
+			}
+
+			*.fx-layout-wrap--#{$name} {
+				@include wrap-properties;
+			}
+		}
+	}
+}

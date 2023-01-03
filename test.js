@@ -14,7 +14,7 @@ fs.readdir('./test', (_, files) => {
 		.map(file => file.substring(0, file.length - 5))
 		.forEach(file => {
 			let outFile = `./out/${file}.css`;
-			let result = sass.compile(`./test/${file}.scss`);
+			let result = sass.compile(`./test/${file}.scss`, {style: "compressed"});
 			fs.writeFileSync(outFile, result.css, {encoding: "utf-8"});
 		})
 });

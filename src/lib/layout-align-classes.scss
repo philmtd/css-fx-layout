@@ -39,3 +39,46 @@
 		align-items: stretch;
 	}
 }
+
+@mixin layout-align-classes-for-media-sizes {
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			// justify-content:
+			*.fx-align--start-x--#{$name} {
+				justify-content: flex-start;
+			}
+			*.fx-align--end-x--#{$name} {
+				justify-content: flex-end;
+			}
+			*.fx-align--center-x--#{$name} {
+				justify-content: center;
+			}
+			*.fx-align--space-between-x--#{$name} {
+				justify-content: space-between;
+			}
+			*.fx-align--space-around-x--#{$name} {
+				justify-content: space-around;
+			}
+			*.fx-align--space-evenly-x--#{$name} {
+				justify-content: space-evenly;
+			}
+
+			// align-items:
+			*.fx-align--x-start--#{$name} {
+				align-items: flex-start;
+			}
+			*.fx-align--x-end--#{$name} {
+				align-items: flex-end;
+			}
+			*.fx-align--x-center--#{$name} {
+				align-items: center;
+			}
+			*.fx-align--x-baseline--#{$name} {
+				align-items: baseline;
+			}
+			*.fx-align--x-stretch--#{$name} {
+				align-items: stretch;
+			}
+		}
+	}
+}
