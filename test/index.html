@@ -116,5 +116,167 @@
 			</td>
 		</tr>
 	</table>
+
+	<hr />
+
+	<h2>Example E1</h2>
+	<p>Spans with flex, <a href="https://caniuse.com/css-has" target="_blank">automatically adding display:flex to their parent</a> (if not already specified).</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<span data-fx-flex>Flex</span>
+					<span data-fx-flex-grow>Flex Grow</span>
+				</div>
+			</td>
+			<td>
+				<div>
+					<span class="fx-flex">Flex</span>
+					<span class="fx-flex-grow">Flex Grow</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E2</h2>
+	<p>Spans with flex, not adding the automatic display:flex to their parent.</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="column">
+					<span data-fx-flex>Flex</span>
+					<span data-fx-flex-grow>Flex Grow</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column">
+					<span class="fx-flex">Flex</span>
+					<span class="fx-flex-grow">Flex Grow</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E3</h2>
+	<p>flex-layout show selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="column">
+					<div>
+						<span data-show-xs>xs</span>
+						<span data-show-sm>sm</span>
+						<span data-show-md>md</span>
+						<span data-show-lg>lg</span>
+						<span data-show-xl>xl</span>
+					</div>
+					<div>
+						<span data-show-lt-sm>lt-sm</span>
+						<span data-show-lt-md>lt-md</span>
+						<span data-show-lt-lg>lt-lg</span>
+						<span data-show-lt-xl>lt-xl</span>
+					</div>
+					<div>
+						<span data-show-gt-xs>gt-xs</span>
+						<span data-show-gt-sm>gt-sm</span>
+						<span data-show-gt-md>gt-md</span>
+						<span data-show-gt-lg>gt-lg</span>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column">
+					<div>
+						<span class="show-xs">xs</span>
+						<span class="show-sm">sm</span>
+						<span class="show-md">md</span>
+						<span class="show-lg">lg</span>
+						<span class="show-xl">xl</span>
+					</div>
+					<div>
+						<span class="show-lt-sm">lt-sm</span>
+						<span class="show-lt-md">lt-md</span>
+						<span class="show-lt-lg">lt-lg</span>
+						<span class="show-lt-xl">lt-xl</span>
+					</div>
+					<div>
+						<span class="show-gt-xs">gt-xs</span>
+						<span class="show-gt-sm">gt-sm</span>
+						<span class="show-gt-md">gt-md</span>
+						<span class="show-gt-lg">gt-lg</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E4</h2>
+	<p>flex-layout hide selectors</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="column">
+					<div>
+						<span data-hide-xs>not xs</span>
+						<span data-hide-sm>not sm</span>
+						<span data-hide-md>not md</span>
+						<span data-hide-lg>not lg</span>
+						<span data-hide-xl>not xl</span>
+					</div>
+					<div>
+						<span data-hide-lt-sm>not lt-sm</span>
+						<span data-hide-lt-md>not lt-md</span>
+						<span data-hide-lt-lg>not lt-lg</span>
+						<span data-hide-lt-xl>not lt-xl</span>
+					</div>
+					<div>
+						<span data-hide-gt-xs>not gt-xs</span>
+						<span data-hide-gt-sm>not gt-sm</span>
+						<span data-hide-gt-md>not gt-md</span>
+						<span data-hide-gt-lg>not gt-lg</span>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column">
+					<div>
+						<span class="hide-xs">not xs</span>
+						<span class="hide-sm">not sm</span>
+						<span class="hide-md">not md</span>
+						<span class="hide-lg">not lg</span>
+						<span class="hide-xl">not xl</span>
+					</div>
+					<div>
+						<span class="hide-lt-sm">not lt-sm</span>
+						<span class="hide-lt-md">not lt-md</span>
+						<span class="hide-lt-lg">not lt-lg</span>
+						<span class="hide-lt-xl">not lt-xl</span>
+					</div>
+					<div>
+						<span class="hide-gt-xs">not gt-xs</span>
+						<span class="hide-gt-sm">not gt-sm</span>
+						<span class="hide-gt-md">not gt-md</span>
+						<span class="hide-gt-lg">not gt-lg</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

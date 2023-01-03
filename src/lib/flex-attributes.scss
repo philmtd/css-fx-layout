@@ -9,4 +9,8 @@
 	*[data-fx-flex-grow] {
 		@include flex-grow-properties;
 	}
+
+	*:has(>[data-fx-flex],>[data-fx-flex-grow]):not([data-layout]) {
+		@include flex-row-properties;
+	}
 }

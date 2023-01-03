@@ -1,42 +1,42 @@
 // Flex
 
 @mixin flex-properties {
-  flex: 1 1 0;
+	flex: 1 1 0;
 }
 
 @mixin flex-grow-properties {
-  flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 // Layout
 
 @mixin flex-row-properties {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 }
 
 @mixin flex-column-properties {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
 }
 
 @mixin row-reverse-properties {
-  flex-direction: row-reverse;
+	flex-direction: row-reverse;
 }
 
 @mixin column-reverse-properties {
-  flex-direction: column-reverse;
+	flex-direction: column-reverse;
 }
 
 @mixin wrap-properties {
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 
 }
 
-// Media
-
+// Media Sizes
+// css-fx-layout sizes
 $media-phone: "(max-width: 479px)";
 $media-no-phone: "(min-width: 480px)";
 $media-tablet: "(min-width: 480px) and (max-width: 839px)";
@@ -44,33 +44,132 @@ $media-desktop: "(min-width: 840px)";
 $media-no-desktop: "(max-width: 839px)";
 
 @mixin phone {
-  @media #{$media-phone} {
-    @content;
-  }
+	@media #{$media-phone} {
+		@content;
+	}
 }
 
 @mixin no-phone {
-  @media #{$media-no-phone} {
-    @content;
-  }
+	@media #{$media-no-phone} {
+		@content;
+	}
 }
 
 @mixin tablet {
-  @media #{$media-tablet} {
-    @content;
-  }
+	@media #{$media-tablet} {
+		@content;
+	}
 }
 
 @mixin desktop {
-  @media #{$media-desktop} {
-    @content;
-  }
+	@media #{$media-desktop} {
+		@content;
+	}
 }
 
 @mixin no-desktop {
-  @media #{$media-no-desktop} {
-    @content;
-  }
+	@media #{$media-no-desktop} {
+		@content;
+	}
+}
+
+// flex-layout breakpoints
+$xs: 599px;
+$sm: 969px;
+$md: 1279px;
+$lg: 1919px;
+$xl: 5000px;
+
+$flex-layout-media-queries: (
+		'xs': "screen and (max-width: #{$xs})",
+		'sm': "screen and (min-width: #{$xs + 1}) and (max-width: #{$sm})",
+		"md": "screen and (min-width: #{$sm + 1}) and (max-width: #{$md})",
+		"lg": 'screen and (min-width: #{$md + 1}) and (max-width: #{$lg})',
+		"xl": 'screen and (min-width: #{$lg + 1}) and (max-width: #{$xl})',
+		"lt-sm": 'screen and (max-width: #{$xs})',
+		"lt-md": 'screen and (max-width: #{$sm})',
+		"lt-lg": 'screen and (max-width: #{$md})',
+		"lt-xl": 'screen and (max-width: #{$lg})',
+		"gt-xs": 'screen and (min-width: #{$xs + 1})',
+		"gt-sm": 'screen and (min-width: #{$sm + 1})',
+		"gt-md": 'screen and (min-width: #{$md + 1})',
+		"gt-lg": 'screen and (min-width: #{$lg + 1})',
+);
+
+@mixin xs {
+	@media #{map-get($flex-layout-media-queries, 'xs')} {
+		@content;
+	}
+}
+@mixin sm {
+	@media #{map-get($flex-layout-media-queries, 'sm')} {
+		@content;
+	}
+}
+@mixin md {
+	@media #{map-get($flex-layout-media-queries, 'md')} {
+		@content;
+	}
+}
+@mixin lg {
+	@media #{map-get($flex-layout-media-queries, 'lg')} {
+		@content;
+	}
+}
+@mixin xl {
+	@media #{map-get($flex-layout-media-queries, 'xl')} {
+		@content;
+	}
+}
+@mixin lt-sm {
+	@media #{map-get($flex-layout-media-queries, 'lt-sm')} {
+		@content;
+	}
+}
+@mixin lt-md {
+	@media #{map-get($flex-layout-media-queries, 'lt-md')} {
+		@content;
+	}
+}
+@mixin lt-lg {
+	@media #{map-get($flex-layout-media-queries, 'lt-lg')} {
+		@content;
+	}
+}
+@mixin lt-xl {
+	@media #{map-get($flex-layout-media-queries, 'lt-xl')} {
+		@content;
+	}
+}
+@mixin gt-xs {
+	@media #{map-get($flex-layout-media-queries, 'gt-xs')} {
+		@content;
+	}
+}
+@mixin gt-sm {
+	@media #{map-get($flex-layout-media-queries, 'gt-sm')} {
+		@content;
+	}
+}
+@mixin gt-md {
+	@media #{map-get($flex-layout-media-queries, 'gt-md')} {
+		@content;
+	}
+}
+@mixin gt-lg {
+	@media #{map-get($flex-layout-media-queries, 'gt-lg')} {
+		@content;
+	}
+}
+@mixin flex-layout-media($size) {
+	@media #{map-get($flex-layout-media-queries, $size)} {
+		@content
+	}
+}
+@mixin flex-layout-media-not($size) {
+	@media not #{map-get($flex-layout-media-queries, $size)} {
+		@content
+	}
 }
 
 // Gap
@@ -84,13 +183,13 @@ $media-no-desktop: "(max-width: 839px)";
 /// @param {string} $gapUnits
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
 @mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem) {
-  @for $i from $from through $to {
-    @each $unit in $gapUnits {
-      *.fx-gap--#{$i}#{$unit} {
-        gap: #{$i}#{$unit};
-      }
-    }
-  }
+	@for $i from $from through $to {
+		@each $unit in $gapUnits {
+			*.fx-gap--#{$i}#{$unit} {
+				gap: #{$i}#{$unit};
+			}
+		}
+	}
 }
 
 /// Includes selectors for attributes which can be used to add a gap to elements in a flex container
@@ -102,11 +201,11 @@ $media-no-desktop: "(max-width: 839px)";
 /// @param {string} $gapUnits
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
 @mixin layout-gap-attributes($from: 1, $to: 24, $gapUnits: px em rem) {
-  @for $i from $from through $to {
-    @each $unit in $gapUnits {
-      *[data-layout-gap="#{$i}#{$unit}"] {
-        gap: #{$i}#{$unit};
-      }
-    }
-  }
+	@for $i from $from through $to {
+		@each $unit in $gapUnits {
+			*[data-layout-gap="#{$i}#{$unit}"] {
+				gap: #{$i}#{$unit};
+			}
+		}
+	}
 }
