@@ -6,11 +6,31 @@
 		@include flex-properties;
 	}
 
+	*.fx-flex-auto {
+		@include flex-auto-properties;
+	}
+
 	*.fx-flex-grow {
 		@include flex-grow-properties;
 	}
 
-	*:has(>.fx-flex,>.fx-flex-grow):not([class*="fx-layout-"]) {
+	*.fx-flex-initial {
+		@include flex-initial-properties;
+	}
+
+	*.fx-flex-none {
+		@include flex-none-properties;
+	}
+
+	*.fx-flex-nogrow {
+		@include flex-nogrow-properties;
+	}
+
+	*.fx-flex-noshrink {
+		@include flex-noshrink-properties;
+	}
+
+	*:has(>.fx-flex,>.fx-flex-auto,>.fx-flex-grow,>.fx-flex-initial,>.fx-flex-none,>.fx-flex-nogrow,>.fx-flex-noshrink):not([class*="fx-layout-"]) {
 		@include flex-row-properties;
 	}
 }
@@ -23,11 +43,31 @@
 				@include flex-properties;
 			}
 
+			*.fx-flex-auto--#{$name} {
+				@include flex-auto-properties;
+			}
+		
 			*.fx-flex-grow--#{$name} {
 				@include flex-grow-properties;
 			}
+		
+			*.fx-flex-initial--#{$name} {
+				@include flex-initial-properties;
+			}
+		
+			*.fx-flex-none--#{$name} {
+				@include flex-none-properties;
+			}
+		
+			*.fx-flex-nogrow--#{$name} {
+				@include flex-nogrow-properties;
+			}
+		
+			*.fx-flex-noshrink--#{$name} {
+				@include flex-noshrink-properties;
+			}
 
-			*:has(>.fx-flex--#{$name},>.fx-flex-grow--#{$name}):not([class*="fx-layout-"]) {
+			*:has(>.fx-flex--#{$name},>.fx-flex-auto--#{$name},>.fx-flex-grow--#{$name},>.fx-flex-initial--#{$name},>.fx-flex-none--#{$name},>.fx-flex-nogrow--#{$name},>.fx-flex-noshrink--#{$name}):not([class*="fx-layout-"]) {
 				@include flex-row-properties;
 			}
 		}

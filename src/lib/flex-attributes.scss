@@ -6,11 +6,31 @@
 		@include flex-properties;
 	}
 
+	*[data-fx-flex-auto] {
+		@include flex-auto-properties;
+	}
+
 	*[data-fx-flex-grow] {
 		@include flex-grow-properties;
 	}
 
-	*:has(>[data-fx-flex],>[data-fx-flex-grow]):not([data-layout]) {
+	*[data-fx-flex-initial] {
+		@include flex-initial-properties;
+	}
+
+	*[data-fx-flex-none] {
+		@include flex-none-properties;
+	}
+
+	*[data-fx-flex-nogrow] {
+		@include flex-nogrow-properties;
+	}
+
+	*[data-fx-flex-noshrink] {
+		@include flex-noshrink-properties;
+	}
+
+	*:has(>[data-fx-flex],>[data-fx-flex-auto],>[data-fx-flex-grow],>[data-fx-flex-initial],>[data-fx-flex-none],>[data-fx-flex-nogrow],>[data-fx-flex-noshrink]):not([data-layout]) {
 		@include flex-row-properties;
 	}
 }
@@ -23,8 +43,28 @@
 				@include flex-properties;
 			}
 
+			*[data-fx-flex-auto-#{$name}] {
+				@include flex-auto-properties;
+			}
+
 			*[data-fx-flex-grow-#{$name}] {
 				@include flex-grow-properties;
+			}
+
+			*[data-fx-flex-initial-#{$name}] {
+				@include flex-initial-properties;
+			}
+
+			*[data-fx-flex-none-#{$name}] {
+				@include flex-none-properties;
+			}
+
+			*[data-fx-flex-nogrow-#{$name}] {
+				@include flex-nogrow-properties;
+			}
+
+			*[data-fx-flex-noshrink-#{$name}] {
+				@include flex-noshrink-properties;
 			}
 		}
 	}

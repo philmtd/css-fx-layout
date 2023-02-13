@@ -4,8 +4,28 @@
 	flex: 1 1 0;
 }
 
+@mixin flex-auto-properties {
+	flex-basis: auto;
+}
+
 @mixin flex-grow-properties {
-	flex: 1 1 auto;
+	flex: 1 1 100%;
+}
+
+@mixin flex-initial-properties {
+	flex: 0 1 auto;
+}
+
+@mixin flex-none-properties {
+	flex: 0 0 auto;
+}
+
+@mixin flex-nogrow-properties {
+	flex: 0 1 auto;
+}
+
+@mixin flex-noshrink-properties {
+	flex: 1 0 auto;
 }
 
 // Layout
