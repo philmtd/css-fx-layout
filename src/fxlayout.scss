@@ -4,9 +4,10 @@
 @use "lib/layout-classes" as layoutC;
 @use "lib/layout-align-attributes" as layoutAlignA;
 @use "lib/layout-align-classes" as layoutAlignC;
+@use "lib/layout-gap-attributes" as layoutGapA;
+@use "lib/layout-gap-classes" as layoutGapC;
 @use "lib/flex-attributes" as flexA;
 @use "lib/flex-classes" as flexC;
-@use "lib/mixins" as mix;
 
 /// Adds the css-fx-layout class selectors, e.g. `.fx-layout-row`
 ///
@@ -36,7 +37,7 @@
 /// @param {bool} $includeSelectorsForMediaSizes [false]
 ///	  Will generate additional selectors for flex layout media sizes
 @mixin gap-class-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
-	@include mix.layout-gap-classes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
+	@include layoutGapC.layout-gap-classes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
 }
 
 /// Adds the css-fx-layout attribute selectors, e.g. `data-layout="row"`
@@ -67,5 +68,5 @@
 /// @param {bool} $includeSelectorsForMediaSizes [false]
 ///	  Will generate additional selectors for flex layout media sizes
 @mixin gap-attribute-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
-	@include mix.layout-gap-attributes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
+	@include layoutGapA.layout-gap-attributes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
 }

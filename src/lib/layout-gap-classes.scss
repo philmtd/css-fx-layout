@@ -1,0 +1,56 @@
+@use "sass:list";
+
+@import "mixins";
+
+/// Includes selectors for classes which can be used to add a specific gap to elements in a flex container
+///
+/// @param {number} $value
+///   Will start generating selectors for $value $gapUnits
+/// @param {string} $gapUnits
+///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
+/// @param {string} $name
+///   Will generate selectors for a specific media size, e.g. xs, sm, md, ...
+@mixin layout-gap-class($value, $gapUnits, $name: false) {
+	@each $unit in $gapUnits {
+		*.fx-gap--#{$value}#{$unit}#{if($name, '--' + $name, '')} {
+			gap: #{$value}#{$unit};
+		}
+	}
+};
+
+/// Includes selectors for classes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $gapUnits
+///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
+	@if (list.length($from) > 1) {
+		@each $i in $from {
+			@include layout-gap-class($i, $gapUnits)
+		}
+	} @else {
+		@for $i from $from through $to {
+			@include layout-gap-class($i, $gapUnits)
+		}
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@if (list.length($from) > 1) {
+					@each $i in $from {
+						@include layout-gap-class($i, $gapUnits, $name)
+					}
+				} @else {
+					@for $i from $from through $to {
+						@include layout-gap-class($i, $gapUnits, $name)
+					}
+				}
+			}
+		}
+	}
+}
