@@ -1,0 +1,56 @@
+@use "sass:list";
+@use "sass:math";
+
+@import "mixins";
+
+/// Includes selectors for classes which can be used to add a specific gap to elements in a flex container
+///
+/// @param {number} $value
+///   Will start generating selectors for $value
+/// @param {string} $name
+///   Will generate selectors for a specific media size, e.g. xs, sm, md, ...
+@mixin flex-size-class($value, $name: false) {
+	*.fx-flex--#{$value}#{if($name, '--' + $name, '')} {
+		flex: 1 1 $value * 1%;
+	}
+}
+
+/// Includes selectors for classes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from
+/// @param {number} $to
+///   Will generate selectors until including $to
+/// @param {string} $increment
+///   Will generate selectors in increments of $increment
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin flex-size-classes($from: 5, $to: 95, $increment: 5, $includeSelectorsForMediaSizes: true) {
+    @if list.length($from) == 1 and (math.div($from, $increment) != math.round(math.div($from, $increment)) or math.div($to, $increment) != math.round(math.div($to, $increment))) {
+        @error "$from (#{$from}) and $to (#{$to}) must be dividable by $increment (#{$increment}).";
+    }
+	@if (list.length($from) > 1) {
+		@each $i in $from {
+			@include flex-size-class($i)
+		}
+	} @else {
+		@for $i from math.div($from, $increment) through math.div($to, $increment) {
+			@include flex-size-class($i * $increment)
+		}
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@if (list.length($from) > 1) {
+					@each $i in $from {
+						@include flex-size-class($i)
+					}
+				} @else {
+					@for $i from math.div($from, $increment) through math.div($to, $increment) {
+						@include flex-size-class($i * $increment, $name)
+					}
+				}
+			}
+		}
+	}
+}

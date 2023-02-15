@@ -6,6 +6,8 @@
 @use "lib/layout-align-classes" as layoutAlignC;
 @use "lib/flex-attributes" as flexA;
 @use "lib/flex-classes" as flexC;
+@use "lib/flex-size-attributes" as flexSizeA;
+@use "lib/flex-size-classes" as flexSizeC;
 @use "lib/mixins" as mix;
 
 /// Adds the css-fx-layout class selectors, e.g. `.fx-layout-row`
@@ -39,6 +41,20 @@
 	@include mix.layout-gap-classes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
 }
 
+/// Includes selectors for attributes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $increment
+///   Will generate selectors in increments of $increment
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin flex-size-class-selectors($from: 5, $to: 95, $increment: 5, $includeSelectorsForMediaSizes: true) {
+	@include flexSizeC.flex-size-classes($from, $to, $increment, $includeSelectorsForMediaSizes)
+}
+
 /// Adds the css-fx-layout attribute selectors, e.g. `data-layout="row"`
 ///
 /// @param {bool} $includeSelectorsForMediaSizes [false]
@@ -68,4 +84,18 @@
 ///	  Will generate additional selectors for flex layout media sizes
 @mixin gap-attribute-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
 	@include mix.layout-gap-attributes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
+}
+
+/// Includes selectors for attributes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from $gapUnits
+/// @param {number} $to
+///   Will generate selectors until including $to $gapUnits
+/// @param {string} $increment
+///   Will generate selectors in increments of $increment
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin flex-size-attribute-selectors($from: 5, $to: 95, $increment: 5, $includeSelectorsForMediaSizes: true) {
+	@include flexSizeA.flex-size-attributes($from, $to, $increment, $includeSelectorsForMediaSizes)
 }

@@ -1,7 +1,9 @@
 @forward './src/fxlayout' show class-selectors,
 	gap-class-selectors,
+	flex-size-class-selectors,
 	attribute-selectors,
-	gap-attribute-selectors;
+	gap-attribute-selectors,
+	flex-size-attribute-selectors;
 
 @forward "./src/lib/mixins" hide layout-gap-attributes,
 	layout-gap-classes;
