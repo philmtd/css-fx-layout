@@ -29,7 +29,7 @@
 /// Includes selectors for classes which can be used to add a gap to elements in a flex container
 ///
 /// @param {number} $from [1]
-///   Will start generating selectors from $from $gapUnits
+///   Will start generating selectors from $from $gapUnits, $from can also be used as a value list to generate value $gapUnits for every value in $from
 /// @param {number} $to [24]
 ///   Will generate selectors until including $to $gapUnits
 /// @param {string} $gapUnits [px em rem]
@@ -60,7 +60,7 @@
 /// Includes selectors for attributes which can be used to add a gap to elements in a flex container
 ///
 /// @param {number} $from [1]
-///   Will start generating selectors from $from $gapUnits
+///   Will start generating selectors from $from $gapUnits, $from can also be used as a value list to generate value $gapUnits for every value in $from
 /// @param {number} $to [24]
 ///   Will generate selectors until including $to $gapUnits
 /// @param {string} $gapUnits [px em rem]
