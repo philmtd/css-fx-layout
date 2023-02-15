@@ -43,7 +43,7 @@
 			@include flex-layout-media($name) {
 				@if (list.length($from) > 1) {
 					@each $i in $from {
-						@include flex-size-class($i)
+						@include flex-size-class($i, $name)
 					}
 				} @else {
 					@for $i from math.div($from, $increment) through math.div($to, $increment) {
