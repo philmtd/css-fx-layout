@@ -6,31 +6,35 @@
 		@include flex-properties;
 	}
 
-	*[data-fx-flex-auto] {
+	*[data-fx-flex^="auto"] {
 		@include flex-auto-properties;
+	}
+
+	*[data-fx-flex^="grow"] {
+		@include flex-grow-properties;
 	}
 
 	*[data-fx-flex-grow] {
 		@include flex-grow-properties;
 	}
-
-	*[data-fx-flex-initial] {
+	
+	*[data-fx-flex^="initial"] {
 		@include flex-initial-properties;
 	}
 
-	*[data-fx-flex-none] {
+	*[data-fx-flex^="none"] {
 		@include flex-none-properties;
 	}
-
-	*[data-fx-flex-nogrow] {
+	
+	*[data-fx-flex^="nogrow"] {
 		@include flex-nogrow-properties;
 	}
-
-	*[data-fx-flex-noshrink] {
+	
+	*[data-fx-flex^="noshrink"] {
 		@include flex-noshrink-properties;
 	}
 
-	*:has(>[data-fx-flex],>[data-fx-flex-auto],>[data-fx-flex-grow],>[data-fx-flex-initial],>[data-fx-flex-none],>[data-fx-flex-nogrow],>[data-fx-flex-noshrink]):not([data-layout]) {
+	*:has(>[data-fx-flex],>[data-fx-flex-grow]):not([data-layout]) {
 		@include flex-row-properties;
 	}
 }
@@ -40,30 +44,34 @@
 	@each $name, $_ in $flex-layout-media-queries {
 		@include flex-layout-media($name) {
 			*[data-fx-flex-#{$name}] {
+				@include flex-auto-properties;
+			}
+
+			*[data-fx-flex-#{$name}^="auto"] {
 				@include flex-properties;
 			}
 
-			*[data-fx-flex-auto-#{$name}] {
-				@include flex-auto-properties;
+			*[data-fx-flex-#{$name}^="grow"] {
+				@include flex-grow-properties;
 			}
 
 			*[data-fx-flex-grow-#{$name}] {
 				@include flex-grow-properties;
 			}
 
-			*[data-fx-flex-initial-#{$name}] {
+			*[data-fx-flex-#{$name}^="initial"] {
 				@include flex-initial-properties;
 			}
 
-			*[data-fx-flex-none-#{$name}] {
+			*[data-fx-flex-#{$name}^="none"] {
 				@include flex-none-properties;
 			}
 
-			*[data-fx-flex-nogrow-#{$name}] {
+			*[data-fx-flex-#{$name}^="nogrow"] {
 				@include flex-nogrow-properties;
 			}
 
-			*[data-fx-flex-noshrink-#{$name}] {
+			*[data-fx-flex-#{$name}^="noshrink"] {
 				@include flex-noshrink-properties;
 			}
 		}
