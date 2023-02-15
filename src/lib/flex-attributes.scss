@@ -6,11 +6,11 @@
 		@include flex-properties;
 	}
 
-	*[data-fx-flex^="auto"] {
+	*[data-fx-flex="auto"] {
 		@include flex-auto-properties;
 	}
 
-	*[data-fx-flex^="grow"] {
+	*[data-fx-flex="grow"] {
 		@include flex-grow-properties;
 	}
 
@@ -18,19 +18,19 @@
 		@include flex-grow-properties;
 	}
 	
-	*[data-fx-flex^="initial"] {
+	*[data-fx-flex="initial"] {
 		@include flex-initial-properties;
 	}
 
-	*[data-fx-flex^="none"] {
+	*[data-fx-flex="none"] {
 		@include flex-none-properties;
 	}
 	
-	*[data-fx-flex^="nogrow"] {
+	*[data-fx-flex="nogrow"] {
 		@include flex-nogrow-properties;
 	}
 	
-	*[data-fx-flex^="noshrink"] {
+	*[data-fx-flex="noshrink"] {
 		@include flex-noshrink-properties;
 	}
 
@@ -47,11 +47,11 @@
 				@include flex-auto-properties;
 			}
 
-			*[data-fx-flex-#{$name}^="auto"] {
+			*[data-fx-flex-#{$name}="auto"] {
 				@include flex-properties;
 			}
 
-			*[data-fx-flex-#{$name}^="grow"] {
+			*[data-fx-flex-#{$name}="grow"] {
 				@include flex-grow-properties;
 			}
 
@@ -59,19 +59,19 @@
 				@include flex-grow-properties;
 			}
 
-			*[data-fx-flex-#{$name}^="initial"] {
+			*[data-fx-flex-#{$name}="initial"] {
 				@include flex-initial-properties;
 			}
 
-			*[data-fx-flex-#{$name}^="none"] {
+			*[data-fx-flex-#{$name}="none"] {
 				@include flex-none-properties;
 			}
 
-			*[data-fx-flex-#{$name}^="nogrow"] {
+			*[data-fx-flex-#{$name}="nogrow"] {
 				@include flex-nogrow-properties;
 			}
 
-			*[data-fx-flex-#{$name}^="noshrink"] {
+			*[data-fx-flex-#{$name}="noshrink"] {
 				@include flex-noshrink-properties;
 			}
 		}
