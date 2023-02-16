@@ -35,7 +35,7 @@
 	}
 }
 
-// in contrast to the attribute counterpart this can add flex to the parent container
+/// Generates flex class selectors for media sizes
 @mixin flex-classes-for-media-sizes {
 	@each $name, $_ in $flex-layout-media-queries {
 		@include flex-layout-media($name) {
