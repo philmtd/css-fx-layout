@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: cimg/node:16.16
+      - image: cimg/node:18.14
     steps:
       - checkout
       - restore_cache:
@@ -16,7 +16,9 @@ jobs:
             - ./node_modules
       - run:
           name: Test the library
-          command: npm run test
+          command: npm run test:ci
+      - store_test_results:
+          path: ./junit.xml
 
 workflows:
   version: 2

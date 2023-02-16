@@ -1,0 +1,30 @@
+@use 'sass:math';
+@use '../node_modules/sass-true' as true;
+@use '../_index' as fx;
+
+@include true.describe("gap") {
+	@include true.it('gap-attribute-selectors') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gap-attribute-selectors(1, 1, px, false);
+			}
+			@include true.expect {
+				*[data-layout-gap="1px"] {
+					gap: 1px;
+				}
+			}
+		}
+	}
+	@include true.it('gap-class-selectors') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gap-class-selectors(1, 1, px, false);
+			}
+			@include true.expect {
+				*.fx-gap--1px {
+					gap: 1px;
+				}
+			}
+		}
+	}
+}
