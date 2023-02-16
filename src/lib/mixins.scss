@@ -5,7 +5,7 @@
 }
 
 @mixin flex-auto-properties {
-	flex-basis: auto;
+	flex-basis: 100%;
 }
 
 @mixin flex-grow-properties {
