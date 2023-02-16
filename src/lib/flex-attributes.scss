@@ -44,11 +44,11 @@
 	@each $name, $_ in $flex-layout-media-queries {
 		@include flex-layout-media($name) {
 			*[data-fx-flex-#{$name}] {
-				@include flex-auto-properties;
+				@include flex-properties;
 			}
 
 			*[data-fx-flex-#{$name}="auto"] {
-				@include flex-properties;
+				@include flex-auto-properties;
 			}
 
 			*[data-fx-flex-#{$name}="grow"] {
