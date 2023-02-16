@@ -5,6 +5,7 @@
   "repository": "https://github.com/philmtd/css-fx-layout",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:ci": "jest --reporters=\"default\" --reporters=\"jest-junit\"",
     "testbuild": "node testbuild.js"
   },

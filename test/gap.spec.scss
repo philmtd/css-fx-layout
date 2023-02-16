@@ -3,26 +3,201 @@
 @use '../_index' as fx;
 
 @include true.describe("gap") {
-	@include true.it('gap-attribute-selectors') {
+	@include true.it('attribute selectors should generate correctly $from-$to with passed units') {
 		@include true.assert {
 			@include true.output {
-				@include fx.gap-attribute-selectors(1, 1, px, false);
+				@include fx.gap-attribute-selectors(1, 2, px em, false);
 			}
 			@include true.expect {
 				*[data-layout-gap="1px"] {
 					gap: 1px;
 				}
+				*[data-layout-gap="1em"] {
+					gap: 1em;
+				}
+				*[data-layout-gap="2px"] {
+					gap: 2px;
+				}
+				*[data-layout-gap="2em"] {
+					gap: 2em;
+				}
 			}
 		}
 	}
-	@include true.it('gap-class-selectors') {
+
+	@include true.it('class selectors should generate correctly $from-$to with passed units') {
 		@include true.assert {
 			@include true.output {
-				@include fx.gap-class-selectors(1, 1, px, false);
+				@include fx.gap-class-selectors(1, 2, px em, false);
 			}
 			@include true.expect {
 				*.fx-gap--1px {
 					gap: 1px;
+				}
+				*.fx-gap--1em {
+					gap: 1em;
+				}
+				*.fx-gap--2px {
+					gap: 2px;
+				}
+				*.fx-gap--2em {
+					gap: 2em;
+				}
+			}
+		}
+	}
+
+	@include true.it('attribute selectors should correctly generate media size selectors') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gap-attribute-selectors(1, 1, px, true);
+			}
+			@include true.expect {
+				*[data-layout-gap="1px"] {
+					gap: 1px;
+				}
+				@include fx.xs {
+					*[data-layout-gap-xs="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.sm {
+					*[data-layout-gap-sm="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.md {
+					*[data-layout-gap-md="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.lg {
+					*[data-layout-gap-lg="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.xl {
+					*[data-layout-gap-xl="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-sm {
+					*[data-layout-gap-lt-sm="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-md {
+					*[data-layout-gap-lt-md="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-lg {
+					*[data-layout-gap-lt-lg="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-xl {
+					*[data-layout-gap-lt-xl="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-xs {
+					*[data-layout-gap-gt-xs="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-sm {
+					*[data-layout-gap-gt-sm="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-md {
+					*[data-layout-gap-gt-md="1px"] {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-lg {
+					*[data-layout-gap-gt-lg="1px"] {
+						gap: 1px;
+					}
+				}
+			}
+		}
+	}
+
+	@include true.it('class selectors should correctly generate media size selectors') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gap-class-selectors(1, 1, px, true);
+			}
+			@include true.expect {
+				*.fx-gap--1px {
+					gap: 1px;
+				}
+				@include fx.xs {
+					*.fx-gap--1px--xs {
+						gap: 1px;
+					}
+				}
+				@include fx.sm {
+					*.fx-gap--1px--sm {
+						gap: 1px;
+					}
+				}
+				@include fx.md {
+					*.fx-gap--1px--md {
+						gap: 1px;
+					}
+				}
+				@include fx.lg {
+					*.fx-gap--1px--lg {
+						gap: 1px;
+					}
+				}
+				@include fx.xl {
+					*.fx-gap--1px--xl {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-sm {
+					*.fx-gap--1px--lt-sm {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-md {
+					*.fx-gap--1px--lt-md {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-lg {
+					*.fx-gap--1px--lt-lg {
+						gap: 1px;
+					}
+				}
+				@include fx.lt-xl {
+					*.fx-gap--1px--lt-xl {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-xs {
+					*.fx-gap--1px--gt-xs {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-sm {
+					*.fx-gap--1px--gt-sm {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-md {
+					*.fx-gap--1px--gt-md {
+						gap: 1px;
+					}
+				}
+				@include fx.gt-lg {
+					*.fx-gap--1px--gt-lg {
+						gap: 1px;
+					}
 				}
 			}
 		}
