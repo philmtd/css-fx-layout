@@ -1,4 +1,6 @@
-@forward './src/fxlayout' show class-selectors,
+@forward "./src/fxlayout" show class-selectors,
 	gap-class-selectors,
 	attribute-selectors,
 	gap-attribute-selectors;
+
+@forward "./src/lib/mixins";
