@@ -18,37 +18,46 @@
 /// Includes selectors for classes which can be used to add a gap to elements in a flex container
 ///
 /// @param {number} $from
-///   Will start generating selectors from $from, $from can also be used as a value list to generate selectors for every value in $from
+///   Will start generating selectors from $from
 /// @param {number} $to
 ///   Will generate selectors until including $to
 /// @param {string} $increment
 ///   Will generate selectors in increments of $increment
 /// @param {bool} $includeSelectorsForMediaSizes
 ///	  Will generate additional selectors for flex layout media sizes
-@mixin flex-size-classes($from: 5, $to: 95, $increment: 5, $includeSelectorsForMediaSizes: true) {
-    @if list.length($from) == 1 and (math.div($from, $increment) != math.round(math.div($from, $increment)) or math.div($to, $increment) != math.round(math.div($to, $increment))) {
+@mixin flex-size-classes($from: 5, $to: 100, $increment: 5, $includeSelectorsForMediaSizes: true) {
+    @if math.div($from, $increment) != math.round(math.div($from, $increment)) or math.div($to, $increment) != math.round(math.div($to, $increment)) {
         @error "$from (#{$from}) and $to (#{$to}) must be dividable by $increment (#{$increment}).";
     }
-	@if (list.length($from) > 1) {
-		@each $i in $from {
-			@include flex-size-class($i)
-		}
-	} @else {
-		@for $i from math.div($from, $increment) through math.div($to, $increment) {
-			@include flex-size-class($i * $increment)
-		}
+	@for $i from math.div($from, $increment) through math.div($to, $increment) {
+		@include flex-size-class($i * $increment)
 	}
 	@if $includeSelectorsForMediaSizes {
 		@each $name, $_ in $flex-layout-media-queries {
 			@include flex-layout-media($name) {
-				@if (list.length($from) > 1) {
-					@each $i in $from {
-						@include flex-size-class($i, $name)
-					}
-				} @else {
-					@for $i from math.div($from, $increment) through math.div($to, $increment) {
-						@include flex-size-class($i * $increment, $name)
-					}
+				@for $i from math.div($from, $increment) through math.div($to, $increment) {
+					@include flex-size-class($i * $increment, $name)
+				}
+			}
+		}
+	}
+}
+
+/// Includes selectors for classes based on a list of values which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $values
+///   Will generate selectors for $values list
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin flex-size-classes-from-list($values: 33 66, $includeSelectorsForMediaSizes: true) {
+	@each $value in $values {
+		@include flex-size-class($value)
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@each $value in $values {
+					@include flex-size-class($value, $name)
 				}
 			}
 		}
