@@ -1,6 +1,8 @@
 @forward "./src/fxlayout" show class-selectors,
 	gap-class-selectors,
+	gap-class-selectors-from-list,
 	attribute-selectors,
-	gap-attribute-selectors;
+	gap-attribute-selectors,
+	gap-attribute-selectors-from-list;
 
 @forward "./src/lib/mixins";

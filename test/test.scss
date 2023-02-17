@@ -7,5 +7,5 @@ $includeResponsiveApi: true;
 @include fx.class-selectors($includeResponsiveApi);
 @include fx.gap-attribute-selectors(1, 8, px em, $includeResponsiveApi);
 @include fx.gap-class-selectors(1, 8, px em, $includeResponsiveApi);
-@include fx.gap-attribute-selectors(16 32 48, null, px em, $includeResponsiveApi);
-@include fx.gap-class-selectors(16 32 48, null, px em, $includeResponsiveApi);
+@include fx.gap-attribute-selectors-from-list(16 32 48, px em, $includeResponsiveApi);
+@include fx.gap-class-selectors-from-list(16 32 48, px em, $includeResponsiveApi);
