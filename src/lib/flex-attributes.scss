@@ -6,8 +6,32 @@
 		@include flex-properties;
 	}
 
+	*[data-fx-flex="auto"] {
+		@include flex-auto-properties;
+	}
+
+	*[data-fx-flex="grow"] {
+		@include flex-grow-properties;
+	}
+
 	*[data-fx-flex-grow] {
 		@include flex-grow-properties;
+	}
+	
+	*[data-fx-flex="initial"] {
+		@include flex-initial-properties;
+	}
+
+	*[data-fx-flex="none"] {
+		@include flex-none-properties;
+	}
+	
+	*[data-fx-flex="nogrow"] {
+		@include flex-nogrow-properties;
+	}
+	
+	*[data-fx-flex="noshrink"] {
+		@include flex-noshrink-properties;
 	}
 
 	*:has(>[data-fx-flex],>[data-fx-flex-grow]):not([data-layout]) {
@@ -15,7 +39,7 @@
 	}
 }
 
-// these do not automatically add flex to their parent container
+/// Generates flex data-attribute selectors for media sizes
 @mixin flex-attributes-for-media-sizes {
 	@each $name, $_ in $flex-layout-media-queries {
 		@include flex-layout-media($name) {
@@ -23,8 +47,36 @@
 				@include flex-properties;
 			}
 
+			*[data-fx-flex-#{$name}="auto"] {
+				@include flex-auto-properties;
+			}
+
+			*[data-fx-flex-#{$name}="grow"] {
+				@include flex-grow-properties;
+			}
+
 			*[data-fx-flex-grow-#{$name}] {
 				@include flex-grow-properties;
+			}
+
+			*[data-fx-flex-#{$name}="initial"] {
+				@include flex-initial-properties;
+			}
+
+			*[data-fx-flex-#{$name}="none"] {
+				@include flex-none-properties;
+			}
+
+			*[data-fx-flex-#{$name}="nogrow"] {
+				@include flex-nogrow-properties;
+			}
+
+			*[data-fx-flex-#{$name}="noshrink"] {
+				@include flex-noshrink-properties;
+			}
+
+			*:has(>[data-fx-flex-#{$name}],>[data-fx-flex-grow-#{$name}]):not([data-layout]) {
+				@include flex-row-properties;
 			}
 		}
 	}

@@ -4,8 +4,28 @@
 	flex: 1 1 0;
 }
 
+@mixin flex-auto-properties {
+	flex-basis: 100%;
+}
+
 @mixin flex-grow-properties {
-	flex: 1 1 auto;
+	flex: 1 1 100%;
+}
+
+@mixin flex-initial-properties {
+	flex: 0 1 auto;
+}
+
+@mixin flex-none-properties {
+	flex: 0 0 auto;
+}
+
+@mixin flex-nogrow-properties {
+	flex: 0 1 auto;
+}
+
+@mixin flex-noshrink-properties {
+	flex: 1 0 auto;
 }
 
 // Layout
@@ -186,70 +206,3 @@ $flex-layout-media-queries: (
 	}
 }
 
-// Gap
-
-/// Includes selectors for classes which can be used to add a gap to elements in a flex container
-///
-/// @param {number} $from
-///   Will start generating selectors from $from $gapUnits
-/// @param {number} $to
-///   Will generate selectors until including $to $gapUnits
-/// @param {string} $gapUnits
-///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
-/// @param {bool} $includeSelectorsForMediaSizes
-///	  Will generate additional selectors for flex layout media sizes
-@mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
-	@for $i from $from through $to {
-		@each $unit in $gapUnits {
-			*.fx-gap--#{$i}#{$unit} {
-				gap: #{$i}#{$unit};
-			}
-		}
-	}
-	@if $includeSelectorsForMediaSizes {
-		@each $name, $_ in $flex-layout-media-queries {
-			@include flex-layout-media($name) {
-				@for $i from $from through $to {
-					@each $unit in $gapUnits {
-						*.fx-gap--#{$i}#{$unit}--#{$name} {
-							gap: #{$i}#{$unit};
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// Includes selectors for attributes which can be used to add a gap to elements in a flex container
-///
-/// @param {number} $from
-///   Will start generating selectors from $from $gapUnits
-/// @param {number} $to
-///   Will generate selectors until including $to $gapUnits
-/// @param {string} $gapUnits
-///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
-/// @param {bool} $includeSelectorsForMediaSizes
-///	  Will generate additional selectors for flex layout media sizes
-@mixin layout-gap-attributes($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
-	@for $i from $from through $to {
-		@each $unit in $gapUnits {
-			*[data-layout-gap="#{$i}#{$unit}"] {
-				gap: #{$i}#{$unit};
-			}
-		}
-	}
-	@if $includeSelectorsForMediaSizes {
-		@each $name, $_ in $flex-layout-media-queries {
-			@include flex-layout-media($name) {
-				@for $i from $from through $to {
-					@each $unit in $gapUnits {
-						*[data-layout-gap-#{$name}="#{$i}#{$unit}"] {
-							gap: #{$i}#{$unit};
-						}
-					}
-				}
-			}
-		}
-	}
-}
