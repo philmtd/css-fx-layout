@@ -79,80 +79,80 @@ $flex-layout-media-queries: (
 		'gt-lg': 'screen and (min-width: #{$lg + 1})',
 );
 
-@mixin xs {
-	@media #{map-get($flex-layout-media-queries, 'xs')} {
+@mixin xs($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'xs')} {
 		@content;
 	}
 }
 
-@mixin sm {
-	@media #{map-get($flex-layout-media-queries, 'sm')} {
+@mixin sm($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'sm')} {
 		@content;
 	}
 }
 
-@mixin md {
-	@media #{map-get($flex-layout-media-queries, 'md')} {
+@mixin md($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'md')} {
 		@content;
 	}
 }
 
-@mixin lg {
-	@media #{map-get($flex-layout-media-queries, 'lg')} {
+@mixin lg($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lg')} {
 		@content;
 	}
 }
 
-@mixin xl {
-	@media #{map-get($flex-layout-media-queries, 'xl')} {
+@mixin xl($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'xl')} {
 		@content;
 	}
 }
 
-@mixin lt-sm {
-	@media #{map-get($flex-layout-media-queries, 'lt-sm')} {
+@mixin lt-sm($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-sm')} {
 		@content;
 	}
 }
 
-@mixin lt-md {
-	@media #{map-get($flex-layout-media-queries, 'lt-md')} {
+@mixin lt-md($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-md')} {
 		@content;
 	}
 }
 
-@mixin lt-lg {
-	@media #{map-get($flex-layout-media-queries, 'lt-lg')} {
+@mixin lt-lg($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-lg')} {
 		@content;
 	}
 }
 
-@mixin lt-xl {
-	@media #{map-get($flex-layout-media-queries, 'lt-xl')} {
+@mixin lt-xl($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-xl')} {
 		@content;
 	}
 }
 
-@mixin gt-xs {
-	@media #{map-get($flex-layout-media-queries, 'gt-xs')} {
+@mixin gt-xs($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-xs')} {
 		@content;
 	}
 }
 
-@mixin gt-sm {
-	@media #{map-get($flex-layout-media-queries, 'gt-sm')} {
+@mixin gt-sm($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-sm')} {
 		@content;
 	}
 }
 
-@mixin gt-md {
-	@media #{map-get($flex-layout-media-queries, 'gt-md')} {
+@mixin gt-md($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-md')} {
 		@content;
 	}
 }
 
-@mixin gt-lg {
-	@media #{map-get($flex-layout-media-queries, 'gt-lg')} {
+@mixin gt-lg($invert: false) {
+	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-lg')} {
 		@content;
 	}
 }
