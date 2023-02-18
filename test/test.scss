@@ -9,3 +9,7 @@ $includeResponsiveApi: true;
 @include fx.gap-class-selectors(1, 8, px em, $includeResponsiveApi);
 @include fx.gap-attribute-selectors-from-list(16 32 48, px em, $includeResponsiveApi);
 @include fx.gap-class-selectors-from-list(16 32 48, px em, $includeResponsiveApi);
+@include fx.flex-size-class-selectors(5, 100, 5, $includeResponsiveApi);
+@include fx.flex-size-attribute-selectors(5, 100, 5, $includeResponsiveApi);
+@include fx.flex-size-class-selectors-from-list(33 66, $includeResponsiveApi);
+@include fx.flex-size-attribute-selectors-from-list(33 66, $includeResponsiveApi);

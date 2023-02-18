@@ -1,0 +1,65 @@
+@use "sass:list";
+@use "sass:math";
+
+@import "mixins";
+
+/// Includes selectors for classes which can be used to add a specific gap to elements in a flex container
+///
+/// @param {number} $value
+///   Will start generating selectors for $value
+/// @param {string} $name
+///   Will generate selectors for a specific media size, e.g. xs, sm, md, ...
+@mixin flex-size-class($value, $name: false) {
+	*.fx-flex--#{$value}#{if($name, '--' + $name, '')} {
+		flex: 1 1 $value * 1%;
+	}
+}
+
+/// Includes selectors for classes which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $from
+///   Will start generating selectors from $from
+/// @param {number} $to
+///   Will generate selectors until including $to
+/// @param {string} $increment
+///   Will generate selectors in increments of $increment
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin flex-size-classes($from: 5, $to: 100, $increment: 5, $includeSelectorsForMediaSizes: true) {
+    @if $from % $increment != 0 or $to % $increment != 0 {
+        @error "$from (#{$from}) and $to (#{$to}) must be dividable by $increment (#{$increment}).";
+    }
+	@for $i from math.div($from, $increment) through math.div($to, $increment) {
+		@include flex-size-class($i * $increment)
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@for $i from math.div($from, $increment) through math.div($to, $increment) {
+					@include flex-size-class($i * $increment, $name)
+				}
+			}
+		}
+	}
+}
+
+/// Includes selectors for classes based on a list of values which can be used to add a gap to elements in a flex container
+///
+/// @param {number} $values
+///   Will generate selectors for $values list
+/// @param {bool} $includeSelectorsForMediaSizes
+///	  Will generate additional selectors for flex layout media sizes
+@mixin flex-size-classes-from-list($values: 33 66, $includeSelectorsForMediaSizes: true) {
+	@each $value in $values {
+		@include flex-size-class($value)
+	}
+	@if $includeSelectorsForMediaSizes {
+		@each $name, $_ in $flex-layout-media-queries {
+			@include flex-layout-media($name) {
+				@each $value in $values {
+					@include flex-size-class($value, $name)
+				}
+			}
+		}
+	}
+}
