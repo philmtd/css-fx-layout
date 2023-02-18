@@ -2,30 +2,6 @@
 
 /// Generates show/hide class selectors
 @mixin show-hide-classes {
-	@include phone {
-		*.hide-phone,
-		*.show-desktop,
-		*.show-tablet {
-			display: none !important;
-		}
-	}
-
-	@include tablet {
-		*.hide-tablet,
-		*.show-desktop,
-		*.show-phone {
-			display: none !important;
-		}
-	}
-
-	@include desktop {
-		*.hide-desktop,
-		*.show-phone,
-		*.show-tablet {
-			display: none !important;
-		}
-	}
-
 	@each $breakpoint, $_ in $flex-layout-media-queries {
 		*.show-#{$breakpoint} {
 			@include flex-layout-media-not($breakpoint) {
