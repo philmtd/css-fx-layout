@@ -26,7 +26,7 @@
 /// @param {bool} $includeSelectorsForMediaSizes
 ///	  Will generate additional selectors for flex layout media sizes
 @mixin flex-size-classes($from: 5, $to: 100, $increment: 5, $includeSelectorsForMediaSizes: true) {
-    @if math.div($from, $increment) != math.round(math.div($from, $increment)) or math.div($to, $increment) != math.round(math.div($to, $increment)) {
+    @if $from % $increment != 0 or $to % $increment != 0 {
         @error "$from (#{$from}) and $to (#{$to}) must be dividable by $increment (#{$increment}).";
     }
 	@for $i from math.div($from, $increment) through math.div($to, $increment) {
