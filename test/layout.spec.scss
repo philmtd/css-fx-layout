@@ -1,0 +1,128 @@
+@use '../node_modules/sass-true' as true;
+@use '../_index' as fx;
+@use '../src/lib/mixins' as mix;
+@use '../src/lib/layout-attributes' as la;
+@use '../src/lib/layout-classes' as lc;
+
+@include true.describe("layout") {
+	@include true.it('attribute selectors should be generated correctly') {
+		@include true.assert {
+			@include true.output {
+				@include la.layout-attributes;
+			}
+			@include true.expect {
+				*[data-layout^="row"] {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+				}
+				*[data-layout^="row"][data-layout~="reverse"] {
+					flex-direction: row-reverse;
+				}
+				*[data-layout^="column"] {
+					display: flex;
+					flex-direction: column;
+					flex-wrap: nowrap;
+				}
+				*[data-layout^="column"][data-layout~="reverse"] {
+					flex-direction: column-reverse;
+				}
+				*[data-layout~="wrap"] {
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+	@include true.it('attribute selectors for media sizes should be generated correctly') {
+		@include true.assert {
+			@include true.output {
+				@include la.layout-attributes-for-media-sizes;
+			}
+			@include true.expect {
+				@each $name, $_ in mix.$flex-layout-media-queries {
+					@include mix.flex-layout-media($name) {
+						*[data-layout-#{$name}^="row"] {
+							display: flex;
+							flex-direction: row;
+							flex-wrap: nowrap;
+						}
+						*[data-layout-#{$name}^="row"][data-layout-#{$name}~="reverse"] {
+							flex-direction: row-reverse;
+						}
+						*[data-layout-#{$name}^="column"] {
+							display: flex;
+							flex-direction: column;
+							flex-wrap: nowrap;
+						}
+						*[data-layout-#{$name}^="column"][data-layout-#{$name}~="reverse"] {
+							flex-direction: column-reverse;
+						}
+						*[data-layout-#{$name}~="wrap"] {
+							flex-wrap: wrap;
+						}
+					}
+				}
+			}
+		}
+	}
+	@include true.it('class selectors should be generated correctly') {
+		@include true.assert {
+			@include true.output {
+				@include lc.layout-classes;
+			}
+			@include true.expect {
+				*.fx-layout-row {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+				}
+				*.fx-layout-column {
+					display: flex;
+					flex-direction: column;
+					flex-wrap: nowrap;
+				}
+				*.fx-layout-reverse[class*="fx-layout-row"] {
+					flex-direction: row-reverse;
+				}
+				*.fx-layout-reverse[class*="fx-layout-column"] {
+					flex-direction: column-reverse;
+				}
+				*.fx-layout-wrap {
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+	@include true.it('class selectors for media sizes should be generated correctly') {
+		@include true.assert {
+			@include true.output {
+				@include lc.layout-classes-for-media-sizes;
+			}
+			@include true.expect {
+				@each $name, $_ in mix.$flex-layout-media-queries {
+					@include mix.flex-layout-media($name) {
+						*.fx-layout-row--#{$name} {
+							display: flex;
+							flex-direction: row;
+							flex-wrap: nowrap;
+						}
+						*.fx-layout-column--#{$name} {
+							display: flex;
+							flex-direction: column;
+							flex-wrap: nowrap;
+						}
+						*.fx-layout-reverse--#{$name}[class*="fx-layout-row"] {
+							flex-direction: row-reverse;
+						}
+						*.fx-layout-reverse--#{$name}[class*="fx-layout-column"] {
+							flex-direction: column-reverse;
+						}
+						*.fx-layout-wrap--#{$name} {
+							flex-wrap: wrap;
+						}
+					}
+				}
+			}
+		}
+	}
+}

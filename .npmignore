@@ -7,3 +7,4 @@ build.js
 *.html
 test
 docs
+junit.xml

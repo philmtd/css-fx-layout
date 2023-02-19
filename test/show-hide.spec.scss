@@ -1,0 +1,286 @@
+@use '../node_modules/sass-true' as true;
+@use '../_index' as fx;
+@use '../src/lib/mixins' as mix;
+@use '../src/lib/show-hide-classes' as shc;
+@use '../src/lib/show-hide-attributes' as sha;
+
+@include true.describe("show/hide") {
+	@include true.it('classes') {
+		@include true.assert {
+			@include true.output {
+				@include shc.show-hide-classes;
+			}
+			@include true.expect {
+				@include mix.xs(true) {
+					*.show-xs {
+						display: none !important;
+					}
+				}
+				@include mix.xs {
+					*.hide-xs {
+						display: none !important;
+					}
+				}
+				@include mix.sm(true) {
+					*.show-sm {
+						display: none !important;
+					}
+				}
+				@include mix.sm {
+					*.hide-sm {
+						display: none !important;
+					}
+				}
+				@include mix.md(true) {
+					*.show-md {
+						display: none !important;
+					}
+				}
+				@include mix.md {
+					*.hide-md {
+						display: none !important;
+					}
+				}
+				@include mix.lg(true) {
+					*.show-lg {
+						display: none !important;
+					}
+				}
+				@include mix.lg {
+					*.hide-lg {
+						display: none !important;
+					}
+				}
+				@include mix.xl(true) {
+					*.show-xl {
+						display: none !important;
+					}
+				}
+				@include mix.xl {
+					*.hide-xl {
+						display: none !important;
+					}
+				}
+				@include mix.lt-sm(true) {
+					*.show-lt-sm {
+						display: none !important;
+					}
+				}
+				@include mix.lt-sm {
+					*.hide-lt-sm {
+						display: none !important;
+					}
+				}
+				@include mix.lt-md(true) {
+					*.show-lt-md {
+						display: none !important;
+					}
+				}
+				@include mix.lt-md {
+					*.hide-lt-md {
+						display: none !important;
+					}
+				}
+				@include mix.lt-lg(true) {
+					*.show-lt-lg {
+						display: none !important;
+					}
+				}
+				@include mix.lt-lg {
+					*.hide-lt-lg {
+						display: none !important;
+					}
+				}
+				@include mix.lt-xl(true) {
+					*.show-lt-xl {
+						display: none !important;
+					}
+				}
+				@include mix.lt-xl {
+					*.hide-lt-xl {
+						display: none !important;
+					}
+				}
+				@include mix.gt-xs(true) {
+					*.show-gt-xs {
+						display: none !important;
+					}
+				}
+				@include mix.gt-xs {
+					*.hide-gt-xs {
+						display: none !important;
+					}
+				}
+				@include mix.gt-sm(true) {
+					*.show-gt-sm {
+						display: none !important;
+					}
+				}
+				@include mix.gt-sm {
+					*.hide-gt-sm {
+						display: none !important;
+					}
+				}
+				@include mix.gt-md(true) {
+					*.show-gt-md {
+						display: none !important;
+					}
+				}
+				@include mix.gt-md {
+					*.hide-gt-md {
+						display: none !important;
+					}
+				}
+				@include mix.gt-lg(true) {
+					*.show-gt-lg {
+						display: none !important;
+					}
+				}
+				@include mix.gt-lg {
+					*.hide-gt-lg {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+	@include true.it('attributes') {
+		@include true.assert {
+			@include true.output {
+				@include sha.show-hide-attributes;
+			}
+			@include true.expect {
+				@include mix.xs(true) {
+					*[data-show-xs] {
+						display: none !important;
+					}
+				}
+				@include mix.xs {
+					*[data-hide-xs] {
+						display: none !important;
+					}
+				}
+				@include mix.sm(true) {
+					*[data-show-sm] {
+						display: none !important;
+					}
+				}
+				@include mix.sm {
+					*[data-hide-sm] {
+						display: none !important;
+					}
+				}
+				@include mix.md(true) {
+					*[data-show-md] {
+						display: none !important;
+					}
+				}
+				@include mix.md {
+					*[data-hide-md] {
+						display: none !important;
+					}
+				}
+				@include mix.lg(true) {
+					*[data-show-lg] {
+						display: none !important;
+					}
+				}
+				@include mix.lg {
+					*[data-hide-lg] {
+						display: none !important;
+					}
+				}
+				@include mix.xl(true) {
+					*[data-show-xl] {
+						display: none !important;
+					}
+				}
+				@include mix.xl {
+					*[data-hide-xl] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-sm(true) {
+					*[data-show-lt-sm] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-sm {
+					*[data-hide-lt-sm] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-md(true) {
+					*[data-show-lt-md] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-md {
+					*[data-hide-lt-md] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-lg(true) {
+					*[data-show-lt-lg] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-lg {
+					*[data-hide-lt-lg] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-xl(true) {
+					*[data-show-lt-xl] {
+						display: none !important;
+					}
+				}
+				@include mix.lt-xl {
+					*[data-hide-lt-xl] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-xs(true) {
+					*[data-show-gt-xs] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-xs {
+					*[data-hide-gt-xs] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-sm(true) {
+					*[data-show-gt-sm] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-sm {
+					*[data-hide-gt-sm] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-md(true) {
+					*[data-show-gt-md] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-md {
+					*[data-hide-gt-md] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-lg(true) {
+					*[data-show-gt-lg] {
+						display: none !important;
+					}
+				}
+				@include mix.gt-lg {
+					*[data-hide-gt-lg] {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+}

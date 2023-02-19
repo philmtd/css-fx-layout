@@ -1,0 +1,191 @@
+@use '../node_modules/sass-true' as true;
+@use '../_index' as fx;
+
+@include true.describe("media-size mixins") {
+	@include true.it('xs') {
+		@include true.assert {
+			@include true.output {
+				@include fx.xs {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (max-width: 599px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('sm') {
+		@include true.assert {
+			@include true.output {
+				@include fx.sm {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 600px) and (max-width: 969px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('md') {
+		@include true.assert {
+			@include true.output {
+				@include fx.md {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 970px) and (max-width: 1279px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('lg') {
+		@include true.assert {
+			@include true.output {
+				@include fx.lg {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 1280px) and (max-width: 1919px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('xl') {
+		@include true.assert {
+			@include true.output {
+				@include fx.xl {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 1920px) and (max-width: 5000px) {
+					color: coral;
+				}
+			}
+		}
+	}
+
+	// lt
+	@include true.it('lt-sm') {
+		@include true.assert {
+			@include true.output {
+				@include fx.lt-sm {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (max-width: 599px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('lt-md') {
+		@include true.assert {
+			@include true.output {
+				@include fx.lt-md {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (max-width: 969px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('lt-lg') {
+		@include true.assert {
+			@include true.output {
+				@include fx.lt-lg {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (max-width: 1279px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('lt-xl') {
+		@include true.assert {
+			@include true.output {
+				@include fx.lt-xl {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (max-width: 1919px) {
+					color: coral;
+				}
+			}
+		}
+	}
+
+	// gt
+	@include true.it('gt-xs') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gt-xs {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 600px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('gt-sm') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gt-sm {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 970px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('gt-md') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gt-md {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 1280px) {
+					color: coral;
+				}
+			}
+		}
+	}
+	@include true.it('gt-lg') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gt-lg {
+					color: coral;
+				}
+			}
+			@include true.expect {
+				@media screen and (min-width: 1920px) {
+					color: coral;
+				}
+			}
+		}
+	}
+}

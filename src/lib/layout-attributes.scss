@@ -8,10 +8,6 @@
 		&[data-layout~="reverse"] {
 			@include row-reverse-properties;
 		}
-
-		&[data-layout~="wrap"] {
-			@include wrap-properties;
-		}
 	}
 
 	*[data-layout^="column"] {
@@ -20,10 +16,10 @@
 		&[data-layout~="reverse"] {
 			@include column-reverse-properties;
 		}
+	}
 
-		&[data-layout~="wrap"] {
-			@include wrap-properties;
-		}
+	*[data-layout~="wrap"] {
+		@include wrap-properties;
 	}
 }
 
@@ -37,10 +33,6 @@
 				&[data-layout-#{$name}~="reverse"] {
 					@include row-reverse-properties;
 				}
-
-				&[data-layout-#{$name}~="wrap"] {
-					@include wrap-properties;
-				}
 			}
 
 			*[data-layout-#{$name}^="column"] {
@@ -49,10 +41,10 @@
 				&[data-layout-#{$name}~="reverse"] {
 					@include column-reverse-properties;
 				}
+			}
 
-				&[data-layout-#{$name}~="wrap"] {
-					@include wrap-properties;
-				}
+			*[data-layout-#{$name}~="wrap"] {
+				@include wrap-properties;
 			}
 		}
 	}
