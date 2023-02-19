@@ -5,7 +5,7 @@
 	@include true.it('attribute selectors should generate correctly $from-$to with passed units') {
 		@include true.assert {
 			@include true.output {
-				@include fx.gap-attribute-selectors(1, 2, px em, false);
+				@include fx.gap-attribute-selectors(1, 2, 1, px em, false);
 			}
 			@include true.expect {
 				*[data-layout-gap="1px"] {
@@ -27,7 +27,7 @@
 	@include true.it('class selectors should generate correctly $from-$to with passed units') {
 		@include true.assert {
 			@include true.output {
-				@include fx.gap-class-selectors(1, 2, px em, false);
+				@include fx.gap-class-selectors(1, 2, 1, px em, false);
 			}
 			@include true.expect {
 				*.fx-gap--1px {
@@ -46,10 +46,48 @@
 		}
 	}
 
+	@include true.it('attribute selectors should generate correctly $from-$to with increment') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gap-attribute-selectors(2, 6, 2, px, false);
+			}
+			@include true.expect {
+				*[data-layout-gap="2px"] {
+					gap: 2px;
+				}
+				*[data-layout-gap="4px"] {
+					gap: 4px;
+				}
+				*[data-layout-gap="6px"] {
+					gap: 6px;
+				}
+			}
+		}
+	}
+
+	@include true.it('class selectors should generate correctly $from-$to with increment') {
+		@include true.assert {
+			@include true.output {
+				@include fx.gap-class-selectors(2, 6, 2, px, false);
+			}
+			@include true.expect {
+				*.fx-gap--2px {
+					gap: 2px;
+				}
+				*.fx-gap--4px {
+					gap: 4px;
+				}
+				*.fx-gap--6px {
+					gap: 6px;
+				}
+			}
+		}
+	}
+
 	@include true.it('attribute selectors should correctly generate media size selectors') {
 		@include true.assert {
 			@include true.output {
-				@include fx.gap-attribute-selectors(1, 1, px, true);
+				@include fx.gap-attribute-selectors(1, 1, 1, px, true);
 			}
 			@include true.expect {
 				*[data-layout-gap="1px"] {
@@ -127,7 +165,7 @@
 	@include true.it('class selectors should correctly generate media size selectors') {
 		@include true.assert {
 			@include true.output {
-				@include fx.gap-class-selectors(1, 1, px, true);
+				@include fx.gap-class-selectors(1, 1, 1, px, true);
 			}
 			@include true.expect {
 				*.fx-gap--1px {
