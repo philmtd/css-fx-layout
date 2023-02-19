@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "sass:math";
 
 @import "mixins";
 
@@ -24,19 +25,24 @@
 ///   Will start generating selectors from $from $gapUnits
 /// @param {number} $to
 ///   Will generate selectors until including $to $gapUnits
+/// @param {string} $increment
+///   Will generate selectors in increments of $increment
 /// @param {string} $gapUnits
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
 /// @param {bool} $includeSelectorsForMediaSizes
 ///	  Will generate additional selectors for flex layout media sizes
-@mixin layout-gap-classes($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
-	@for $i from $from through $to {
-		@include layout-gap-class($i, $gapUnits)
+@mixin layout-gap-classes($from: 1, $to: 24, $increment: 1, $gapUnits: px em rem, $includeSelectorsForMediaSizes: true) {
+    @if $from % $increment != 0 or $to % $increment != 0 {
+        @error "$from (#{$from}) and $to (#{$to}) must be dividable by $increment (#{$increment}).";
+    }
+	@for $i from math.div($from, $increment) through math.div($to, $increment) {
+		@include layout-gap-class($i * $increment, $gapUnits)
 	}
 	@if $includeSelectorsForMediaSizes {
 		@each $name, $_ in $flex-layout-media-queries {
 			@include flex-layout-media($name) {
-				@for $i from $from through $to {
-					@include layout-gap-class($i, $gapUnits, $name)
+				@for $i from math.div($from, $increment) through math.div($to, $increment) {
+					@include layout-gap-class($i * $increment, $gapUnits, $name)
 				}
 			}
 		}

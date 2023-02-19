@@ -34,12 +34,14 @@
 ///   Will start generating selectors from $from $gapUnits
 /// @param {number} $to [24]
 ///   Will generate selectors until including $to $gapUnits
+/// @param {string} $increment [1]
+///   Will generate selectors in increments of $increment
 /// @param {string} $gapUnits [px em rem]
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
 /// @param {bool} $includeSelectorsForMediaSizes [false]
 ///	  Will generate additional selectors for flex layout media sizes
-@mixin gap-class-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
-	@include layoutGapC.layout-gap-classes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
+@mixin gap-class-selectors($from: 1, $to: 24, $increment: 1, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
+	@include layoutGapC.layout-gap-classes($from, $to, $increment, $gapUnits, $includeSelectorsForMediaSizes)
 }
 
 /// Includes selectors for classes based on a list of values which can be used to add a gap to elements in a flex container
@@ -101,12 +103,14 @@
 ///   Will start generating selectors from $from $gapUnits
 /// @param {number} $to [24]
 ///   Will generate selectors until including $to $gapUnits
+/// @param {string} $increment [1]
+///   Will generate selectors in increments of $increment
 /// @param {string} $gapUnits [px em rem]
 ///   Will generate selectors for the units passed in $gapUnits, e.g. px em rem
 /// @param {bool} $includeSelectorsForMediaSizes [false]
 ///	  Will generate additional selectors for flex layout media sizes
-@mixin gap-attribute-selectors($from: 1, $to: 24, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
-	@include layoutGapA.layout-gap-attributes($from, $to, $gapUnits, $includeSelectorsForMediaSizes)
+@mixin gap-attribute-selectors($from: 1, $to: 24, $increment: 1, $gapUnits: px em rem, $includeSelectorsForMediaSizes: false) {
+	@include layoutGapA.layout-gap-attributes($from, $to, $increment, $gapUnits, $includeSelectorsForMediaSizes)
 }
 
 /// Includes selectors for attributes based on a list of values which can be used to add a gap to elements in a flex container
