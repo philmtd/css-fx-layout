@@ -1,0 +1,101 @@
+@use '../node_modules/sass-true' as true;
+@use '../_index' as fx;
+
+@include true.describe("flex sizes") {
+	@include true.it('attribute selectors should generate correctly $from-$to') {
+		@include true.assert {
+			@include true.output {
+				@include fx.flex-size-attribute-selectors(5, 10)
+			}
+			@include true.expect {
+				*[data-fx-flex="5"] {
+					flex: 1 1 5%;
+				}
+				*[data-fx-flex="10"] {
+					flex: 1 1 10%;
+				}
+			}
+		}
+	}
+	@include true.it('class selectors should generate correctly $from-$to') {
+		@include true.assert {
+			@include true.output {
+				@include fx.flex-size-class-selectors(5, 10)
+			}
+			@include true.expect {
+				*.fx-flex--5 {
+					flex: 1 1 5%;
+				}
+				*.fx-flex--10 {
+					flex: 1 1 10%;
+				}
+			}
+		}
+	}
+	@include true.it('attribute selectors should generate correctly $from-$to with increment') {
+		@include true.assert {
+			@include true.output {
+				@include fx.flex-size-attribute-selectors(2, 6, 2)
+			}
+			@include true.expect {
+				*[data-fx-flex="2"] {
+					flex: 1 1 2%;
+				}
+				*[data-fx-flex="4"] {
+					flex: 1 1 4%;
+				}
+				*[data-fx-flex="6"] {
+					flex: 1 1 6%;
+				}
+			}
+		}
+	}
+	@include true.it('class selectors should generate correctly $from-$to with increment') {
+		@include true.assert {
+			@include true.output {
+				@include fx.flex-size-class-selectors(2, 6, 2)
+			}
+			@include true.expect {
+				*.fx-flex--2 {
+					flex: 1 1 2%;
+				}
+				*.fx-flex--4 {
+					flex: 1 1 4%;
+				}
+				*.fx-flex--6 {
+					flex: 1 1 6%;
+				}
+			}
+		}
+	}
+	@include true.it('attribute selectors should generate correctly from list') {
+		@include true.assert {
+			@include true.output {
+				@include fx.flex-size-attribute-selectors-from-list(28 42);
+			}
+			@include true.expect {
+				*[data-fx-flex="28"] {
+					flex: 1 1 28%;
+				}
+				*[data-fx-flex="42"] {
+					flex: 1 1 42%;
+				}
+			}
+		}
+	}
+	@include true.it('class selectors should generate correctly from list') {
+		@include true.assert {
+			@include true.output {
+				@include fx.flex-size-class-selectors-from-list(28 42);
+			}
+			@include true.expect {
+				*.fx-flex--28 {
+					flex: 1 1 28%;
+				}
+				*.fx-flex--42 {
+					flex: 1 1 42%;
+				}
+			}
+		}
+	}
+}
