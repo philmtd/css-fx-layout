@@ -12,12 +12,13 @@ This page describes how to use the class based gap API to add gaps between eleme
 The gap selectors are customisable and need to be included using the provided mixin:
 
 ```scss
-@include fx.gap-class-selectors(1, 16, px em, $includeResponsiveApi);
+@include fx.gap-class-selectors(1, 8, 1, px em, $includeResponsiveApi);
+@include fx.gap-class-selectors-from-list(16 32 48, px em, $includeResponsiveApi);
 ```
 
 There you can decide which sizes and units you want selectors to be generated for and whether to include selectors for the responsive API or not.
 
-The above example generates selectors for all sizes from 1 to 16 `px` and `em`.
+The above example generates selectors for all sizes from 1 to 8 `px` and `em` and additionally for 16, 32 and 48 `px` and `em`.
 
 ## `fx-gap` classes
 
