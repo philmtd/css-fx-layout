@@ -7,11 +7,40 @@ sidebar_position: 3
 
 This page describes how to use the attribute based flex API.
 
-## Selectors
+## `data-fx-flex` attribute
 
-The flex API consists of two selectors:
+The flex API consists of one attribute selector with the following available values and their resulting CSS:
 
-| Selector            | CSS               |
-|---------------------|-------------------|
-| `data-fx-flex`      | `flex: 1 1 0;`    |
-| `data-fx-flex-grow` | `flex: 1 1 100%;` |
+| Value        | CSS                 |
+|--------------|---------------------|
+| `<no value>` | `flex: 1 1 0;`      |
+| `auto`       | `flex-basis: 100%;` |
+| `grow`       | `flex: 1 1 100%;`   |
+| `initial`    | `flex: 0 1 auto;`   |
+| `none`       | `flex: 0 0 auto;`   |
+| `nogrow`     | `flex: 0 1 auto;`   |
+| `noshrink`   | `flex: 1 0 auto;`   |
+
+## Support for flex sizes
+
+Additionally, you can generate flex size selectors using the mixins as shown in the following example. They will extend the `data-fx-flex` attribute
+with numerical values, for example:
+
+| Selector                  | CSS                    |
+|---------------------------|------------------------|
+| `data-fx-flex="<number>"` | `flex: 1 1 <number>%;` |
+| e.g. `data-fx-flex="30"`  | `flex: 1 1 30%;`       |
+
+This can be used to give elements a width with the percentage of the numerical value in relation to their flex container.
+
+```scss
+@include fx.flex-size-attribute-selectors;
+@include fx.flex-size-attribute-selectors-from-list(33 66);
+```
+
+The mixins can be configured with parameters to generate only the selectors you need. The first mixin can generate a range of selectors with a configurable
+start and end and a given increment.
+
+The second mixin will generate only selectors for the numbers passed as the first argument.
+
+Both mixins can generate selectors for the responsive API (e.g. `data-fx-flex-gt-sm="50"`)
