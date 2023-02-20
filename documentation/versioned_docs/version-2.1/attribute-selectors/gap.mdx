@@ -1,0 +1,45 @@
+---
+sidebar_label: Gap API
+sidebar_position: 2
+---
+
+# Attribute Gap API
+
+This page describes how to use the attribute based gap API to add gaps between elements inside a flex container.
+
+## Configuration
+
+The gap selectors are customisable and need to be included using the provided mixin:
+
+```scss
+@include fx.gap-attribute-selectors(1, 16, px em, $includeResponsiveApi);
+```
+
+There you can decide which sizes and units you want selectors to be generated for and whether to include selectors for the responsive API or not.
+
+The above example generates selectors for all sizes from 1 to 16 `px` and `em`.
+
+## `data-layout-gap` attribute
+
+### Values
+
+Value format:  "`<number><unit>`".
+
+With `<number>` being a number that is included in your generated selectors and `<unit>` being a unit you chose the selectors to be generated for.
+
+### Example
+
+```html
+<div data-layout="row reverse"
+     data-layout-align="start center"
+<!-- highlight-next-line -->
+	 data-layout-gap="4px">
+    <span>One</span>
+    <span>Two</span>
+    <span>Three</span>
+</div>
+```
+
+import Example2 from '../images/example-2.png';
+
+<img src={Example2} alt="Layout Gap Example" width="280px" />
