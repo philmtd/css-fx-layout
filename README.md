@@ -34,7 +34,6 @@ For example css-fx-layout provides classes with naming patterns like:
 * `show-...` and `hide-...`
 * `fx-flex-...`
 
-
 ### Responsive API
 
 The library provides a responsive API which allows to create different layouts for different screen sizes using known breakpoints
