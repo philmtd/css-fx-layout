@@ -6,14 +6,12 @@ sidebar_position: 1
 # About css-fx-layout
 
 `css-fx-layout` is a lightweight and modular SCSS flexbox library. It is inspired by Angular's [Flex-Layout](https://github.com/angular/flex-layout) and can
-replace the
-most popular functions of the (by now deprecated) Angular library.
+replace the most popular functions of the (by now deprecated) Angular library.
 
 ## Features
 
 This library gives you the option between using CSS classes or data-attributes as selectors in your HTML. Both options give you the same features but the CSS
 classes can be more verbose when you want a more complex layout.
-Check out the [Wiki](https://github.com/philmtd/css-fx-layout/wiki) for a detailed documentation.
 
 ### CSS class selectors
 
