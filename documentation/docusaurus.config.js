@@ -2,13 +2,13 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require('prism-react-renderer/themes/palenight');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'css-fx-layout',
   tagline: 'A responsive and modular SCSS flexbox library 📚',
-  favicon: 'img/favicon.ico',
+  //favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://philmtd.github.io',
