@@ -7,11 +7,11 @@ defaults:
 on:
   push:
     branches:
-      - improved-documentation # TODO: change back to master
+      - master
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
-#    paths:
-#      - documentation
+    paths:
+      - documentation
 
 jobs:
   deploy:
