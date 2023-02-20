@@ -31,6 +31,9 @@ $includeResponsiveApi: true;
 // If you choose to use attribute selectors:
 @include fx.attribute-selectors($includeResponsiveApi);
 @include fx.gap-attribute-selectors(1, 16, px em, $includeResponsiveApi);
+@include fx.flex-size-attribute-selectors(5, 100, 5, $includeResponsiveApi);
+@include fx.flex-size-attribute-selectors-from-list(33 66, $includeResponsiveApi);
+
 ````
 
 ### Using CSS classes
@@ -44,6 +47,8 @@ $includeResponsiveApi: true;
 // If you choose to use CSS class selectors:
 @include fx.class-selectors($includeResponsiveApi);
 @include fx.gap-class-selectors(1, 16, px em, $includeResponsiveApi);
+@include fx.flex-size-class-selectors(5, 100, 5, $includeResponsiveApi);
+@include fx.flex-size-class-selectors-from-list(33 66, $includeResponsiveApi);
 ````
 
 ## Ready to go
