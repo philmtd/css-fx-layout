@@ -5,7 +5,6 @@ defaults:
     working-directory: documentation
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - master
