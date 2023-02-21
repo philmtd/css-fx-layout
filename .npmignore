@@ -6,5 +6,6 @@ yarn.lock
 build.js
 *.html
 test
-docs
+documentation
+images
 junit.xml
