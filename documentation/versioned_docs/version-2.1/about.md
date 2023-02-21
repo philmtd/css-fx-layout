@@ -13,7 +13,6 @@ most popular functions of the (by now deprecated) Angular library.
 
 This library gives you the option between using CSS classes or data-attributes as selectors in your HTML. Both options give you the same features but the CSS
 classes can be more verbose when you want a more complex layout.
-Check out the [Wiki](https://github.com/philmtd/css-fx-layout/wiki) for a detailed documentation.
 
 ### CSS class selectors
 
