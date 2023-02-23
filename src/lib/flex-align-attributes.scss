@@ -1,0 +1,42 @@
+@import "mixins";
+
+/// Generates flex align data attribute selectors
+@mixin flex-align-attributes {
+	*[data-flex-align="start"] {
+		@include flex-align-start-properties;
+	}
+	*[data-flex-align="center"] {
+		@include flex-align-center-properties;
+	}
+	*[data-flex-align="end"] {
+		@include flex-align-end-properties;
+	}
+	*[data-flex-align="baseline"] {
+		@include flex-align-baseline-properties;
+	}
+	*[data-flex-align="stretch"] {
+		@include flex-align-stretch-properties;
+	}
+}
+
+@mixin flex-align-attributes-for-media-sizes {
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*[data-flex-align-#{$name}="start"] {
+				@include flex-align-start-properties;
+			}
+			*[data-flex-align-#{$name}="center"] {
+				@include flex-align-center-properties;
+			}
+			*[data-flex-align-#{$name}="end"] {
+				@include flex-align-end-properties;
+			}
+			*[data-flex-align-#{$name}="baseline"] {
+				@include flex-align-baseline-properties;
+			}
+			*[data-flex-align-#{$name}="stretch"] {
+				@include flex-align-stretch-properties;
+			}
+		}
+	}
+}

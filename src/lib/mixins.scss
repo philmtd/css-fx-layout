@@ -63,6 +63,28 @@
 
 }
 
+// Flex Align
+
+@mixin flex-align-start-properties {
+	align-self: flex-start;
+}
+
+@mixin flex-align-center-properties {
+	align-self: center;
+}
+
+@mixin flex-align-end-properties {
+	align-self: flex-end;
+}
+
+@mixin flex-align-baseline-properties {
+	align-self: baseline;
+}
+
+@mixin flex-align-stretch-properties {
+	align-self: stretch;
+}
+
 // Media Sizes
 // flex-layout breakpoints
 $xs: 599px;
