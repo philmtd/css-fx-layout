@@ -34,7 +34,11 @@
 		@include flex-noshrink-properties;
 	}
 
-	*:has(>[data-fx-flex],>[data-fx-flex-grow]):not([data-layout]) {
+	*[data-fx-flex-fill] {
+		@include flex-fill-properties;
+	}
+
+	*:has(>[data-fx-flex],>[data-fx-flex-grow],>[data-fx-flex-fill]):not([data-layout]) {
 		@include flex-row-properties;
 	}
 }
@@ -75,7 +79,11 @@
 				@include flex-noshrink-properties;
 			}
 
-			*:has(>[data-fx-flex-#{$name}],>[data-fx-flex-grow-#{$name}]):not([data-layout]) {
+			*[data-fx-flex-fill-#{$name}] {
+				@include flex-fill-properties;
+			}
+
+			*:has(>[data-fx-flex-#{$name}],>[data-fx-flex-grow-#{$name}],>[data-fx-flex-fill-#{$name}]):not([data-layout]) {
 				@include flex-row-properties;
 			}
 		}
