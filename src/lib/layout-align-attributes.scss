@@ -49,6 +49,10 @@
 			align-items: stretch;
 		}
 	}
+
+	*:has([data-layout-align]):not([data-layout]) {
+		@include flex-row-properties;
+	}
 }
 
 @mixin layout-align-attributes-for-media-sizes {
