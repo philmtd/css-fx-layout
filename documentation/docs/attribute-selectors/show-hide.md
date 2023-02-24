@@ -14,6 +14,7 @@ The attributes have the following naming scheme:
 
 * `data-show-[mediaQueryName]`
 * `data-hide-[mediaQueryName]`
+* `data-hide`
 
 With `mediaQueryName` being the name of one of the [available media queries](../responsive#media-queries).
 

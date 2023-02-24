@@ -2,6 +2,9 @@
 
 /// Generates show/hide class selectors
 @mixin show-hide-classes {
+	*.hide {
+		display: none !important;
+	}
 	@each $breakpoint, $_ in $flex-layout-media-queries {
 		*.show-#{$breakpoint} {
 			@include flex-layout-media-not($breakpoint) {
