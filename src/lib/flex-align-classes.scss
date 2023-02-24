@@ -1,0 +1,42 @@
+@import "mixins";
+
+/// Generates flex align class selectors
+@mixin flex-align-classes {
+	*.fx-flex-align--start {
+		@include flex-align-start-properties;
+	}
+	*.fx-flex-align--center {
+		@include flex-align-center-properties;
+	}
+	*.fx-flex-align--end {
+		@include flex-align-end-properties;
+	}
+	*.fx-flex-align--baseline {
+		@include flex-align-baseline-properties;
+	}
+	*.fx-flex-align--stretch {
+		@include flex-align-stretch-properties;
+	}
+}
+
+@mixin flex-align-classes-for-media-sizes {
+	@each $name, $_ in $flex-layout-media-queries {
+		@include flex-layout-media($name) {
+			*.fx-flex-align--start--#{$name} {
+				@include flex-align-start-properties;
+			}
+			*.fx-flex-align--center--#{$name} {
+				@include flex-align-center-properties;
+			}
+			*.fx-flex-align--end--#{$name} {
+				@include flex-align-end-properties;
+			}
+			*.fx-flex-align--baseline--#{$name} {
+				@include flex-align-baseline-properties;
+			}
+			*.fx-flex-align--stretch--#{$name} {
+				@include flex-align-stretch-properties;
+			}
+		}
+	}
+}

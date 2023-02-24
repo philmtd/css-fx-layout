@@ -30,6 +30,8 @@ The naming scheme is the following:
 * `fx-align--*-[crossAxis]--[mediaQueryName]`
 * `fx-gap--[gapSize]--[mediaQueryName]`
 * `fx-flex-[flex]--[mediaQueryName]`
+* `fx-flex-fill--[mediaQueryName]`
+* `fx-flex-align--[fillSelector]--[mediaQueryName]`
 
 With the media query name being for example `xs` or `lt-md`. See  [this page](../responsive) for a full list.
 

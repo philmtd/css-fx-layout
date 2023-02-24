@@ -28,6 +28,14 @@
 	flex: 1 0 auto;
 }
 
+@mixin flex-fill-properties {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%
+}
+
 // Layout
 
 @mixin flex-row-properties {
@@ -53,6 +61,28 @@
 @mixin wrap-properties {
 	flex-wrap: wrap;
 
+}
+
+// Flex Align
+
+@mixin flex-align-start-properties {
+	align-self: flex-start;
+}
+
+@mixin flex-align-center-properties {
+	align-self: center;
+}
+
+@mixin flex-align-end-properties {
+	align-self: flex-end;
+}
+
+@mixin flex-align-baseline-properties {
+	align-self: baseline;
+}
+
+@mixin flex-align-stretch-properties {
+	align-self: stretch;
 }
 
 // Media Sizes

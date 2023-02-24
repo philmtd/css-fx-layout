@@ -29,7 +29,7 @@ Using the data attributes is the easiest way to use this library and easier to m
 * `data-layout` and `data-layout-align`: HTML attributes to be used to control the flexbox container
 * `data-layout-gap`: attribute to add gaps between the elements in a flex container
 * `data-hide-` and `data-show-`: attributes which can be used to show/hide elements depending on the screen size
-* `data-fx-flex` and `data-fx-flex-grow`: Control flex behaviour of an element
+* `data-flex`: Control flex behaviour of an element
 
 ### Responsive API
 

@@ -132,9 +132,9 @@
 		<tr>
 			<td>
 				<div>
-					<span data-fx-flex="none">Flex None</span>
-					<span data-fx-flex>Flex</span>
-					<span data-fx-flex-grow>Flex Grow</span>
+					<span data-flex="none">Flex None</span>
+					<span data-flex>Flex</span>
+					<span data-flex="grow">Flex Grow</span>
 				</div>
 			</td>
 			<td>
@@ -157,8 +157,8 @@
 		<tr>
 			<td>
 				<div data-layout="column">
-					<span data-fx-flex>Flex</span>
-					<span data-fx-flex-grow>Flex Grow</span>
+					<span data-flex>Flex</span>
+					<span data-flex="grow">Flex Grow</span>
 				</div>
 			</td>
 			<td>
@@ -323,8 +323,8 @@
 		<tr>
 			<td>
 				<div data-layout="row">
-					<span data-fx-flex-xs data-fx-flex-md data-fx-flex-xl>One</span>
-					<span class="green" data-fx-flex-sm data-fx-flex-lg>Two</span>
+					<span data-flex-xs data-flex-md data-flex-xl>One</span>
+					<span class="green" data-flex-sm data-flex-lg>Two</span>
 				</div>
 			</td>
 			<td>
@@ -426,16 +426,87 @@
 		<tr>
 			<td>
 				<div data-layout="row">
-					<span data-fx-flex="20">One</span>
-					<span data-fx-flex="30">Two</span>
-					<span data-fx-flex="50">Three</span>
+					<span data-flex="20">20</span>
+					<span data-flex="30">30</span>
+					<span data-flex="50">50</span>
 				</div>
 			</td>
 			<td>
 				<div class="fx-layout-row ">
-					<span class="fx-flex--20">One</span>
-					<span class="fx-flex--30">Two</span>
-					<span class="fx-flex--50">Three</span>
+					<span class="fx-flex--20">20</span>
+					<span class="fx-flex--30">30</span>
+					<span class="fx-flex--50">50</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E11</h2>
+	<p>Flex fill</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row">
+					<span data-flex-fill>One</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row">
+					<span class="fx-flex-fill">One</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E12</h2>
+	<p>Flex align</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout="row">
+					<span data-flex data-flex-align="start">Start</span>
+					<span data-flex data-flex-align="center">Center</span>
+					<span data-flex data-flex-align="end">End</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row">
+					<span class="fx-flex fx-flex-align--start">Start</span>
+					<span class="fx-flex fx-flex-align--center">Center</span>
+					<span class="fx-flex fx-flex-align--end">End</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E13</h2>
+	<p>Automatic flex-row if missing when flex-align is used</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout-align="end center">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-align--end-x fx-align--x-center">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
 				</div>
 			</td>
 		</tr>

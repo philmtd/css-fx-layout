@@ -17,6 +17,13 @@ The attributes have the following naming scheme:
 
 With `mediaQueryName` being the name of one of the [available media queries](../responsive#media-queries).
 
+:::caution
+
+Due to the way `data-show` works it can only be used on an element once and not in combination with `data-hide`. If you require fine-grained control over
+when an element should be visible or not please only use `data-hide`!
+
+:::
+
 ## Example
 
 ```html

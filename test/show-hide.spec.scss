@@ -11,6 +11,9 @@
 				@include shc.show-hide-classes;
 			}
 			@include true.expect {
+				*.hide {
+					display: none !important;
+				}
 				@include mix.xs(true) {
 					*.show-xs {
 						display: none !important;
@@ -150,6 +153,9 @@
 				@include sha.show-hide-attributes;
 			}
 			@include true.expect {
+				*[data-hide] {
+					display: none !important;
+				}
 				@include mix.xs(true) {
 					*[data-show-xs] {
 						display: none !important;
