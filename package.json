@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "description": "A lightweight SCSS flexbox library inspired by Angular Flex-Layout.",
   "repository": "https://github.com/philmtd/css-fx-layout",
+  "homepage": "https://philmtd.github.io/css-fx-layout/",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
