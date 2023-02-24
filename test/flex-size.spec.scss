@@ -8,10 +8,10 @@
 				@include fx.flex-size-attribute-selectors(5, 10)
 			}
 			@include true.expect {
-				*[data-fx-flex="5"] {
+				*[data-flex="5"] {
 					flex: 1 1 5%;
 				}
-				*[data-fx-flex="10"] {
+				*[data-flex="10"] {
 					flex: 1 1 10%;
 				}
 			}
@@ -38,13 +38,13 @@
 				@include fx.flex-size-attribute-selectors(2, 6, 2)
 			}
 			@include true.expect {
-				*[data-fx-flex="2"] {
+				*[data-flex="2"] {
 					flex: 1 1 2%;
 				}
-				*[data-fx-flex="4"] {
+				*[data-flex="4"] {
 					flex: 1 1 4%;
 				}
-				*[data-fx-flex="6"] {
+				*[data-flex="6"] {
 					flex: 1 1 6%;
 				}
 			}
@@ -74,10 +74,10 @@
 				@include fx.flex-size-attribute-selectors-from-list(28 42);
 			}
 			@include true.expect {
-				*[data-fx-flex="28"] {
+				*[data-flex="28"] {
 					flex: 1 1 28%;
 				}
-				*[data-fx-flex="42"] {
+				*[data-flex="42"] {
 					flex: 1 1 42%;
 				}
 			}

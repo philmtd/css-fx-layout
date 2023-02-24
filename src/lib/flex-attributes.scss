@@ -2,43 +2,39 @@
 
 /// Generates flex data-attribute selectors
 @mixin flex-attributes {
-	*[data-fx-flex] {
+	*[data-flex] {
 		@include flex-properties;
 	}
 
-	*[data-fx-flex="auto"] {
+	*[data-flex="auto"] {
 		@include flex-auto-properties;
 	}
 
-	*[data-fx-flex="grow"] {
-		@include flex-grow-properties;
-	}
-
-	*[data-fx-flex-grow] {
+	*[data-flex="grow"] {
 		@include flex-grow-properties;
 	}
 	
-	*[data-fx-flex="initial"] {
+	*[data-flex="initial"] {
 		@include flex-initial-properties;
 	}
 
-	*[data-fx-flex="none"] {
+	*[data-flex="none"] {
 		@include flex-none-properties;
 	}
 	
-	*[data-fx-flex="nogrow"] {
+	*[data-flex="nogrow"] {
 		@include flex-nogrow-properties;
 	}
 	
-	*[data-fx-flex="noshrink"] {
+	*[data-flex="noshrink"] {
 		@include flex-noshrink-properties;
 	}
 
-	*[data-fx-flex-fill] {
+	*[data-flex-fill] {
 		@include flex-fill-properties;
 	}
 
-	*:has(>[data-fx-flex],>[data-fx-flex-grow],>[data-fx-flex-fill]):not([data-layout]) {
+	*:has(>[data-flex],>[data-flex-fill]):not([data-layout]) {
 		@include flex-row-properties;
 	}
 }
@@ -47,43 +43,39 @@
 @mixin flex-attributes-for-media-sizes {
 	@each $name, $_ in $flex-layout-media-queries {
 		@include flex-layout-media($name) {
-			*[data-fx-flex-#{$name}] {
+			*[data-flex-#{$name}] {
 				@include flex-properties;
 			}
 
-			*[data-fx-flex-#{$name}="auto"] {
+			*[data-flex-#{$name}="auto"] {
 				@include flex-auto-properties;
 			}
 
-			*[data-fx-flex-#{$name}="grow"] {
+			*[data-flex-#{$name}="grow"] {
 				@include flex-grow-properties;
 			}
 
-			*[data-fx-flex-grow-#{$name}] {
-				@include flex-grow-properties;
-			}
-
-			*[data-fx-flex-#{$name}="initial"] {
+			*[data-flex-#{$name}="initial"] {
 				@include flex-initial-properties;
 			}
 
-			*[data-fx-flex-#{$name}="none"] {
+			*[data-flex-#{$name}="none"] {
 				@include flex-none-properties;
 			}
 
-			*[data-fx-flex-#{$name}="nogrow"] {
+			*[data-flex-#{$name}="nogrow"] {
 				@include flex-nogrow-properties;
 			}
 
-			*[data-fx-flex-#{$name}="noshrink"] {
+			*[data-flex-#{$name}="noshrink"] {
 				@include flex-noshrink-properties;
 			}
 
-			*[data-fx-flex-fill-#{$name}] {
+			*[data-flex-fill-#{$name}] {
 				@include flex-fill-properties;
 			}
 
-			*:has(>[data-fx-flex-#{$name}],>[data-fx-flex-grow-#{$name}],>[data-fx-flex-fill-#{$name}]):not([data-layout]) {
+			*:has(>[data-flex-#{$name}],>[data-flex-fill-#{$name}]):not([data-layout]) {
 				@include flex-row-properties;
 			}
 		}

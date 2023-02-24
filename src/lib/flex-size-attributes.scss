@@ -10,7 +10,7 @@
 /// @param {string} $name
 ///   Will generate selectors for a specific media size, e.g. xs, sm, md, ...
 @mixin flex-size-attribute($value, $name: false) {
-	*[data-fx-flex#{if($name, '-' + $name, '')}="#{$value}"] {
+	*[data-flex#{if($name, '-' + $name, '')}="#{$value}"] {
 		flex: 1 1 $value * 1%;
 	}
 }
