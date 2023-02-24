@@ -23,6 +23,16 @@ Let's start with what is missing in css-fx-layout in comparison with Angular Fle
 * no alternative for `fxFlexOrder`
 * no alternative for `fxFlexOffset`
 * no custom breakpoints
+* the alternatives to `fxShow`/`fxHide` only support the responsive API
+* the alternative to `fxShow` does not work the same way it does in Flex-Layout
+
+:::warning Migrate away from `fxShow` / `data-show`
+
+When moving to css-fx-layout it is recommended to migrate all elements using `fxShow` with more than one media size or in combination with `fxHide` to multiple `data-hide` attributes.
+css-fx-layout is not a JavaScript powered library and cannot make the selectors work the same smart way they do in Angular Flex-Layout. Ignoring this advice and
+keeping multiple `data-show` attributes on your elements or trying to combine them with `data-hide` will very likely not result in what you want!
+
+:::
 
 There *may* be more differences in the details but these are the most obvious and big ones.
 
@@ -53,7 +63,11 @@ finds and replaces in your code using regular expressions.
 | `fxFlexFill`               | `fxFlexFill`               | `data-flex-fill`        |
 | `fxFlexFill` responsive    | `fxFlexFill\.([\w-]+)`     | `data-flex-fill-$1`     |
 
-Additionally, you need to replace all occurrences of `row-reverse` and `column-reverse` with `row reverse` or `column reverse`.
+Additionally:
+* you need to replace all occurrences of `row-reverse` and `column-reverse` with `row reverse` or `column reverse`
+* you should change your code to follow the advice regarding `data-show` from the warning box above
 
-This should get the migration of all available features done. In many projects, even larger ones, this will already be 90%-100% of the work required
+This should get the migration of all available features done. In many projects, even larger ones, this can already be 80-100% of the work required
 to move away from Angular Flex-Layout.
+
+Did we miss something? Feel free to contribute to the documentation or the library on [GitHub](https://github.com/philmtd/css-fx-layout).
