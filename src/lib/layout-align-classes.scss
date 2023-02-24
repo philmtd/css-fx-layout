@@ -39,7 +39,7 @@
 		align-items: stretch;
 	}
 
-	*:has([class*="fx-align--"]):not([class*="fx-layout"]) {
+	*[class*="fx-align--"]:not([class*="fx-layout"]) {
 		@include flex-row-properties;
 	}
 }

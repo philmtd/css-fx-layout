@@ -50,7 +50,7 @@
 		}
 	}
 
-	*:has([data-layout-align]):not([data-layout]) {
+	*[data-layout-align]:not([data-layout]) {
 		@include flex-row-properties;
 	}
 }
