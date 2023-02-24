@@ -10,6 +10,8 @@
 @use "lib/flex-classes" as flexC;
 @use "lib/flex-size-attributes" as flexSizeA;
 @use "lib/flex-size-classes" as flexSizeC;
+@use "lib/flex-align-attributes" as flexAlignA;
+@use "lib/flex-align-classes" as flexAlignC;
 
 /// Adds the css-fx-layout class selectors, e.g. `.fx-layout-row`
 ///
@@ -20,11 +22,13 @@
 	@include layoutC.layout-classes;
 	@include layoutAlignC.layout-align-classes;
 	@include flexC.flex-classes;
+	@include flexAlignC.flex-align-classes;
 
 	@if $includeSelectorsForMediaSizes {
 		@include layoutC.layout-classes-for-media-sizes;
 		@include layoutAlignC.layout-align-classes-for-media-sizes;
 		@include flexC.flex-classes-for-media-sizes;
+		@include flexAlignC.flex-align-classes-for-media-sizes;
 	}
 }
 
@@ -89,11 +93,13 @@
 	@include layoutA.layout-attributes;
 	@include layoutAlignA.layout-align-attributes;
 	@include flexA.flex-attributes;
+	@include flexAlignA.flex-align-attributes;
 
 	@if $includeSelectorsForMediaSizes {
 		@include layoutA.layout-attributes-for-media-sizes;
 		@include layoutAlignA.layout-align-attributes-for-media-sizes;
 		@include flexA.flex-attributes-for-media-sizes;
+		@include flexAlignA.flex-align-attributes-for-media-sizes;
 	}
 }
 

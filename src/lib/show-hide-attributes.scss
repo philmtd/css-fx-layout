@@ -2,6 +2,9 @@
 
 /// Generates show/hide attribute selectors
 @mixin show-hide-attributes {
+	*[data-hide] {
+		display: none !important;
+	}
 	@each $breakpoint, $_ in $flex-layout-media-queries {
 		*[data-show-#{$breakpoint}] {
 			@include flex-layout-media-not($breakpoint) {
