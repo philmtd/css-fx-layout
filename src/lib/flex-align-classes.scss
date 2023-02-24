@@ -1,6 +1,6 @@
 @import "mixins";
 
-/// Generates flex align data attribute selectors
+/// Generates flex align class selectors
 @mixin flex-align-classes {
 	*.fx-flex-align--start {
 		@include flex-align-start-properties;
