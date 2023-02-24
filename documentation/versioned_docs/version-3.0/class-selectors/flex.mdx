@@ -1,0 +1,72 @@
+---
+sidebar_label: Flex API
+sidebar_position: 3
+---
+
+# Flex API
+
+This page describes how to use the class based flex APIs and supports three
+types of class-selectors: `fx-flex`, `fx-flex-fill` and `fx-flex-align`.
+
+## `fx-flex` classes
+
+The flex API consists of classes with the following names and their resulting CSS:
+
+| Selector           | CSS                 |
+|--------------------|---------------------|
+| `fx-flex`          | `flex: 1 1 0;`      |
+| `fx-flex-auto`     | `flex-basis: 100%;` |
+| `fx-flex-grow`     | `flex: 1 1 100%;`   |
+| `fx-flex-initial`  | `flex: 0 1 auto;`   |
+| `fx-flex-none`     | `flex: 0 0 auto;`   |
+| `fx-flex-nogrow`   | `flex: 0 1 auto;`   |
+| `fx-flex-noshrink` | `flex: 1 0 auto;`   |
+
+### Support for flex sizes
+
+Additionally, you can generate flex size selectors using the mixins as shown in the following example. They will extend the `fx-flex` classes
+with the following schema
+
+| Selector            | CSS                    |
+|---------------------|------------------------|
+| `fx-flex--<number>` | `flex: 1 1 <number>%;` |
+| e.g. `fx-flex--30`  | `flex: 1 1 30%;`       |
+
+This can be used to give elements a width with the percentage of the numerical value in relation to their flex container.
+
+```scss
+@include fx.flex-size-class-selectors;
+@include fx.flex-size-class-selectors-from-list(33 66);
+```
+
+The mixins can be configured with parameters to generate only the selectors you need. The first mixin can generate a range of selectors with a configurable
+start and end and a given increment.
+
+The second mixin will generate only selectors for the numbers passed as the first argument.
+
+Both mixins can generate selectors for the responsive API (e.g. `fx-flex--50--gt-sm`)
+
+## `fx-flex-fill` class
+
+The `fx-flex-fill` class can be used to make a child of a flex-container fill the entire container.
+It takes no arguments and adds the following properties to the element:
+
+```css
+margin: 0;
+width: 100%;
+height: 100%;
+min-width: 100%;
+min-height: 100%;
+```
+
+## `fx-flex-align` selectors
+
+We offer the following flex align classes with their resulting CSS:
+
+| Value                     | CSS                       |
+|---------------------------|---------------------------|
+| `fx-flex-align--start`    | `align-self: flex-start;` |
+| `fx-flex-align--center`   | `align-self: center;`     |
+| `fx-flex-align--end`      | `align-self: flex-end;`   |
+| `fx-flex-align--baseline` | `align-self: baseline;`   |
+| `fx-flex-align--stretch`  | `align-self: stretch;`    |

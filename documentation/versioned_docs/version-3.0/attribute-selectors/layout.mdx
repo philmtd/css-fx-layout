@@ -1,0 +1,79 @@
+---
+sidebar_label: Layout API
+sidebar_position: 1
+---
+
+# Attribute Layout API
+
+This page describes how to use the attribute based layout API.
+
+## `data-layout` attribute
+
+### Values
+
+Value format:  "`<direction> <options>`". Possible values:
+
+#### Direction
+
+* `row`: for a row layout
+* `column`: for a column layout
+
+
+#### Options
+
+In addition to these you can optionally add the following, to control the corresponding flex properties:
+
+* `reverse`
+* `wrap`
+
+### Example
+
+```html
+<div data-layout="row">
+    <span>One</span>
+    <span>Two</span>
+    <span>Three</span>
+</div>
+```
+
+import Example1 from '../images/example-1.png';
+
+<img src={Example1} alt="Layout Example" width="280px" />
+
+## `data-layout-align` attribute
+
+### Values
+
+Value format:  "`<main-axis> <cross-axis>`". Possible values:
+
+#### Main Axis
+
+* `start`
+* `end`
+* `center`
+* `space-between`
+* `space-around`
+* `space-evenly`
+
+#### Cross Axis
+
+* `start`
+* `end`
+* `center`
+* `baseline`
+* `stretch`
+
+
+### Example
+
+```html
+<div data-layout="row"
+<!-- highlight-next-line -->
+     data-layout-align="center center">
+    <span>One</span>
+</div>
+```
+
+import Example3 from '../images/example-3.png';
+
+<img src={Example3} alt="Layout Align Example" width="280px" />

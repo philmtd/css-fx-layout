@@ -1,0 +1,48 @@
+---
+sidebar_label: Gap API
+sidebar_position: 2
+---
+
+# Class Gap API
+
+This page describes how to use the class based gap API to add gaps between elements inside a flex container.
+
+## Configuration
+
+The gap selectors are customisable and need to be included using the provided mixin:
+
+```scss
+@include fx.gap-class-selectors(1, 8, 1, px em, $includeResponsiveApi);
+@include fx.gap-class-selectors-from-list(16 32 48, px em, $includeResponsiveApi);
+```
+
+There you can decide which sizes and units you want selectors to be generated for and whether to include selectors for the responsive API or not.
+
+The above example generates selectors for all sizes from 1 to 8 `px` and `em` and additionally for 16, 32 and 48 `px` and `em`.
+
+## `fx-gap` classes
+
+### Values
+
+Naming scheme:  "`fx-gap--<number><unit>`".
+
+With `<number>` being a number that is included in your generated selectors and `<unit>` being a unit you chose the selectors to be generated for.
+
+### Example
+
+```html
+<div class="fx-layout-row
+            fx-layout-reverse
+            fx-align--start-x
+            fx-align--x-center
+<!-- highlight-next-line -->
+            fx-gap--4px">
+    <span>One</span>
+    <span>Two</span>
+    <span>Three</span>
+</div>
+```
+
+import Example2 from '../images/example-2.png';
+
+<img src={Example2} alt="Layout Gap Example" width="280px" />

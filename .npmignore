@@ -1,11 +1,12 @@
 node_modules/
 .idea
 out
-.circleci
+.github
 yarn.lock
-build.js
+testbuild.js
 *.html
 test
 documentation
 images
 junit.xml
+jest.config.js

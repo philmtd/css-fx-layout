@@ -1,0 +1,84 @@
+---
+sidebar_label: Layout API
+sidebar_position: 1
+---
+
+# Class Layout API
+
+This page describes how to use the class based layout API.
+
+## `fx-layout` classes
+
+### Classes
+
+To choose between a row and column layout of an element you can add the following classes:
+
+* `fx-layout-row`
+* `fx-layout-column`
+
+
+#### Options
+
+In addition to these you can optionally add the following, to control the corresponding flex properties:
+
+* `fx-layout-wrap`
+* `fx-layout-reverse`
+
+
+### Example
+
+```html
+<div class="fx-layout-row">
+    <span>One</span>
+    <span>Two</span>
+    <span>Three</span>
+</div>
+```
+
+import Example1 from '../images/example-1.png';
+
+<img src={Example1} alt="Layout Example" width="280px" />
+
+## `fx-align` classes
+
+### Values
+
+To control the layout-align behaviour, you can use combinations of two classes.
+One for the main axis and the other for the cross axis.
+
+#### Main Axis
+
+Classes for the main axis follow the naming convention `fx-align--[value]-x`.
+
+* `fx-align--start-x`
+* `fx-align--end-x`
+* `fx-align--center-x`
+* `fx-align--space-between-x`
+* `fx-align--space-around-x`
+* `fx-align--space-evenly-x`
+
+#### Cross Axis
+
+Classes for the main axis follow the naming convention `fx-align--x-[value]`.
+
+* `fx-align--x-start`
+* `fx-align--x-end`
+* `fx-align--x-center`
+* `fx-align--x-baseline`
+* `fx-align--x-stretch`
+
+### Example
+
+```html
+<div class="fx-layout-row
+<!-- highlight-start -->
+			fx-align--center-x
+			fx-align--x-center">
+<!-- highlight-end -->
+    <span>One</span>
+</div>
+```
+
+import Example3 from '../images/example-3.png';
+
+<img src={Example3} alt="Layout Align Example" width="280px" />
