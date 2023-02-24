@@ -28,7 +28,7 @@ The naming scheme is the following:
 * `data-layout-[mediaQueryName]`
 * `data-layout-align-[mediaQueryName]`
 * `data-layout-gap-[mediaQueryName]`
-* `data-fx-flex-[mediaQueryName]`
+* `data-flex-[mediaQueryName]`
 
 With the media query name being for example `xs` or `lt-md`. See  [this page](../responsive) for a full list.
 

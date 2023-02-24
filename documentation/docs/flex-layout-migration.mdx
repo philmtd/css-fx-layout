@@ -1,0 +1,59 @@
+---
+sidebar_label: Migration from Angular Flex-Layout
+sidebar_position: 6
+---
+
+# Migration from Angular Flex-Layout
+
+If you consider migrating to css-fx-layout from Angular Flex-Layout be sure to know this library's limitations.
+Not every feature of Flex-Layout is available but almost all popular features should be and some missing features can be
+easily replaced.
+
+As the migration is easier when you choose to use css-fx-layout with attribute selectors, this guide only focuses on this migration.
+
+## Limitations
+
+Let's start with what is missing in css-fx-layout in comparison with Angular Flex-Layout:
+
+* no JavaScript API
+* no support for Angular expression bindings
+* no alternative for `fxFlex` with numerical units other than percent
+* the alternatives for `fxFlexAlign` only support `start`, `center`, `end`, `baseline` and `stretch`
+* no grid functionality
+* no alternative for `fxFlexOrder`
+* no alternative for `fxFlexOffset`
+* no custom breakpoints
+
+There *may* be more differences in the details but these are the most obvious and big ones.
+
+## Migration
+
+:::info
+
+css-fx-layout generates some selectors only for the defined numerical values, for example the gap or flex selectors.
+Make sure to customise the parameters of the mixins in a way that generates all selectors you need in your project.
+
+:::
+
+Now that we got this out of the way let's migrate. Most of it should be possible to do with some smart
+finds and replaces in your code using regular expressions.
+
+| Flex-Layout selector       | Regex search               | Regex replace           |
+|----------------------------|----------------------------|-------------------------|
+| `fxLayout`                 | `fxLayout=`                | `data-layout=`          |
+| `fxLayout` responsive      | `fxLayout\.([\w-]+)=`      | `data-layout-$1=`       |
+| `fxLayoutAlign`            | `fxLayoutAlign=`           | `data-layout-align=`    |
+| `fxLayoutAlign` responsive | `fxLayoutAlign\.([\w-]+)=` | `data-layout-align-$1=` |
+| `fxFlex`                   | `fxFlex=`                  | `data-flex=`            |
+| `fxFlex` responsive        | `fxFlex\.([\w-]+)=`        | `data-flex-$1=`         |
+| `fxLayoutGap`              | `fxLayoutGap=`             | `data-layout-gap=`      |
+| `fxLayoutGap` responsive   | `fxLayoutGap\.([\w-]+)=`   | `data-layout-gap-$1=`   |
+| `fxHide` responsive        | `fxHide\.([\w-]+)`         | `data-hide-$1`          |
+| `fxShow` responsive        | `fxShow\.([\w-]+)`         | `data-show-$1`          |
+| `fxFlexFill`               | `fxFlexFill`               | `data-flex-fill`        |
+| `fxFlexFill` responsive    | `fxFlexFill\.([\w-]+)`     | `data-flex-fill-$1`     |
+
+Additionally, you need to replace all occurrences of `row-reverse` and `column-reverse` with `row reverse` or `column reverse`.
+
+This should get the migration of all available features done. In many projects, even larger ones, this will already be 90%-100% of the work required
+to move away from Angular Flex-Layout.

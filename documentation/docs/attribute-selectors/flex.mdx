@@ -7,7 +7,7 @@ sidebar_position: 3
 
 This page describes how to use the attribute based flex API.
 
-## `data-fx-flex` attribute
+## `data-flex` attribute
 
 The flex API consists of one attribute selector with the following available values and their resulting CSS:
 
@@ -23,13 +23,13 @@ The flex API consists of one attribute selector with the following available val
 
 ## Support for flex sizes
 
-Additionally, you can generate flex size selectors using the mixins as shown in the following example. They will extend the `data-fx-flex` attribute
+Additionally, you can generate flex size selectors using the mixins as shown in the following example. They will extend the `data-flex` attribute
 with numerical values, for example:
 
-| Selector                  | CSS                    |
-|---------------------------|------------------------|
-| `data-fx-flex="<number>"` | `flex: 1 1 <number>%;` |
-| e.g. `data-fx-flex="30"`  | `flex: 1 1 30%;`       |
+| Selector               | CSS                    |
+|------------------------|------------------------|
+| `data-flex="<number>"` | `flex: 1 1 <number>%;` |
+| e.g. `data-flex="30"`  | `flex: 1 1 30%;`       |
 
 This can be used to give elements a width with the percentage of the numerical value in relation to their flex container.
 
@@ -43,4 +43,4 @@ start and end and a given increment.
 
 The second mixin will generate only selectors for the numbers passed as the first argument.
 
-Both mixins can generate selectors for the responsive API (e.g. `data-fx-flex-gt-sm="50"`)
+Both mixins can generate selectors for the responsive API (e.g. `data-flex-gt-sm="50"`)

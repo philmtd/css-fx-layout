@@ -21,7 +21,7 @@ For example css-fx-layout provides attributes like the following, which can be c
 * `data-layout` and `data-layout-align`
 * `data-layout-gap`
 * `data-hide-...` and `data-show-...`
-* `data-fx-flex`
+* `data-flex`
 
 ### CSS class selectors
 
