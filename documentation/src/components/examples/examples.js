@@ -10,6 +10,7 @@ import example7 from "./example7";
 import example8 from "./example8";
 import example9 from "./example9";
 import example10 from "./example10";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 const examples = [
 	example1,
@@ -25,35 +26,41 @@ const examples = [
 ]
 
 export function Examples() {
-	let selectorFromLocalStorage = localStorage.getItem("css-fx-layout-preferred-selector") || "attributes";
-	const [currentSelector, updateSelector] = React.useState(selectorFromLocalStorage);
-	React.useEffect(() => {
-		localStorage.setItem("css-fx-layout-preferred-selector", currentSelector);
-	}, [currentSelector]);
-
 	return (
-		<div className="examples">
-			<div className="type-buttons" data-layout="row" data-layout-gap="4px">
-				<button className={"button button--" + (currentSelector === "attributes" ? "primary" : "secondary") } onClick={() => updateSelector("attributes")}>Attributes</button>
-				<button className={"button button--" + (currentSelector === "classes" ? "primary" : "secondary") } onClick={() => updateSelector("classes")}>Classes</button>
-			</div>
-			<div>
-				{ examples.map(ex => {
-					return (
-						<div key={ex.title} className="example-container">
-							<h2>{ ex.title }</h2>
-							<p>{ ex.description }</p>
-							<CodeBlock language="html">
-								{ currentSelector === "attributes" ? ex.attributes : ex.classes }
-							</CodeBlock>
-							<div className="example">
-								<GetCode code={ currentSelector === "attributes" ? ex.attributes : ex.classes }/>
-							</div>
+		<BrowserOnly>{
+			() => {
+				let selectorFromLocalStorage = localStorage.getItem("css-fx-layout-preferred-selector") || "attributes";
+				const [currentSelector, updateSelector] = React.useState(selectorFromLocalStorage);
+				React.useEffect(() => {
+					localStorage.setItem("css-fx-layout-preferred-selector", currentSelector);
+				}, [currentSelector]);
+
+				return (
+					<div className="examples">
+						<div className="type-buttons" data-layout="row" data-layout-gap="4px">
+							<button className={"button button--" + (currentSelector === "attributes" ? "primary" : "secondary") } onClick={() => updateSelector("attributes")}>Attributes</button>
+							<button className={"button button--" + (currentSelector === "classes" ? "primary" : "secondary") } onClick={() => updateSelector("classes")}>Classes</button>
 						</div>
-					);
-				})}
-			</div>
-		</div>
+						<div>
+							{ examples.map(ex => {
+								return (
+									<div key={ex.title} className="example-container">
+										<h2>{ ex.title }</h2>
+										<p>{ ex.description }</p>
+										<CodeBlock language="html">
+											{ currentSelector === "attributes" ? ex.attributes : ex.classes }
+										</CodeBlock>
+										<div className="example">
+											<GetCode code={ currentSelector === "attributes" ? ex.attributes : ex.classes }/>
+										</div>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				)
+			}
+		}</BrowserOnly>
 	)
 }
 
