@@ -38,7 +38,8 @@ const config = {
   plugins: [
     [require.resolve("@easyops-cn/docusaurus-search-local"), {
       hashed: true,
-    }]
+    }],
+      'docusaurus-plugin-sass'
   ],
 
   presets: [
@@ -53,7 +54,7 @@ const config = {
           showReadingTime: true,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
     ],
@@ -76,6 +77,11 @@ const config = {
             docId: 'about',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            to: 'examples',
+            label: 'Examples',
+            position: 'left'
           },
           /** {to: '/blog', label: 'Blog', position: 'left'}, */
           {

@@ -52,7 +52,8 @@ Then follow the [Getting Started](https://philmtd.github.io/css-fx-layout/docs/g
 
 ## Examples
 
-These are some basic examples how to use `css-fx-layout`. The file `./test/index.html` contains more examples.
+These are just two simple examples how to use `css-fx-layout`. Visit [the examples page](https://philmtd.github.io/css-fx-layout/examples) for more and live-rendered
+examples.
 
 ### Layout
 
@@ -139,78 +140,6 @@ The resulting layout:
 
 <img src="images/example-2.png" alt="Example 2" width="280px" />
 
-#### Example 3
-Vertically and horizontally center an element in its parent.
-
-<table>
-<tr>
-<th>CSS Classes</th>
-<th>Data Attributes</th>
-</tr>
-<tr>
-<td>
-
-```html
-<div class="fx-layout-row 
-            fx-align--center-x 
-            fx-align--x-center">
-    <span>One</span>
-</div>
-```
-
-</td>     
-<td>   
-
-```html
-<div data-layout="row" 
-     data-layout-align="center center">
-    <span>One</span>
-</div>
-```
-
-</td>
-</tr>
-</table>
-
-The resulting layout:
-
-<img src="images/example-3.png" alt="Example 3" width="280px" />
-
-### Show/Hide
-
-#### Example 4
-This will hide the first span on `sm` sized screens and show the second span only on `lg` sized screens. The third span is always visible.
-
-<table>
-<tr>
-<th>CSS Classes</th>
-<th>Data Attributes</th>
-</tr>
-<tr>
-<td>
-
-```html
-<div>
-    <span class="hide-sm">One</span>
-    <span class="show-lg">Two</span>
-    <span>Three</span>
-</div>
-```
-
-</td>     
-<td>
-
-```html
-<div>
-    <span data-hide-sm>One</span>
-    <span data-show-lg>Two</span>
-    <span>Three</span>
-</div>
-```
-
-</td>
-</tr>
-</table>
 
 ## What problem does this library solve?
 
