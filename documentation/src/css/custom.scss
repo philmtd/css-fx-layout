@@ -1,0 +1,83 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+@use "css-fx-layout" as fx;
+
+$primary: #ffc440;
+$primary-dark: #ffba20;
+$primary-darker: #ffb510;
+$primary-darkest: #df9a00;
+$primary-light: #ffce60;
+$primary-lighter: #ffd370;
+$primary-lightest: #ffe2a0;
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #{$primary};
+  --ifm-color-primary-dark: #{$primary-dark};
+  --ifm-color-primary-darker: #{$primary-darker};
+  --ifm-color-primary-darkest: #{$primary-darkest};
+  --ifm-color-primary-light: #{$primary-light};
+  --ifm-color-primary-lighter: #{$primary-lighter};
+  --ifm-color-primary-lightest: #{$primary-lightest};
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 196, 64, 0.2);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>')
+}
+
+// Examples
+$includeResponsiveApi: true;
+
+@include fx.attribute-selectors($includeResponsiveApi);
+@include fx.gap-attribute-selectors(1, 16, 1, px em, $includeResponsiveApi);
+@include fx.flex-size-attribute-selectors(5, 100, 5, $includeResponsiveApi);
+
+@include fx.class-selectors($includeResponsiveApi);
+@include fx.gap-class-selectors(1, 16, 1, px em, $includeResponsiveApi);
+@include fx.flex-size-class-selectors(5, 100, 5, $includeResponsiveApi);
+
+.examples {
+  .type-buttons {
+    margin-bottom: 1em;
+    button {
+      box-shadow: var(--ifm-global-shadow-lw);
+    }
+  }
+  .example-container {
+    margin-bottom: 2em;
+
+    .example {
+      width: 100%;
+      box-shadow: var(--ifm-global-shadow-lw);
+      padding: 1em;
+      border-radius: 4px;
+      background-color: var(--ifm-navbar-background-color);
+
+      div {
+        background: $primary;
+        height: 120px;
+        width: 100%;
+      }
+
+      span {
+        background: adjust-hue($primary, 180);
+        &:nth-of-type(2n) {
+          background: adjust-hue($primary, 310);
+        }
+        width: 100px;
+        height: 40px;
+      }
+
+      table {
+        width: 100%;
+        display: table;
+      }
+    }
+  }
+}
