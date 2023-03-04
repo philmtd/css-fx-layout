@@ -1,9 +1,8 @@
 ---
-sidebar_label: Responsive API
 sidebar_position: 5
 ---
 
-# Responsive API
+# 📱 Responsive API
 
 This page describes `css-fx-layout`'s responsive API.
 

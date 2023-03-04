@@ -76,11 +76,11 @@ const config = {
             type: 'doc',
             docId: 'about',
             position: 'left',
-            label: 'Docs',
+            label: '📋 Docs',
           },
           {
             to: 'examples',
-            label: 'Examples',
+            label: '📺 Examples',
             position: 'left'
           },
           /** {to: '/blog', label: 'Blog', position: 'left'}, */
@@ -118,6 +118,10 @@ const config = {
                 label: 'GitHub',
                 href: 'https://github.com/philmtd/css-fx-layout',
               },
+              {
+                label: 'npm',
+                href: 'https://www.npmjs.com/package/css-fx-layout'
+              }
             ],
           },
           {
