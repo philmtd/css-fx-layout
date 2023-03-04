@@ -1,9 +1,10 @@
 ---
-sidebar_label: "About"
+slug: "/"
+sidebar_label: "📦 About"
 sidebar_position: 1
 ---
 
-# About css-fx-layout
+# 📦 About css-fx-layout
 
 `css-fx-layout` is a lightweight and modular SCSS flexbox library. It is inspired by Angular's [Flex-Layout](https://github.com/angular/flex-layout) and can
 replace the most popular functions of the (by now deprecated) Angular library.
