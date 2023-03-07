@@ -50,9 +50,19 @@
 		}
 	}
 
-	*[data-layout-align]:not([data-layout]) {
+	*[data-layout-align]:not(#{all-data-layout-selectors()}) {
 		@include flex-row-properties;
 	}
+
+}
+
+@function all-data-layout-selectors() {
+	$breakpoints: get-breakpoint-names();
+	$list: "[data-layout],";
+	@each $name in $breakpoints {
+		$list: $list + #{",[data-layout-" + $name + "]"}
+	}
+	@return $list
 }
 
 @mixin layout-align-attributes-for-media-sizes {
