@@ -109,6 +109,10 @@ $flex-layout-media-queries: (
 		'gt-lg': 'screen and (min-width: #{$lg + 1})',
 );
 
+@function get-breakpoint-names() {
+	@return map-keys($flex-layout-media-queries)
+}
+
 @mixin xs($invert: false) {
 	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'xs')} {
 		@content;

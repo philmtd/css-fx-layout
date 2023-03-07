@@ -511,5 +511,55 @@
 			</td>
 		</tr>
 	</table>
+
+	<h2>Example E14</h2>
+	<p>Automatic flex-layout when layout-align is used + responsive API</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout-gt-xs="row" data-layout-xs="column" data-layout-align="start">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-row--gt-xs fx-layout-column--xs fx-align--start-x">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Example E15</h2>
+	<p>Automatic flex-layout when layout-align is used + responsive API 2</p>
+	<table>
+		<tr>
+			<th>Attributes</th>
+			<th>Classes</th>
+		</tr>
+		<tr>
+			<td>
+				<div data-layout-xs="column" data-layout-align="start">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+			<td>
+				<div class="fx-layout-column--xs fx-align--start-x">
+					<span>One</span>
+					<span>Two</span>
+					<span>Three</span>
+				</div>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
