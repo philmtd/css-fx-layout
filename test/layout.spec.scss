@@ -125,4 +125,18 @@
 			}
 		}
 	}
+	@include true.it('all-data-layout-selectors function should return the correct value') {
+		@include true.assert {
+			@include true.output {
+				#{la.all-data-layout-selectors()} {
+					color: white;
+				}
+			}
+			@include true.expect {
+				[data-layout],[data-layout-xs],[data-layout-sm],[data-layout-md],[data-layout-lg],[data-layout-xl],[data-layout-lt-sm],[data-layout-lt-md],[data-layout-lt-lg],[data-layout-lt-xl],[data-layout-gt-xs],[data-layout-gt-sm],[data-layout-gt-md],[data-layout-gt-lg] {
+					color: white;
+				}
+			}
+		}
+	}
 }
