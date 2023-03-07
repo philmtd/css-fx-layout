@@ -1,3 +1,10 @@
+## 3.0.2 (07-03-2023)
+
+### Bug Fixes
+* fix: use improved auto-flex in data-flex, too by @philmtd in https://github.com/philmtd/css-fx-layout/pull/22
+
+**Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.1...v3.0.2
+
 ## 3.0.1 (07-03-2023)
 
 ### Bug Fixes
