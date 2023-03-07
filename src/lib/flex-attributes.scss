@@ -1,3 +1,4 @@
+@use "layout-attributes" as la;
 @import "mixins";
 
 /// Generates flex data-attribute selectors
@@ -34,7 +35,7 @@
 		@include flex-fill-properties;
 	}
 
-	*:has(>[data-flex],>[data-flex-fill]):not([data-layout]) {
+	*:has(>[data-flex],>[data-flex-fill]):not(#{la.all-data-layout-selectors()}) {
 		@include flex-row-properties;
 	}
 }
@@ -75,9 +76,10 @@
 				@include flex-fill-properties;
 			}
 
-			*:has(>[data-flex-#{$name}],>[data-flex-fill-#{$name}]):not([data-layout]) {
-				@include flex-row-properties;
-			}
+		}
+
+		*:has(>[data-flex-#{$name}],>[data-flex-fill-#{$name}]):not(#{la.all-data-layout-selectors()}) {
+			@include flex-row-properties;
 		}
 	}
 }
