@@ -1,3 +1,11 @@
+## 3.0.1 (07-03-2023)
+
+### Bug Fixes
+
+* fix(attributes): auto-apply flex layout only if no layout attribute is present by @philmtd in https://github.com/philmtd/css-fx-layout/pull/21
+
+**Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.0...v3.0.1
+
 ## 3.0.0 (24-02-2023)
 
 This release is a large step towards an easier migration from Angular Flex-Layout. Thank you to [@lievenjanssen](https://github.com/lievenjanssen) for his work in multiple PRs!
