@@ -1,3 +1,4 @@
+@use "layout-attributes" as la;
 @import "mixins";
 
 /// Generates layout align data attribute selectors
@@ -50,19 +51,10 @@
 		}
 	}
 
-	*[data-layout-align]:not(#{all-data-layout-selectors()}) {
+	*[data-layout-align]:not(#{la.all-data-layout-selectors()}) {
 		@include flex-row-properties;
 	}
 
-}
-
-@function all-data-layout-selectors() {
-	$breakpoints: get-breakpoint-names();
-	$list: "[data-layout],";
-	@each $name in $breakpoints {
-		$list: $list + #{",[data-layout-" + $name + "]"}
-	}
-	@return $list
 }
 
 @mixin layout-align-attributes-for-media-sizes {

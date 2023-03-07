@@ -49,3 +49,12 @@
 		}
 	}
 }
+
+@function all-data-layout-selectors() {
+	$breakpoints: get-breakpoint-names();
+	$list: "[data-layout],";
+	@each $name in $breakpoints {
+		$list: $list + #{",[data-layout-" + $name + "]"}
+	}
+	@return $list
+}

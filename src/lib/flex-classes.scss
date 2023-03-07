@@ -34,7 +34,7 @@
 		@include flex-fill-properties;
 	}
 
-	*:has(>.fx-flex,>.fx-flex-auto,>.fx-flex-grow,>.fx-flex-initial,>.fx-flex-none,>.fx-flex-nogrow,>.fx-flex-noshrink,>.fx-flex-fill):not([class*="fx-layout-"]) {
+	*:has(>.fx-flex,>.fx-flex-auto,>.fx-flex-grow,>.fx-flex-initial,>.fx-flex-none,>.fx-flex-nogrow,>.fx-flex-noshrink,>.fx-flex-fill,>[class*="fx-flex--"]):not([class*="fx-layout-"]) {
 		@include flex-row-properties;
 	}
 }
@@ -75,9 +75,10 @@
 				@include flex-fill-properties;
 			}
 
-			*:has(>.fx-flex--#{$name},>.fx-flex-auto--#{$name},>.fx-flex-grow--#{$name},>.fx-flex-initial--#{$name},>.fx-flex-none--#{$name},>.fx-flex-nogrow--#{$name},>.fx-flex-noshrink--#{$name},>.fx-flex-fill--#{$name}):not([class*="fx-layout-"]) {
-				@include flex-row-properties;
-			}
+		}
+
+		*:has(>.fx-flex--#{$name},>.fx-flex-auto--#{$name},>.fx-flex-grow--#{$name},>.fx-flex-initial--#{$name},>.fx-flex-none--#{$name},>.fx-flex-nogrow--#{$name},>.fx-flex-noshrink--#{$name},>.fx-flex-fill--#{$name}):not([class*="fx-layout-"]) {
+			@include flex-row-properties;
 		}
 	}
 }
