@@ -1,3 +1,11 @@
+## 3.0.3 (09-05-2023)
+
+### Bug Fixes
+
+* fix: correct sm breakpoint size to match the one from flex-layout as intended by @philmtd in https://github.com/philmtd/css-fx-layout/pull/25, thanks to [@dungvq23](https://github.com/dungvq23) for reporting the bug
+
+**Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.2...v3.0.3
+
 ## 3.0.2 (07-03-2023)
 
 ### Bug Fixes
