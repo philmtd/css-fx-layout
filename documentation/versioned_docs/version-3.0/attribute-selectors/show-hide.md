@@ -29,7 +29,7 @@ what you wanted.
 ## Example
 
 ```html
-<div data-show-gt-sm>I will only be visible on screens wider than 969px.</div>
+<div data-show-gt-sm>I will only be visible on screens wider than 959px.</div>
 ```
 
 :::info

@@ -21,7 +21,7 @@ The fx-layout media queries use the following breakpoints:
 | Name | Breakpoint |
 |------|------------|
 | xs   | 599px      |
-| sm   | 969px      |
+| sm   | 959px      |
 | md   | 1279px     |
 | lg   | 1919px     |
 | xl   | 5000px     |

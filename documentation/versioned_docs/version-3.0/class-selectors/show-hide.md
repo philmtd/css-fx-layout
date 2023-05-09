@@ -20,7 +20,7 @@ With `mediaQueryName` being the name of one of the [available media queries](../
 ## Example
 
 ```html
-<div class="show-gt-sm">I will only be visible on screens wider than 969px.</div>
+<div class="show-gt-sm">I will only be visible on screens wider than 959px.</div>
 ```
 
 :::info

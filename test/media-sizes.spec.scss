@@ -24,7 +24,7 @@
 				}
 			}
 			@include true.expect {
-				@media screen and (min-width: 600px) and (max-width: 969px) {
+				@media screen and (min-width: 600px) and (max-width: 959px) {
 					color: coral;
 				}
 			}
@@ -38,7 +38,7 @@
 				}
 			}
 			@include true.expect {
-				@media screen and (min-width: 970px) and (max-width: 1279px) {
+				@media screen and (min-width: 960px) and (max-width: 1279px) {
 					color: coral;
 				}
 			}
@@ -96,7 +96,7 @@
 				}
 			}
 			@include true.expect {
-				@media screen and (max-width: 969px) {
+				@media screen and (max-width: 959px) {
 					color: coral;
 				}
 			}
@@ -154,7 +154,7 @@
 				}
 			}
 			@include true.expect {
-				@media screen and (min-width: 970px) {
+				@media screen and (min-width: 960px) {
 					color: coral;
 				}
 			}
