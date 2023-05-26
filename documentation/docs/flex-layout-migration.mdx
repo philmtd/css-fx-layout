@@ -46,6 +46,12 @@ Make sure to customise the parameters of the mixins in a way that generates all 
 Now that we got this out of the way let's migrate. Most of it should be possible to do with some smart
 finds and replaces in your code using regular expressions.
 
+There is a migration script available which will try to do most of it automatically. You can call it like this:
+
+```bash
+npx css-fx-layout migrate [path/to/src]
+```
+
 | Flex-Layout selector       | Regex search               | Regex replace           |
 |----------------------------|----------------------------|-------------------------|
 | `fxLayout`                 | `fxLayout=`                | `data-layout=`          |
