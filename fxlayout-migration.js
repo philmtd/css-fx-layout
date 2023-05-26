@@ -7,8 +7,8 @@ const searchAndReplace = [
 	...generateRegexReplacements("fxFlex", "data-flex"),
 	...generateRegexReplacements("fxFlexAlign", "data-flex-align"),
 	...generateRegexReplacements("fxLayoutGap", "data-layout-gap"),
-	...generateRegexReplacements("fxHide", "data-hide", true),
-	...generateRegexReplacements("fxShow", "data-show", true),
+	...generateRegexReplacements("fxHide", "data-hide"),
+	...generateRegexReplacements("fxShow", "data-show"),
 	...generateRegexReplacements("fxFlexFill", "data-flex-fill"),
 	{s: new RegExp(`(row|column)-(reverse)`, 'g'), r: "$1 $2"}
 ];
@@ -29,7 +29,7 @@ function logWarnings(filename, fileContent) {
 	if (dataFlexValues) {
 		Array.from(dataFlexValues).forEach(match => {
 			if (match.length > 4) {
-				if (/^((?!\d+|nogrow|grow|none|noshrink|auto|initial).)*$/.test(match[4])) {
+				if (!/^(\d+|nogrow|grow|none|noshrink|auto|initial)$/.test(match[4])) {
 					console.warn(`data-flex value of "${match[4]}" in ${filename} is not supported`);
 				}
 			}
@@ -39,7 +39,7 @@ function logWarnings(filename, fileContent) {
 	if (dataFlexAlignValues) {
 		Array.from(dataFlexAlignValues).forEach(match => {
 			if (match.length > 4) {
-				if (/^((?!start|center|end|baseline|stretch).)*$/.test(match[4])) {
+				if (!/^(start|center|end|baseline|stretch)$/.test(match[4])) {
 					console.warn(`data-flex-align value of "${match[4]}" in ${filename} is not supported`);
 				}
 			}
@@ -57,20 +57,20 @@ function processFile(filename) {
 	processedFiles++;
 }
 
-function generateRegexReplacements(searchTag, replaceTag, onlyResponsive = false) {
+function generateRegexReplacements(searchTag, replaceTag) {
 	let normal = [
-		{s: new RegExp(`${searchTag}([\\W])`, 'g'), r: `${replaceTag}$1`},
-		{s: new RegExp(`\\[${searchTag}\\]([\\W])`, 'g'), r: `[attr.${replaceTag}]$1`}
+		{s: new RegExp(`${searchTag}=`, 'g'), r: `${replaceTag}=`},
+		{s: new RegExp(`${searchTag}([\\s>])`, 'g'), r: `${replaceTag}$1`},
+		{s: new RegExp(`\\[${searchTag}\\]=`, 'g'), r: `[attr.${replaceTag}]=`}
 	];
+
 	let responsive = [
-		{s: new RegExp(`${searchTag}\\.([\\w-]+)([\\W])`, 'g'), r: `${replaceTag}-$1$2`},
-		{s: new RegExp(`\\[${searchTag}\\.([\\w-]+)\\]([\\W])`, 'g'), r: `[attr.${replaceTag}-$1]$2`},
+		{s: new RegExp(`${searchTag}\\.([\\w-]+)=`, 'g'), r: `${replaceTag}-$1=`},
+		{s: new RegExp(`${searchTag}\\.([\\w-]+)([\\s>])`, 'g'), r: `${replaceTag}-$1$2`},
+		{s: new RegExp(`\\[${searchTag}\\.([\\w-]+)\\]=`, 'g'), r: `[attr.${replaceTag}-$1]=`},
 	];
-	if (onlyResponsive) {
-		return responsive;
-	} else {
-		return [...normal, ...responsive];
-	}
+
+	return [...normal, ...responsive];
 }
 function migrateFile(file) {
 	processFile(file);
