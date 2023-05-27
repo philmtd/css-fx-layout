@@ -4,7 +4,6 @@
   "description": "A lightweight SCSS flexbox library inspired by Angular Flex-Layout.",
   "repository": "https://github.com/philmtd/css-fx-layout",
   "homepage": "https://philmtd.github.io/css-fx-layout/",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -20,11 +19,11 @@
   },
   "bin": "main.js",
   "devDependencies": {
-    "glob": "^8.1.0",
-    "jest": "^29.4.3",
-    "jest-environment-node-single-context": "^29.0.0",
-    "jest-junit": "^15.0.0",
-    "sass": "^1.58.1",
+    "glob": "^10.2.6",
+    "jest": "^29.5.0",
+    "jest-environment-node-single-context": "^29.1.0",
+    "jest-junit": "^16.0.0",
+    "sass": "^1.62.1",
     "sass-true": "^7.0.0"
   }
 }

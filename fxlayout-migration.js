@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const searchAndReplace = [
 	...generateRegexReplacements("fxLayout", "data-layout"),
@@ -87,7 +87,7 @@ function migrateFilesInDirectoryRecursively(dir) {
 	});
 }
 
-export function migrate(directory) {
+exports.migrate = function migrate(directory) {
 	console.log(`migrating files in directory ${directory} to css-fx-layout`);
 	migrateFilesInDirectoryRecursively(`${directory}`);
 	console.log(`finished migrating ${processedFiles} files to css-fx-layout`);
