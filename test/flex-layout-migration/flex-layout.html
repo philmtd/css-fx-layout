@@ -1,0 +1,31 @@
+<div fxLayout="row"
+	 fxLayout.xs="row-reverse"
+	 fxLayoutAlign="start center"
+	 fxLayoutAlign.xs="center center"
+	 fxLayoutGap="4px"
+	 fxLayoutGap.xs="8px"></div>
+
+<div [fxLayout]="'row'"
+	 [fxLayout.xs]="'row-reverse'"
+	 [fxLayoutAlign]="'start center'"
+	 [fxLayoutAlign.xs]="'center center'"
+	 [fxLayoutGap]="'4px'"
+	 [fxLayoutGap.xs]="'8px'"></div>
+
+<div fxFlex></div>
+<div fxFlex="grow"></div>
+<div fxFlex="20" fxFlex.sm="40"></div>
+<div fxFlex="20%" fxFlex.sm="40%"></div>
+<div [fxFlex]="flexAmount" [fxFlex.sm]="smFlexAmount"></div>
+<div fxFlexFill></div>
+<div fxFlexAlign="start"></div>
+
+<div fxHide.sm></div>
+<div fxHide></div>
+<div [fxHide.sm]="hideThisIfThat"></div>
+
+<div fxShow.sm></div>
+<div fxShow></div>
+<div [fxShow.sm]="showThisIfThat"></div>
+
+<div fxFlexOffset="10px" fxFlexOrder="0"></div>

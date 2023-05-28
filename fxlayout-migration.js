@@ -10,27 +10,26 @@ const searchAndReplace = [
 	...generateRegexReplacements("fxHide", "data-hide"),
 	...generateRegexReplacements("fxShow", "data-show"),
 	...generateRegexReplacements("fxFlexFill", "data-flex-fill"),
-	{s: new RegExp(`(row|column)-(reverse)`, 'g'), r: "$1 $2"}
+	{s: new RegExp(`(row|column)-(reverse)`, 'g'), r: "$1 $2"},
 ];
 
 let processedFiles = 0;
 
 function logWarnings(filename, fileContent) {
-	const unsupported = ["fxFlexOrder", "fxFlexOffset"];
-	if (fileContent.includes("data-show")) {
-		console.warn(`You are using data-show in ${filename}. You need to migrate to data-hide (see https://philmtd.github.io/css-fx-layout/docs/flex-layout-migration).`);
-	}
-	unsupported.forEach(u => {
+	["fxFlexOrder", "fxFlexOffset"].forEach(u => {
 		if (fileContent.includes(u)) {
 			console.warn(`You are using ${u} in ${filename} which is not supported.`);
 		}
 	});
+	if (fileContent.includes("data-show")) {
+		console.warn(`You are using data-show in ${filename}. You need to migrate to data-hide (see https://philmtd.github.io/css-fx-layout/docs/flex-layout-migration).`);
+	}
 	const dataFlexValues = fileContent.matchAll(/data-flex(\.([\w-]+))?(\\])?="([^"]+)"/gi);
 	if (dataFlexValues) {
 		Array.from(dataFlexValues).forEach(match => {
 			if (match.length > 4) {
 				if (!/^(\d+|nogrow|grow|none|noshrink|auto|initial)$/.test(match[4])) {
-					console.warn(`data-flex value of "${match[4]}" in ${filename} is not supported`);
+					console.warn(`data-flex value of "${match[4]}" in ${filename} is not supported. Only percent is supported and it needs to be specified without the % symbol.`);
 				}
 			}
 		});
@@ -46,6 +45,7 @@ function logWarnings(filename, fileContent) {
 		});
 	}
 }
+
 function processFile(filename) {
 	let file = fs.readFileSync(filename, 'utf-8');
 	let result = file;
@@ -72,6 +72,7 @@ function generateRegexReplacements(searchTag, replaceTag) {
 
 	return [...normal, ...responsive];
 }
+
 function migrateFile(file) {
 	processFile(file);
 }
@@ -80,6 +81,10 @@ function migrateFilesInDirectoryRecursively(dir) {
 	fs.readdirSync(dir).forEach(file => {
 		let fullPath = path.join(dir, file);
 		if (fs.lstatSync(fullPath).isDirectory()) {
+			if (fs.existsSync(`${fullPath}/.migrateignore`)) {
+				console.log(`ignoring directory ${fullPath}`);
+				return;
+			}
 			migrateFilesInDirectoryRecursively(fullPath);
 		} else if (fullPath.endsWith(".html")) {
 			migrateFile(fullPath);

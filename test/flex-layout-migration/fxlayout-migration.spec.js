@@ -1,6 +1,5 @@
 const migration = require("../../fxlayout-migration.js");
 const fs = require('fs');
-const path = require('path');
 describe('flex layout migration', () => {
 
 	let tempdir = '';
@@ -16,7 +15,20 @@ describe('flex layout migration', () => {
 	})
 
 	it('it should correctly convert flex-layout code to css-fx-layout', async () => {
+		const logSpy = jest.spyOn(console, 'warn');
 		migration.migrate(`${tempdir}`);
+
+		// check migration
+		let result = fs.readFileSync(`${tempdir}/flex-layout.html`, "utf-8");
+		let expected = fs.readFileSync(`test/flex-layout-migration/css-fx-layout.html`, "utf-8");
+		expect(expected).toBe(result);
+
+		// check migration warnings
+		expect(logSpy.mock.calls).toHaveLength(4);
+		expect(logSpy.mock.calls[0][0]).toContain(`You are using fxFlexOrder`)
+		expect(logSpy.mock.calls[1][0]).toContain(`You are using fxFlexOffset`)
+		expect(logSpy.mock.calls[2][0]).toContain(`You are using data-show`)
+		expect(logSpy.mock.calls[3][0]).toContain(`data-flex value of "20%"`)
 	})
 
 })

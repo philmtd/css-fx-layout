@@ -1,0 +1,31 @@
+<div data-layout="row"
+	 data-layout-xs="row reverse"
+	 data-layout-align="start center"
+	 data-layout-align-xs="center center"
+	 data-layout-gap="4px"
+	 data-layout-gap-xs="8px"></div>
+
+<div [attr.data-layout]="'row'"
+	 [attr.data-layout-xs]="'row reverse'"
+	 [attr.data-layout-align]="'start center'"
+	 [attr.data-layout-align-xs]="'center center'"
+	 [attr.data-layout-gap]="'4px'"
+	 [attr.data-layout-gap-xs]="'8px'"></div>
+
+<div data-flex></div>
+<div data-flex="grow"></div>
+<div data-flex="20" data-flex-sm="40"></div>
+<div data-flex="20%" data-flex-sm="40%"></div>
+<div [attr.data-flex]="flexAmount" [attr.data-flex-sm]="smFlexAmount"></div>
+<div data-flex-fill></div>
+<div data-flex-align="start"></div>
+
+<div data-hide-sm></div>
+<div data-hide></div>
+<div [attr.data-hide-sm]="hideThisIfThat"></div>
+
+<div data-show-sm></div>
+<div data-show></div>
+<div [attr.data-show-sm]="showThisIfThat"></div>
+
+<div fxFlexOffset="10px" fxFlexOrder="0"></div>
