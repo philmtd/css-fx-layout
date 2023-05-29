@@ -15,21 +15,30 @@ const searchAndReplace = [
 
 let processedFiles = 0;
 
+function yellow(str) {
+	return `\x1b[33m${str}\x1b[0m`;
+}
+function green(str) {
+	return `\x1b[32m${str}\x1b[0m`;
+}
+function bold(str) {
+	return `\x1b[1m${str}\x1b[0m`;
+}
 function logWarnings(filename, fileContent) {
 	["fxFlexOrder", "fxFlexOffset"].forEach(u => {
 		if (fileContent.includes(u)) {
-			console.warn(`You are using ${u} in ${filename} which is not supported.`);
+			console.warn(`${yellow('[warning]')} You are using ${bold(u)} in ${bold(filename)} which is not supported by css-fx-layout.`);
 		}
 	});
 	if (fileContent.includes("data-show")) {
-		console.warn(`You are using data-show in ${filename}. You need to migrate to data-hide (see https://philmtd.github.io/css-fx-layout/docs/flex-layout-migration).`);
+		console.warn(`${yellow('[warning]')} You are using ${bold('data-show')} in ${bold(filename)}. You need to migrate to data-hide (see https://philmtd.github.io/css-fx-layout/docs/flex-layout-migration for details).`);
 	}
 	const dataFlexValues = fileContent.matchAll(/data-flex(\.([\w-]+))?(\\])?="([^"]+)"/gi);
 	if (dataFlexValues) {
 		Array.from(dataFlexValues).forEach(match => {
 			if (match.length > 4) {
 				if (!/^(\d+|nogrow|grow|none|noshrink|auto|initial)$/.test(match[4])) {
-					console.warn(`data-flex value of "${match[4]}" in ${filename} is not supported. Only percent is supported and it needs to be specified without the % symbol.`);
+					console.warn(`${yellow('[warning]')} data-flex value of "${bold(match[4])}" in ${bold(filename)} is not supported by css-fx-layout. Only percent and fixed named parameters are supported and percentages need to be specified without the % symbol.`);
 				}
 			}
 		});
@@ -39,7 +48,7 @@ function logWarnings(filename, fileContent) {
 		Array.from(dataFlexAlignValues).forEach(match => {
 			if (match.length > 4) {
 				if (!/^(start|center|end|baseline|stretch)$/.test(match[4])) {
-					console.warn(`data-flex-align value of "${match[4]}" in ${filename} is not supported`);
+					console.warn(`${yellow('[warning]')} data-flex-align value of "${bold(match[4])}" in ${bold(filename)} is not supported by css-fx-layout`);
 				}
 			}
 		});
@@ -82,7 +91,7 @@ function migrateFilesInDirectoryRecursively(dir) {
 		let fullPath = path.join(dir, file);
 		if (fs.lstatSync(fullPath).isDirectory()) {
 			if (fs.existsSync(`${fullPath}/.migrateignore`)) {
-				console.log(`ignoring directory ${fullPath}`);
+				console.log(`🙈 ignoring directory ${fullPath}`);
 				return;
 			}
 			migrateFilesInDirectoryRecursively(fullPath);
@@ -93,7 +102,8 @@ function migrateFilesInDirectoryRecursively(dir) {
 }
 
 exports.migrate = function migrate(directory) {
-	console.log(`migrating files in directory ${directory} to css-fx-layout`);
+	console.log(bold(`📐 flex-layout => css-fx-layout 📚`));
+	console.log(`🚀 starting migration of files in directory ${directory}`);
 	migrateFilesInDirectoryRecursively(`${directory}`);
-	console.log(`finished migrating ${processedFiles} files to css-fx-layout`);
+	console.log(green(`✅ finished migrating ${processedFiles} files to css-fx-layout`));
 }
