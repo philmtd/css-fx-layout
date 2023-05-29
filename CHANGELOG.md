@@ -1,14 +1,30 @@
+## 3.0.4 (29-05-2023)
+
+### New Features: Flex-Layout migration script
+
+There is now an automatic migration script available. If you are coming from Angular Flex-Layout this should make the migration even easier for you.
+You can call the script like this: `npx css-fx-layout migrate [path/to/src]`. Consult the documentation for a detailed migration guide.
+As this is only an indirect feature of the actual library this release did not get a minor-version bump. (feat: add flex-layout migration script by @philmtd in https://github.com/philmtd/css-fx-layout/pull/26)
+
+### What's Changed
+
+* dev dependency updates
+
+**Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.3...v3.0.4
+
 ## 3.0.3 (09-05-2023)
 
 ### Bug Fixes
 
-* fix: correct sm breakpoint size to match the one from flex-layout as intended by @philmtd in https://github.com/philmtd/css-fx-layout/pull/25, thanks to [@dungvq23](https://github.com/dungvq23) for reporting the bug
+* fix: correct sm breakpoint size to match the one from flex-layout as intended by @philmtd in https://github.com/philmtd/css-fx-layout/pull/25, thanks
+  to [@dungvq23](https://github.com/dungvq23) for reporting the bug
 
 **Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.2...v3.0.3
 
 ## 3.0.2 (07-03-2023)
 
 ### Bug Fixes
+
 * fix: use improved auto-flex in data-flex, too by @philmtd in https://github.com/philmtd/css-fx-layout/pull/22
 
 **Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.1...v3.0.2
@@ -23,7 +39,8 @@
 
 ## 3.0.0 (24-02-2023)
 
-This release is a large step towards an easier migration from Angular Flex-Layout. Thank you to [@lievenjanssen](https://github.com/lievenjanssen) for his work in multiple PRs!
+This release is a large step towards an easier migration from Angular Flex-Layout. Thank you to [@lievenjanssen](https://github.com/lievenjanssen) for his work
+in multiple PRs!
 It introduces some breaking changes, which should be easy to resolve, though.
 
 We also added a [migration guide from Angular Flex-Layout](https://philmtd.github.io/css-fx-layout/docs/flex-layout-migration) to our documentation.
@@ -31,7 +48,8 @@ We also added a [migration guide from Angular Flex-Layout](https://philmtd.githu
 ### New Features
 
 * Flex basis alias support (e.g. `data-flex="30"` / `.fx-flex--30`)
-* Support to create gap values from a list instead of generating incrementally from one number to another using the mixins `gap-attribute-selectors-from-list` or `gap-class-selectors-from-list` 
+* Support to create gap values from a list instead of generating incrementally from one number to another using the mixins `gap-attribute-selectors-from-list`
+  or `gap-class-selectors-from-list`
 * New `data-flex-fill` / `.fx-flex-fill` selectors
 * New `data-flex-align` / `.fx-flex-align` selectors
 
