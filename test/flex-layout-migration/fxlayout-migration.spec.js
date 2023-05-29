@@ -25,10 +25,10 @@ describe('flex layout migration', () => {
 
 		// check migration warnings
 		expect(logSpy.mock.calls).toHaveLength(4);
-		expect(logSpy.mock.calls[0][0]).toContain(`You are using fxFlexOrder`)
-		expect(logSpy.mock.calls[1][0]).toContain(`You are using fxFlexOffset`)
-		expect(logSpy.mock.calls[2][0]).toContain(`You are using data-show`)
-		expect(logSpy.mock.calls[3][0]).toContain(`data-flex value of "20%"`)
+		expect(logSpy.mock.calls[0][0]).toContain(`You are using \x1b[1mfxFlexOrder`)
+		expect(logSpy.mock.calls[1][0]).toContain(`You are using \x1b[1mfxFlexOffset`)
+		expect(logSpy.mock.calls[2][0]).toContain(`You are using \x1b[1mdata-show`)
+		expect(logSpy.mock.calls[3][0]).toContain(`data-flex value of "\x1b[1m20%\x1b[0m"`)
 	})
 
 })
