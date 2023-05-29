@@ -36,36 +36,43 @@ There *may* be more differences in the details but these are the most obvious an
 
 ## Migration
 
+Now that we got this out of the way let's migrate.
+There is a migration script available which will try to do most of it automatically.
+You can call it like this:
+
+```bash
+npx css-fx-layout migrate [path/to/src]
+```
+
+The script does the following:
+
+* Migrate all supported selectors in all `.html` files from flex-layout to css-fx-layout
+* Migrate `(row|column)-reverse` to `(row|column) reverse`
+* Log warnings for some of the unsupported selectors
+* Log warnings when `data-flex` (before migration: `fxFlex`) is being used with unsupported values
+* Log warnings when `data-show` (before migration: `fxShow`) is being used
+
+After running the script, you should do the following:
+
+* Check the warnings and resolve the issues
+* You should change your code to follow the advice regarding `data-show` (before migration: `fxShow`) from the warning box above
+* You should check all usages of Angular expression bindings. Some may need to be changed for it to continue to work as you expect it. For example `[fxHide]="hideIfTrue` should be changed to `[attr.data-hide]="hideIfTrue ? true : null"`. The reason is that Angular needs to remove the attribute if the condition is false, because otherwise the CSS will be applied without checking the condition in the value.
+* If you are using a different file extension than `.html`, for example, if you have short templates inlined in the `.ts` files, you need to do the change manually.
+* Check your application for layout issues. After following this gude almost everything should work, but the libraries are effectively not the same and may differ in some details.
+
+The script can be run multiple times. After the first run, it will just continue to log the warnings. You can use this to check if you removed all warnings.
+
 :::info
 
-css-fx-layout generates some selectors only for the defined numerical values, for example the gap or flex selectors.
+`css-fx-layout` generates some selectors only for the defined numerical values, for example the gap or flex selectors.
 Make sure to customise the parameters of the mixins in a way that generates all selectors you need in your project.
+
+Previously, this section contained a table specifying the regex find and replaces necessary, but as it was not covering all cases, it has been removed. If you are interested
+in the find/replace necessary please look into the code of the migration script.
 
 :::
 
-Now that we got this out of the way let's migrate. Most of it should be possible to do with some smart
-finds and replaces in your code using regular expressions.
+That's it.
+In many projects, even larger ones, this could already be all the work required to move away from Angular Flex-Layout.
 
-| Flex-Layout selector       | Regex search               | Regex replace           |
-|----------------------------|----------------------------|-------------------------|
-| `fxLayout`                 | `fxLayout=`                | `data-layout=`          |
-| `fxLayout` responsive      | `fxLayout\.([\w-]+)=`      | `data-layout-$1=`       |
-| `fxLayoutAlign`            | `fxLayoutAlign=`           | `data-layout-align=`    |
-| `fxLayoutAlign` responsive | `fxLayoutAlign\.([\w-]+)=` | `data-layout-align-$1=` |
-| `fxFlex`                   | `fxFlex=`                  | `data-flex=`            |
-| `fxFlex` responsive        | `fxFlex\.([\w-]+)=`        | `data-flex-$1=`         |
-| `fxLayoutGap`              | `fxLayoutGap=`             | `data-layout-gap=`      |
-| `fxLayoutGap` responsive   | `fxLayoutGap\.([\w-]+)=`   | `data-layout-gap-$1=`   |
-| `fxHide` responsive        | `fxHide\.([\w-]+)`         | `data-hide-$1`          |
-| `fxShow` responsive        | `fxShow\.([\w-]+)`         | `data-show-$1`          |
-| `fxFlexFill`               | `fxFlexFill`               | `data-flex-fill`        |
-| `fxFlexFill` responsive    | `fxFlexFill\.([\w-]+)`     | `data-flex-fill-$1`     |
-
-Additionally:
-* you need to replace all occurrences of `row-reverse` and `column-reverse` with `row reverse` or `column reverse`
-* you should change your code to follow the advice regarding `data-show` from the warning box above
-
-This should get the migration of all available features done. In many projects, even larger ones, this can already be 80-100% of the work required
-to move away from Angular Flex-Layout.
-
-Did we miss something? Feel free to contribute to the documentation or the library on [GitHub](https://github.com/philmtd/css-fx-layout).
+Did we miss something? Feel free to contribute to the documentation, migration script or the library on [GitHub](https://github.com/philmtd/css-fx-layout).
