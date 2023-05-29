@@ -36,15 +36,6 @@ There *may* be more differences in the details but these are the most obvious an
 
 ## Migration
 
-:::info
-
-css-fx-layout generates some selectors only for the defined numerical values, for example the gap or flex selectors.
-Make sure to customise the parameters of the mixins in a way that generates all selectors you need in your project.
-
-Previously, this section contained a table specifying the regex find and replaces necessary, but as it was not covering all cases, it has been removed.
-
-:::
-
 Now that we got this out of the way let's migrate.
 There is a migration script available which will try to do most of it automatically.
 You can call it like this:
@@ -70,6 +61,16 @@ After running the script, you should do the following:
 * Check your application for layout issues. After following this gude almost everything should work, but the libraries are effectively not the same and may differ in some details.
 
 The script can be run multiple times. After the first run, it will just continue to log the warnings. You can use this to check if you removed all warnings.
+
+:::info
+
+`css-fx-layout` generates some selectors only for the defined numerical values, for example the gap or flex selectors.
+Make sure to customise the parameters of the mixins in a way that generates all selectors you need in your project.
+
+Previously, this section contained a table specifying the regex find and replaces necessary, but as it was not covering all cases, it has been removed. If you are interested
+in the find/replace necessary please look into the code of the migration script.
+
+:::
 
 That's it.
 In many projects, even larger ones, this could already be all the work required to move away from Angular Flex-Layout.
