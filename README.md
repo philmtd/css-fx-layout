@@ -6,6 +6,8 @@
 This is a lightweight and modular SCSS flexbox library. It is inspired by Angular's [Flex-Layout](https://github.com/angular/flex-layout) and can replace the
 most popular functions of the (by now deprecated) Angular library.
 
+**Info:** This library is actively maintained and is already feature-complete, functioning as intended. Future releases will focus primarily on providing bug fixes and addressing similar issues to ensure a smooth user experience.
+
 ## Features
 
 This library gives you the option between using CSS classes or data-attributes. Both options give you the same features but the CSS classes can be more verbose when you want a more complex layout.
