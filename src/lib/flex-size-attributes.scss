@@ -13,6 +13,22 @@
 	*[data-flex#{if($name, '-' + $name, '')}="#{$value}"] {
 		flex: 1 1 $value * 1%;
 	}
+
+    *[data-flex#{if($name, '-' + $name, '')}="0 1 #{$value}"] {
+		flex: 0 1 $value * 1%;
+	}
+
+    *[data-flex#{if($name, '-' + $name, '')}="1 0 #{$value}"] {
+		flex: 1 0 $value * 1%;
+	}
+
+    *[data-flex#{if($name, '-' + $name, '')}="0 0 #{$value}"] {
+		flex: 0 0 $value * 1%;
+	}
+
+    *[data-flex#{if($name, '-' + $name, '')}="1 1 #{$value}"] {
+		flex: 1 1 $value * 1%;
+	}
 }
 
 /// Includes selectors for attributes which can be used to add a gap to elements in a flex container
