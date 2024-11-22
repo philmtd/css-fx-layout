@@ -1,18 +1,18 @@
-@import "mixins";
+@use "mixins" as mix;
 
 /// Generates show/hide class selectors
 @mixin show-hide-classes {
 	*.hide {
 		display: none !important;
 	}
-	@each $breakpoint, $_ in $flex-layout-media-queries {
+	@each $breakpoint, $_ in mix.$flex-layout-media-queries {
 		*.show-#{$breakpoint} {
-			@include flex-layout-media-not($breakpoint) {
+			@include mix.flex-layout-media-not($breakpoint) {
 				display: none !important;
 			}
 		}
 		*.hide-#{$breakpoint} {
-			@include flex-layout-media($breakpoint) {
+			@include mix.flex-layout-media($breakpoint) {
 				display: none !important;
 			}
 		}
