@@ -1,3 +1,14 @@
+## 3.0.5 (22-11-2024)
+
+This release removes deprecation warnings when using one of the latest versions of scss. Deprecated `@import` uses and function calls have been replaced with the recommended alternatives.
+
+### What's Changed
+
+* chore(deps-dev): bump @babel/traverse from 7.22.1 to 7.23.2 by @dependabot in https://github.com/philmtd/css-fx-layout/pull/30
+* update dependencies, migrate scss code by @philmtd in https://github.com/philmtd/css-fx-layout/pull/38
+
+**Full Changelog**: https://github.com/philmtd/css-fx-layout/compare/v3.0.4...v3.0.5
+
 ## 3.0.4 (29-05-2023)
 
 ### New Features: Flex-Layout migration script
