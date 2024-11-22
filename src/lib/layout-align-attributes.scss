@@ -1,5 +1,5 @@
 @use "layout-attributes" as la;
-@import "mixins";
+@use "mixins" as mix;
 
 /// Generates layout align data attribute selectors
 @mixin layout-align-attributes {
@@ -52,14 +52,14 @@
 	}
 
 	*[data-layout-align]:not(#{la.all-data-layout-selectors()}) {
-		@include flex-row-properties;
+		@include mix.flex-row-properties;
 	}
 
 }
 
 @mixin layout-align-attributes-for-media-sizes {
-	@each $name, $_ in $flex-layout-media-queries {
-		@include flex-layout-media($name) {
+	@each $name, $_ in mix.$flex-layout-media-queries {
+		@include mix.flex-layout-media($name) {
 			*[data-layout-align-#{$name}] {
 				// First value: justify-content
 				&[data-layout-align-#{$name}^="start"] {
