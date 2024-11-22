@@ -1,55 +1,55 @@
-@import "mixins";
+@use "mixins" as mix;
 
 /// Generates layout class selectors
 @mixin layout-classes {
 	// Default classes
 	*.fx-layout-row {
-		@include flex-row-properties;
+		@include mix.flex-row-properties;
 	}
 
 	*.fx-layout-column {
-		@include flex-column-properties;
+		@include mix.flex-column-properties;
 	}
 
 	*.fx-layout-reverse {
 		&[class*="fx-layout-row"] {
-			@include row-reverse-properties;
+			@include mix.row-reverse-properties;
 		}
 
 		&[class*="fx-layout-column"] {
-			@include column-reverse-properties;
+			@include mix.column-reverse-properties;
 		}
 	}
 
 	*.fx-layout-wrap {
-		@include wrap-properties;
+		@include mix.wrap-properties;
 	}
 }
 
 @mixin layout-classes-for-media-sizes {
 	// classes for flex-layout media sizes
-	@each $name, $_ in $flex-layout-media-queries {
-		@include flex-layout-media($name) {
+	@each $name, $_ in mix.$flex-layout-media-queries {
+		@include mix.flex-layout-media($name) {
 			*.fx-layout-row--#{$name} {
-				@include flex-row-properties
+				@include mix.flex-row-properties
 			}
 
 			*.fx-layout-column--#{$name} {
-				@include flex-column-properties;
+				@include mix.flex-column-properties;
 			}
 
 			*.fx-layout-reverse--#{$name} {
 				&[class*="fx-layout-row"] {
-					@include row-reverse-properties;
+					@include mix.row-reverse-properties;
 				}
 
 				&[class*="fx-layout-column"] {
-					@include column-reverse-properties;
+					@include mix.column-reverse-properties;
 				}
 			}
 
 			*.fx-layout-wrap--#{$name} {
-				@include wrap-properties;
+				@include mix.wrap-properties;
 			}
 		}
 	}

@@ -1,7 +1,6 @@
 @use "sass:list";
 @use "sass:math";
-
-@import "mixins";
+@use "mixins" as mix;
 
 /// Includes selectors for attributes which can be used to add a specific gap to elements in a flex container
 ///
@@ -33,8 +32,8 @@
 		@include flex-size-attribute($i * $increment)
 	}
 	@if $includeSelectorsForMediaSizes {
-		@each $name, $_ in $flex-layout-media-queries {
-			@include flex-layout-media($name) {
+		@each $name, $_ in mix.$flex-layout-media-queries {
+			@include mix.flex-layout-media($name) {
 				@for $i from math.div($from, $increment) through math.div($to, $increment) {
 					@include flex-size-attribute($i * $increment, $name)
 				}
@@ -54,8 +53,8 @@
 		@include flex-size-attribute($value)
 	}
 	@if $includeSelectorsForMediaSizes {
-		@each $name, $_ in $flex-layout-media-queries {
-			@include flex-layout-media($name) {
+		@each $name, $_ in mix.$flex-layout-media-queries {
+			@include mix.flex-layout-media($name) {
 				@each $value in $values {
 					@include flex-size-attribute($value, $name)
 				}

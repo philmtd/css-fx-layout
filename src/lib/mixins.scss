@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Flex
 
 @mixin flex-properties {
@@ -110,95 +112,95 @@ $flex-layout-media-queries: (
 );
 
 @function get-breakpoint-names() {
-	@return map-keys($flex-layout-media-queries)
+	@return map.keys($flex-layout-media-queries)
 }
 
 @mixin xs($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'xs')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'xs')} {
 		@content;
 	}
 }
 
 @mixin sm($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'sm')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'sm')} {
 		@content;
 	}
 }
 
 @mixin md($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'md')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'md')} {
 		@content;
 	}
 }
 
 @mixin lg($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lg')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'lg')} {
 		@content;
 	}
 }
 
 @mixin xl($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'xl')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'xl')} {
 		@content;
 	}
 }
 
 @mixin lt-sm($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-sm')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'lt-sm')} {
 		@content;
 	}
 }
 
 @mixin lt-md($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-md')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'lt-md')} {
 		@content;
 	}
 }
 
 @mixin lt-lg($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-lg')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'lt-lg')} {
 		@content;
 	}
 }
 
 @mixin lt-xl($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'lt-xl')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'lt-xl')} {
 		@content;
 	}
 }
 
 @mixin gt-xs($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-xs')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'gt-xs')} {
 		@content;
 	}
 }
 
 @mixin gt-sm($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-sm')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'gt-sm')} {
 		@content;
 	}
 }
 
 @mixin gt-md($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-md')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'gt-md')} {
 		@content;
 	}
 }
 
 @mixin gt-lg($invert: false) {
-	@media #{if($invert, 'not ', '')}#{map-get($flex-layout-media-queries, 'gt-lg')} {
+	@media #{if($invert, 'not ', '')}#{map.get($flex-layout-media-queries, 'gt-lg')} {
 		@content;
 	}
 }
 
 @mixin flex-layout-media($size) {
-	@media #{map-get($flex-layout-media-queries, $size)} {
+	@media #{map.get($flex-layout-media-queries, $size)} {
 		@content;
 	}
 }
 
 @mixin flex-layout-media-not($size) {
-	@media not #{map-get($flex-layout-media-queries, $size)} {
+	@media not #{map.get($flex-layout-media-queries, $size)} {
 		@content;
 	}
 }
