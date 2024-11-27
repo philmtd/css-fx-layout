@@ -2,7 +2,7 @@
 @use "sass:math";
 @use "mixins" as mix;
 
-/// Includes selectors for classes which can be used to add a specific gap to elements in a flex container
+/// Includes selectors for attributes which can be used to add a specific gap to elements in a flex container
 ///
 /// @param {number} $value
 ///   Will start generating selectors for $value
@@ -10,6 +10,22 @@
 ///   Will generate selectors for a specific media size, e.g. xs, sm, md, ...
 @mixin flex-size-class($value, $name: false) {
 	*.fx-flex--#{$value}#{if($name, '--' + $name, '')} {
+		flex: 1 1 ($value * 1%);
+	}
+
+    *.fx-flex--0-1-#{$value}#{if($name, '--' + $name, '')} {
+		flex: 0 1 $value * 1%;
+	}
+
+    *.fx-flex--1-0-#{$value}#{if($name, '--' + $name, '')} {
+		flex: 1 0 $value * 1%;
+	}
+
+    *.fx-flex--0-0-#{$value}#{if($name, '--' + $name, '')} {
+		flex: 0 0 $value * 1%;
+	}
+
+    *.fx-flex--1-1-#{$value}#{if($name, '--' + $name, '')} {
 		flex: 1 1 $value * 1%;
 	}
 }
